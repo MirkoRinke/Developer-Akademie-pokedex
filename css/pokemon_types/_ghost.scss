@@ -1,0 +1,9 @@
+.ghost_window_bg {
+  background-image: url(../assets/img/window_bgs/ghost_window_bg.jpg);
+}
+
+.ghost_card_before {
+  &::before {
+    background-color: rgba(112, 65, 112, 0.5);
+  }
+}

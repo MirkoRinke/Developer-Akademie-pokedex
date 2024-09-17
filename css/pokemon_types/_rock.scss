@@ -1,0 +1,9 @@
+.rock_window_bg {
+  background-image: url(../assets/img/window_bgs/rock_window_bg.jpg);
+}
+
+.rock_card_before {
+  &::before {
+    background-color: rgba(139, 125, 90, 0.5);
+  }
+}

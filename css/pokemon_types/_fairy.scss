@@ -1,0 +1,9 @@
+.fairy_window_bg {
+  background-image: url(../assets/img/window_bgs/fairy_window_bg.jpg);
+}
+
+.fairy_card_before {
+  &::before {
+    background-color: rgba(255, 182, 193, 0.5);
+  }
+}

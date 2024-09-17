@@ -1,0 +1,386 @@
+/* Colors */
+/* Variables */
+/* @media breakpoints */
+/** 1550px oder schmaler */
+/** 1250 oder schmaler */
+/** 950px oder schmaler */
+/** 650px oder schmaler */
+/** 350px oder schmaler */
+/** 1550px oder schmaler */
+/** 1250 oder schmaler */
+/** 950px oder schmaler */
+/** 650px oder schmaler */
+/** 350px oder schmaler */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Times New Roman";
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+}
+
+.d_none {
+  display: none !important;
+}
+
+.d_block {
+  display: block !important;
+}
+
+.d_flex {
+  display: flex !important;
+}
+
+svg {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.grass_window_bg {
+  background-image: url(../assets/img/window_bgs/grass_window_bg.jpg);
+}
+
+.grass_card_before::before {
+  background-color: rgba(55, 148, 0, 0.5);
+}
+
+.fire_window_bg {
+  background-image: url(../assets/img/window_bgs/fire_window_bg.jpg);
+}
+
+.fire_card_before::before {
+  background-color: rgba(255, 69, 0, 0.5);
+}
+
+.water_window_bg {
+  background-image: url(../assets/img/window_bgs/water_window_bg.jpg);
+}
+
+.water_card_before::before {
+  background-color: rgba(0, 105, 255, 0.5);
+}
+
+.electric_window_bg {
+  background-image: url(../assets/img/window_bgs/electric_window_bg.jpg);
+}
+
+.electric_card_before::before {
+  background-color: rgba(253, 210, 0, 0.5);
+}
+
+.ice_window_bg {
+  background-image: url(../assets/img/window_bgs/ice_window_bg.jpg);
+}
+
+.ice_card_before::before {
+  background-color: rgba(173, 216, 230, 0.5);
+}
+
+.rock_window_bg {
+  background-image: url(../assets/img/window_bgs/rock_window_bg.jpg);
+}
+
+.rock_card_before::before {
+  background-color: rgba(139, 125, 90, 0.5);
+}
+
+.fighting_window_bg {
+  background-image: url(../assets/img/window_bgs/fighting_window_bg.jpg);
+}
+
+.fighting_card_before::before {
+  background-color: rgba(192, 60, 48, 0.5);
+}
+
+.poison_window_bg {
+  background-image: url(../assets/img/window_bgs/poison_window_bg.jpg);
+}
+
+.poison_card_before::before {
+  background-color: rgba(128, 0, 128, 0.5);
+}
+
+.bug_window_bg {
+  background-image: url(../assets/img/window_bgs/bug_window_bg.jpg);
+}
+
+.bug_card_before::before {
+  background-color: rgba(178, 223, 138, 0.5);
+}
+
+.fairy_window_bg {
+  background-image: url(../assets/img/window_bgs/fairy_window_bg.jpg);
+}
+
+.fairy_card_before::before {
+  background-color: rgba(255, 182, 193, 0.5);
+}
+
+.dark_window_bg {
+  background-image: url(../assets/img/window_bgs/dark_window_bg.jpg);
+}
+
+.dark_card_before::before {
+  background-color: rgba(54, 57, 63, 0.5);
+}
+
+.dragon_window_bg {
+  background-image: url(../assets/img/window_bgs/dragon_window_bg.jpg);
+}
+
+.dragon_card_before::before {
+  background-color: rgba(80, 97, 225, 0.5);
+}
+
+.steel_window_bg {
+  background-image: url(../assets/img/window_bgs/steel_window_bg.jpg);
+}
+
+.steel_card_before::before {
+  background-color: rgba(183, 183, 183, 0.5);
+}
+
+.ghost_window_bg {
+  background-image: url(../assets/img/window_bgs/ghost_window_bg.jpg);
+}
+
+.ghost_card_before::before {
+  background-color: rgba(112, 65, 112, 0.5);
+}
+
+.psychic_window_bg {
+  background-image: url(../assets/img/window_bgs/psychic_window_bg.jpg);
+}
+
+.psychic_card_before::before {
+  background-color: rgba(239, 65, 120, 0.5);
+}
+
+.flying_window_bg {
+  background-image: url(../assets/img/window_bgs/flying_window_bg.jpg);
+}
+
+.flying_card_before::before {
+  background-color: rgba(135, 206, 250, 0.5);
+}
+
+.ground_window_bg {
+  background-image: url(../assets/img/window_bgs/ground_window_bg.jpg);
+}
+
+.ground_card_before::before {
+  background-color: rgba(191, 153, 84, 0.5);
+}
+
+.normal_window_bg {
+  background-image: url(../assets/img/window_bgs/normal_window_bg.jpg);
+}
+
+.normal_card_before::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background-image: url(../assets/img/bg_main.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.content {
+  max-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 1440px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
+  margin-block: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  /** 1550px oder schmaler */
+  /** 1250 oder schmaler */
+  /** 950px oder schmaler */
+  /** 650px oder schmaler */
+}
+@media (max-width: 1550px) {
+  .content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1250px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 950px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.content .container {
+  display: flex;
+  justify-content: center;
+  width: 270px;
+  height: 377px;
+  position: relative;
+  perspective: 2500px;
+}
+.content .container:hover {
+  cursor: pointer;
+}
+.content .container:hover .card {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+}
+.content .container .card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  height: 377px;
+  background-image: url(../assets/img/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  border: 10px solid rgb(182, 152, 55);
+  border-radius: 10px;
+  z-index: -2;
+  transition: transform 0.5s;
+}
+.content .container .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.content .container .card .info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.content .container .card .info .infoLeft {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.content .container .card .info .infoLeft .pokemonInfo {
+  font-size: 8px;
+  padding-left: 1px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.content .container .card .info .infoLeft .name {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.content .container .card .info .infoRight {
+  margin-top: 5px;
+  margin-right: 10px;
+  display: flex;
+  gap: 5px;
+}
+.content .container .card .info .infoRight .battlePoints {
+  font-size: 16px;
+  font-weight: bold;
+  color: darkred;
+}
+.content .container .card .info .infoRight .number {
+  display: inline-block;
+  height: 20px;
+  width: 24px;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border: 2px groove rgb(179, 138, 4);
+  border-radius: 6px;
+}
+.content .container .card .window {
+  margin-top: 5px;
+  height: 45%;
+  width: 85%;
+  background-size: cover;
+  background-position: center;
+  border: 6px ridge rgb(179, 138, 4);
+  z-index: 0;
+}
+.content .container .card .basicData {
+  font-size: 9px;
+  font-weight: bold;
+  width: 85%;
+  margin-top: 2px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 2px;
+  background-image: linear-gradient(90deg, rgb(150, 120, 15) 0%, rgb(237, 191, 35) 5%, rgb(150, 120, 15) 25%, rgb(208, 167, 28) 75%, rgb(237, 191, 35) 95%, rgb(150, 120, 15) 100%);
+}
+.content .container .card .description {
+  width: 85%;
+  height: 18%;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.content .container .card .types {
+  display: flex;
+  gap: 10px;
+  width: 85%;
+  margin-block: 10px;
+}
+.content .container .card .types img {
+  width: 33%;
+}
+.content .container .card .footerLine {
+  position: absolute;
+  bottom: 0;
+  font-size: 9px;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.content .container .pokemon {
+  position: absolute;
+  width: 60%;
+  top: 40px;
+  transition: transform 0.5s;
+}
+.content .container:hover .pokemon {
+  transform: translate3d(0%, -30%, 200px);
+}/*# sourceMappingURL=style.css.map */

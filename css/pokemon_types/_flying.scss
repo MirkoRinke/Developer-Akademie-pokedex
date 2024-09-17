@@ -1,0 +1,9 @@
+.flying_window_bg {
+  background-image: url(../assets/img/window_bgs/flying_window_bg.jpg);
+}
+
+.flying_card_before {
+  &::before {
+    background-color: rgba(135, 206, 250, 0.5);
+  }
+}

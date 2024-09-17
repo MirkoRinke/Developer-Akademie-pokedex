@@ -1,0 +1,9 @@
+.dark_window_bg {
+  background-image: url(../assets/img/window_bgs/dark_window_bg.jpg);
+}
+
+.dark_card_before {
+  &::before {
+    background-color: rgba(54, 57, 63, 0.5);
+  }
+}

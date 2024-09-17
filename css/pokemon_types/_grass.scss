@@ -1,0 +1,9 @@
+.grass_window_bg {
+  background-image: url(../assets/img/window_bgs/grass_window_bg.jpg);
+}
+
+.grass_card_before {
+  &::before {
+    background-color: rgba(55, 148, 0, 0.5);
+  }
+}

@@ -1,0 +1,9 @@
+.electric_window_bg {
+  background-image: url(../assets/img/window_bgs/electric_window_bg.jpg);
+}
+
+.electric_card_before {
+  &::before {
+    background-color: rgb(253, 210, 0, 0.5);
+  }
+}

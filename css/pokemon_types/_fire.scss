@@ -1,0 +1,9 @@
+.fire_window_bg {
+  background-image: url(../assets/img/window_bgs/fire_window_bg.jpg);
+}
+
+.fire_card_before {
+  &::before {
+    background-color: rgba(255, 69, 0, 0.5);
+  }
+}

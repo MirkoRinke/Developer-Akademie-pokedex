@@ -1,0 +1,9 @@
+.dragon_window_bg {
+  background-image: url(../assets/img/window_bgs/dragon_window_bg.jpg);
+}
+
+.dragon_card_before {
+  &::before {
+    background-color: rgba(80, 97, 225, 0.5);
+  }
+}

@@ -1,0 +1,9 @@
+.water_window_bg {
+  background-image: url(../assets/img/window_bgs/water_window_bg.jpg);
+}
+
+.water_card_before {
+  &::before {
+    background-color: rgba(0, 105, 255, 0.5);
+  }
+}

@@ -1,0 +1,9 @@
+.poison_window_bg {
+  background-image: url(../assets/img/window_bgs/poison_window_bg.jpg);
+}
+
+.poison_card_before {
+  &::before {
+    background-color: rgba(128, 0, 128, 0.5);
+  }
+}

@@ -1,0 +1,9 @@
+.bug_window_bg {
+  background-image: url(../assets/img/window_bgs/bug_window_bg.jpg);
+}
+
+.bug_card_before {
+  &::before {
+    background-color: rgba(178, 223, 138, 0.5);
+  }
+}

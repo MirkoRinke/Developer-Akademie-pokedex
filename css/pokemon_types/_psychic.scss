@@ -1,0 +1,9 @@
+.psychic_window_bg {
+  background-image: url(../assets/img/window_bgs/psychic_window_bg.jpg);
+}
+
+.psychic_card_before {
+  &::before {
+    background-color: rgba(239, 65, 120, 0.5);
+  }
+}

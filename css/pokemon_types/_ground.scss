@@ -1,0 +1,9 @@
+.ground_window_bg {
+  background-image: url(../assets/img/window_bgs/ground_window_bg.jpg);
+}
+
+.ground_card_before {
+  &::before {
+    background-color: rgba(191, 153, 84, 0.5);
+  }
+}

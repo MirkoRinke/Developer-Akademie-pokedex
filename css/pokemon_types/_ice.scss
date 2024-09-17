@@ -1,0 +1,9 @@
+.ice_window_bg {
+  background-image: url(../assets/img/window_bgs/ice_window_bg.jpg);
+}
+
+.ice_card_before {
+  &::before {
+    background-color: rgba(173, 216, 230, 0.5);
+  }
+}

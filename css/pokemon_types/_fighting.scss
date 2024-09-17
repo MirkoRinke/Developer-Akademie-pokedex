@@ -1,0 +1,9 @@
+.fighting_window_bg {
+  background-image: url(../assets/img/window_bgs/fighting_window_bg.jpg);
+}
+
+.fighting_card_before {
+  &::before {
+    background-color: rgba(192, 60, 48, 0.5);
+  }
+}

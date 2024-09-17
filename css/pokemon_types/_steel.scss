@@ -1,0 +1,9 @@
+.steel_window_bg {
+  background-image: url(../assets/img/window_bgs/steel_window_bg.jpg);
+}
+
+.steel_card_before {
+  &::before {
+    background-color: rgba(183, 183, 183, 0.5);
+  }
+}
