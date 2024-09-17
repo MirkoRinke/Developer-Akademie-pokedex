@@ -134,7 +134,6 @@ async function getPokemonNamesText() {
 }
 
 //! PokemonStats
-
 async function getPokemonStats() {
   const pokemonStatsCurrentIndex = {
     hp: [],

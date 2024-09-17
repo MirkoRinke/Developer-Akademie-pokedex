@@ -1,12 +1,9 @@
 function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray) {
-  //   console.log(pokemonDataArray.stats[0].base_stat);
-
   return /*html*/ `
     <div class="container">
         <div class="card ${pokemonDataArray.types[0].type.name}_card_before">
             <div class="info">
                 <div class="infoLeft">
-                    <!-- <h6 class="pokemonInfo">Basis-Pokémon</h6> -->
                     <h1 class="name">${pokemonNamesTextArray}</h1>
                 </div>
                 <div class="infoRight">
