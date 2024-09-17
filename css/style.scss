@@ -85,7 +85,6 @@ body {
       background-size: cover;
       background-position: center;
       border: 10px solid rgb(182, 152, 55);
-
       border-radius: 10px;
       z-index: -2;
 
@@ -137,8 +136,9 @@ body {
 
           .number {
             display: inline-block;
-            height: 20px;
-            width: 24px;
+            height: fit-content;
+            width: fit-content;
+            padding: 2px 4px;
             font-size: 14px;
             text-align: center;
             color: rgba(0, 0, 0, 0.7);
@@ -159,7 +159,7 @@ body {
       }
 
       .basicData {
-        font-size: 9px;
+        font-size: 8px;
         font-weight: bold;
         width: 85%;
         margin-top: 2px;

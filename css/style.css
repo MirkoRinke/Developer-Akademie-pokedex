@@ -321,8 +321,11 @@ body::before {
 }
 .content .container .card .info .infoRight .number {
   display: inline-block;
-  height: 20px;
-  width: 24px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px 4px;
   font-size: 14px;
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
@@ -340,7 +343,7 @@ body::before {
   z-index: 0;
 }
 .content .container .card .basicData {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bold;
   width: 85%;
   margin-top: 2px;

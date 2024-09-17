@@ -1,7 +1,7 @@
 const P = new Pokedex.Pokedex();
-let pokemonStart = 1;
-let pokemonLimit = 11;
-let currentLanguage = "de";
+let pokemonStart = 1; // 1
+let pokemonLimit = 11; // 1026
+let currentLanguage = "en";
 
 async function renderPokemonCards() {
   const contentRef = document.getElementById("content");
@@ -20,7 +20,6 @@ async function renderPokemonCards() {
     );
   }
 }
-
 renderPokemonCards();
 
 async function getPokemonData() {
@@ -36,7 +35,7 @@ async function findCurrentFlavorTextIndex() {
   let currentIndex = [];
   for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
     const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
-    for (let indexFlavorText = 1; indexFlavorText < response.flavor_text_entries.length; indexFlavorText++) {
+    for (let indexFlavorText = 0; indexFlavorText < response.flavor_text_entries.length; indexFlavorText++) {
       if (response.flavor_text_entries[indexFlavorText].language.name === currentLanguage) {
         currentIndex.push(indexFlavorText);
         break;
@@ -52,7 +51,13 @@ async function getPokemonFlavorText() {
   for (let index = pokemonStart; index < pokemonLimit; index++) {
     PokemonFlavorText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
-        return response.flavor_text_entries[flavorTextLanguage[index - pokemonStart]].flavor_text;
+        const selectedEntry = response.flavor_text_entries[flavorTextLanguage[index - pokemonStart]];
+        if (selectedEntry && selectedEntry.flavor_text) {
+          return selectedEntry.flavor_text;
+        } else {
+          console.log("flavor_text", index);
+          return "";
+        }
       })
     );
   }
@@ -64,7 +69,7 @@ async function findCurrentGeneraTextIndex() {
   let generaCurrentIndex = [];
   for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
     const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
-    for (let indexGeneraText = 1; indexGeneraText < response.genera.length; indexGeneraText++) {
+    for (let indexGeneraText = 0; indexGeneraText < response.genera.length; indexGeneraText++) {
       if (response.genera[indexGeneraText].language.name === currentLanguage) {
         generaCurrentIndex.push(indexGeneraText);
         break;
@@ -80,7 +85,13 @@ async function getPokemonGeneraText() {
   for (let index = pokemonStart; index < pokemonLimit; index++) {
     PokemonGeneraText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
-        return response.genera[GeneraTextLanguage[index - pokemonStart]].genus;
+        const genusEntry = response.genera[GeneraTextLanguage[index - pokemonStart]];
+        if (genusEntry && genusEntry.genus) {
+          return genusEntry.genus;
+        } else {
+          console.log("genus", index);
+          return "";
+        }
       })
     );
   }
@@ -92,7 +103,7 @@ async function findCurrentNamesTextIndex() {
   let NamesCurrentIndex = [];
   for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
     const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
-    for (let indexNamesText = 1; indexNamesText < response.names.length; indexNamesText++) {
+    for (let indexNamesText = 0; indexNamesText < response.names.length; indexNamesText++) {
       if (response.names[indexNamesText].language.name === currentLanguage) {
         NamesCurrentIndex.push(indexNamesText);
         break;
@@ -108,10 +119,17 @@ async function getPokemonNamesText() {
   for (let index = pokemonStart; index < pokemonLimit; index++) {
     PokemonNamesText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
-        return response.names[NamesTextLanguage[index - pokemonStart]].name;
+        const nameEntry = response.names[NamesTextLanguage[index - pokemonStart]];
+        if (nameEntry && nameEntry.name) {
+          return nameEntry.name;
+        } else {
+          console.log("name", index);
+          return "";
+        }
       })
     );
   }
+
   return Promise.all(PokemonNamesText);
 }
 
