@@ -1,21 +1,27 @@
-function renderPokemonCardTemplate(pokemonDataArray, PokemonFlavorTextArray, PokemonGeneraTextArray, PokemonNamesTextArray) {
+function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray) {
+  //   console.log(pokemonDataArray.stats[0].base_stat);
+
   return /*html*/ `
     <div class="container">
         <div class="card ${pokemonDataArray.types[0].type.name}_card_before">
             <div class="info">
                 <div class="infoLeft">
-                    <h6 class="pokemonInfo">Basis-Pokémon</h6>
-                    <h1 class="name">${PokemonNamesTextArray}</h1>
+                    <!-- <h6 class="pokemonInfo">Basis-Pokémon</h6> -->
+                    <h1 class="name">${pokemonNamesTextArray}</h1>
                 </div>
                 <div class="infoRight">
-                    <div class="battlePoints">40KP</div>
+                    <div class="battlePoints">${pokemonDataArray.stats[0].base_stat} HP</div> <!-- -->
                     <div class="number">${pokemonDataArray.id}</div>
                 </div>
             </div>
             <div class="window ${pokemonDataArray.types[0].type.name}_window_bg"></div>
-            <div class="basicData">${PokemonGeneraTextArray} Größe: 0,7m Gewicht: 18,5 kg</div>
+            <div class="basicData">
+                ${pokemonGeneraTextArray} 
+                Größe: ${(pokemonDataArray.height / 10).toFixed(2)}m 
+                Gewicht: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
+            </div>
             <p class="description">
-                ${PokemonFlavorTextArray.replaceAll("\f", "\n")}
+                ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
             </p>
             <div class="types">
                 ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}

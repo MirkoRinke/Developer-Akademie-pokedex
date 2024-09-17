@@ -378,7 +378,7 @@ body::before {
 .content .container .pokemon {
   position: absolute;
   width: 60%;
-  top: 40px;
+  top: 33px;
   transition: transform 0.5s;
 }
 .content .container:hover .pokemon {
