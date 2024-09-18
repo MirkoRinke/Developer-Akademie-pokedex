@@ -1,8 +1,8 @@
 const P = new Pokedex.Pokedex();
 const debouncedForward = debounce(forward, 1000);
 const debouncedBackward = debounce(backward, 1000);
-let pokemonStart = 991; // Start
-let pokemonEnd = 1001; // Ende
+let pokemonStart = 1; // Start
+let pokemonEnd = 11; // Ende
 let pokemonLimit = 1026; // Max
 let currentLanguage = "en";
 

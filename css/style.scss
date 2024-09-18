@@ -9,7 +9,7 @@ $cardHeight: calc(377px / $factor);
 $cardWidth: calc(270px / $factor);
 
 body {
-  background-image: url(../assets/img/bg_main.jpg);
+  background-image: url(../assets/img/bg1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -28,107 +28,36 @@ body {
   }
 }
 
-.pokeballLeft {
-  position: absolute;
-  height: 300px;
-  width: auto;
-  top: 50%;
-  left: -10px;
-  z-index: 1;
-  transform: translateY(-50%);
-  animation: shake 2s infinite;
-  transition: transform 300ms ease-in-out;
-
-  @media (max-width: $breakpoint-xs) {
-    display: none;
-  }
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-50%) translateX(-35%) scale(1.05);
-  }
-}
-
-.pokeballRight {
-  position: absolute;
-  height: 300px;
-  width: auto;
-  top: 50%;
-  right: -10px;
-  z-index: 1;
-  transform: translateY(-50%);
-  animation: shake 2s infinite;
-  transition: transform 300ms ease-in-out;
-
-  @media (max-width: $breakpoint-xs) {
-    display: none;
-  }
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-50%) translateX(35%) scale(1.05);
-  }
-}
-
-.pokeballMobileButtons {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  justify-content: space-between;
-  width: 100%;
-  padding-inline: 25px;
-  padding-bottom: 10px;
-  z-index: 2;
-
-  @media (max-width: $breakpoint-xs) {
-    display: flex;
-  }
-
-  .pokeballMobileLeft {
-    height: 50px;
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.05);
-    }
-  }
-
-  .pokeballMobileRight {
-    height: 50px;
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.05);
-    }
-  }
+main {
+  max-width: 1920px;
+  height: 100vh;
+  margin-inline: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content {
   max-height: fit-content;
-  // height: fit-content;
   max-width: 1440px;
   width: fit-content;
   margin-inline: auto;
-  margin-block: 50px;
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
 
-  /** 1700px oder schmaler */
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: repeat(4, 1fr);
   }
-  /** 1500px oder schmaler */
   @media (max-width: $breakpoint-md) {
     grid-template-columns: repeat(3, 1fr);
   }
-  /** 1200px oder schmaler */
   @media (max-width: $breakpoint-sm) {
     grid-template-columns: repeat(2, 1fr);
   }
-  /** 850px oder schmaler */
   @media (max-width: $breakpoint-xs) {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 30px;
@@ -294,6 +223,109 @@ body {
 
     &:hover .pokemon {
       transform: translate3d(0%, -30%, 200px);
+    }
+  }
+}
+
+.pokeArrowRightContainer {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  @media (max-width: $breakpoint-xs) {
+    display: none;
+  }
+
+  .pokeArrowRight {
+    height: 140px;
+    width: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &:hover .pokeArrowRightBall {
+    transition: transform 300ms ease-in-out;
+    transform: rotate(-180deg);
+  }
+
+  .pokeArrowRightBall {
+    transition: transform 300ms ease-in-out;
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    height: 25px;
+    width: auto;
+  }
+}
+
+.pokeArrowLeftContainer {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  @media (max-width: $breakpoint-xs) {
+    display: none;
+  }
+
+  .pokeArrowLeft {
+    height: 140px;
+    width: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &:hover .pokeArrowLeftBall {
+    transition: transform 300ms ease-in-out;
+    transform: rotate(180deg);
+  }
+
+  .pokeArrowLeftBall {
+    transition: transform 300ms ease-in-out;
+    position: absolute;
+    top: 40%;
+    right: 46%;
+    height: 25px;
+    width: auto;
+  }
+}
+
+.pokeArrowMobileButtons {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 25px;
+  padding-bottom: 10px;
+  z-index: 2;
+
+  @media (max-width: $breakpoint-xs) {
+    display: flex;
+  }
+
+  .pokeArrowMobileLeft {
+    height: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .pokeArrowMobileRight {
+    height: 50px;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }

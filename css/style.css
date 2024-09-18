@@ -2,9 +2,9 @@
 /* Variables */
 /* @media breakpoints */
 /** 1700px oder schmaler */
-/** 1500px oder schmaler */
-/** 1200px oder schmaler */
-/** 850px oder schmaler */
+/** 1600px oder schmaler */
+/** 1300px oder schmaler */
+/** 1000px oder schmaler */
 /** 550px oder schmaler */
 /** 1550px oder schmaler */
 /** 1250 oder schmaler */
@@ -194,7 +194,7 @@ a {
 }
 
 body {
-  background-image: url(../assets/img/bg_main.jpg);
+  background-image: url(../assets/img/bg1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -212,76 +212,14 @@ body::before {
   z-index: -1;
 }
 
-.pokeballLeft {
-  position: absolute;
-  height: 300px;
-  width: auto;
-  top: 50%;
-  left: -10px;
-  z-index: 1;
-  transform: translateY(-50%);
-  animation: shake 2s infinite;
-  transition: transform 300ms ease-in-out;
-}
-@media (max-width: 850px) {
-  .pokeballLeft {
-    display: none;
-  }
-}
-.pokeballLeft:hover {
-  cursor: pointer;
-  transform: translateY(-50%) translateX(-35%) scale(1.05);
-}
-
-.pokeballRight {
-  position: absolute;
-  height: 300px;
-  width: auto;
-  top: 50%;
-  right: -10px;
-  z-index: 1;
-  transform: translateY(-50%);
-  animation: shake 2s infinite;
-  transition: transform 300ms ease-in-out;
-}
-@media (max-width: 850px) {
-  .pokeballRight {
-    display: none;
-  }
-}
-.pokeballRight:hover {
-  cursor: pointer;
-  transform: translateY(-50%) translateX(35%) scale(1.05);
-}
-
-.pokeballMobileButtons {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  justify-content: space-between;
-  width: 100%;
-  padding-inline: 25px;
-  padding-bottom: 10px;
-  z-index: 2;
-}
-@media (max-width: 850px) {
-  .pokeballMobileButtons {
-    display: flex;
-  }
-}
-.pokeballMobileButtons .pokeballMobileLeft {
-  height: 50px;
-}
-.pokeballMobileButtons .pokeballMobileLeft:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
-.pokeballMobileButtons .pokeballMobileRight {
-  height: 50px;
-}
-.pokeballMobileButtons .pokeballMobileRight:hover {
-  cursor: pointer;
-  transform: scale(1.05);
+main {
+  max-width: 1920px;
+  height: 100vh;
+  margin-inline: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content {
@@ -291,33 +229,28 @@ body::before {
   width: -moz-fit-content;
   width: fit-content;
   margin-inline: auto;
-  margin-block: 50px;
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
-  /** 1700px oder schmaler */
-  /** 1500px oder schmaler */
-  /** 1200px oder schmaler */
-  /** 850px oder schmaler */
 }
 @media (max-width: 1700px) {
   .content {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (max-width: 1500px) {
+@media (max-width: 1600px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 30px;
@@ -459,4 +392,98 @@ body::before {
 }
 .content .container:hover .pokemon {
   transform: translate3d(0%, -30%, 200px);
+}
+
+.pokeArrowRightContainer {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+@media (max-width: 1000px) {
+  .pokeArrowRightContainer {
+    display: none;
+  }
+}
+.pokeArrowRightContainer .pokeArrowRight {
+  height: 140px;
+  width: auto;
+}
+.pokeArrowRightContainer:hover {
+  cursor: pointer;
+  transform: translateY(-50%) scale(1);
+}
+.pokeArrowRightContainer:hover .pokeArrowRightBall {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(-180deg);
+}
+.pokeArrowRightContainer .pokeArrowRightBall {
+  transition: transform 300ms ease-in-out;
+  position: absolute;
+  top: 40%;
+  left: 46%;
+  height: 25px;
+  width: auto;
+}
+
+.pokeArrowLeftContainer {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+@media (max-width: 1000px) {
+  .pokeArrowLeftContainer {
+    display: none;
+  }
+}
+.pokeArrowLeftContainer .pokeArrowLeft {
+  height: 140px;
+  width: auto;
+}
+.pokeArrowLeftContainer:hover {
+  cursor: pointer;
+  transform: translateY(-50%) scale(1);
+}
+.pokeArrowLeftContainer:hover .pokeArrowLeftBall {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(180deg);
+}
+.pokeArrowLeftContainer .pokeArrowLeftBall {
+  transition: transform 300ms ease-in-out;
+  position: absolute;
+  top: 40%;
+  right: 46%;
+  height: 25px;
+  width: auto;
+}
+
+.pokeArrowMobileButtons {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 25px;
+  padding-bottom: 10px;
+  z-index: 2;
+}
+@media (max-width: 1000px) {
+  .pokeArrowMobileButtons {
+    display: flex;
+  }
+}
+.pokeArrowMobileButtons .pokeArrowMobileLeft {
+  height: 50px;
+}
+.pokeArrowMobileButtons .pokeArrowMobileLeft:hover {
+  cursor: pointer;
+}
+.pokeArrowMobileButtons .pokeArrowMobileRight {
+  height: 50px;
+}
+.pokeArrowMobileButtons .pokeArrowMobileRight:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
