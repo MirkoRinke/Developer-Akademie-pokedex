@@ -1,16 +1,73 @@
 const P = new Pokedex.Pokedex();
-let pokemonStart = 1; // 1
-let pokemonLimit = 11; // 1026
+const debouncedForward = debounce(forward, 1000);
+const debouncedBackward = debounce(backward, 1000);
+let pokemonStart = 991; // Start
+let pokemonEnd = 1001; // Ende
+let pokemonLimit = 1026; // Max
 let currentLanguage = "en";
+
+// https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+function forward() {
+  if (pokemonEnd >= pokemonLimit) {
+    pokemonStart = 1;
+    pokemonEnd = 11;
+  } else if (pokemonEnd + 10 > pokemonLimit) {
+    pokemonStart += 10;
+    pokemonEnd = pokemonLimit;
+  } else {
+    pokemonStart += 10;
+    pokemonEnd += 10;
+  }
+  renderPokemonCards();
+}
+
+function backward() {
+  if (pokemonStart <= 1) {
+    pokemonStart = Math.floor(pokemonLimit / 10) * 10 + 1;
+    pokemonEnd = pokemonLimit;
+  } else if (pokemonStart - 10 < 1) {
+    pokemonEnd = pokemonStart - 1;
+    pokemonStart = 1;
+  } else {
+    pokemonStart -= 10;
+    if (pokemonEnd === pokemonLimit) {
+      pokemonEnd = pokemonStart + 10;
+    } else {
+      pokemonEnd -= 10;
+    }
+  }
+  renderPokemonCards();
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowRight") {
+    debouncedForward();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    debouncedBackward();
+  }
+});
 
 async function renderPokemonCards() {
   const contentRef = document.getElementById("content");
+  contentRef.innerHTML = "";
   const pokemonDataArray = await getPokemonData();
   const pokemonFlavorTextArray = await getPokemonFlavorText();
   const pokemonGeneraTextArray = await getPokemonGeneraText();
   const pokemonNamesTextArray = await getPokemonNamesText();
   const pokemonStatArray = await getPokemonStats();
-  for (let index = pokemonStart; index < pokemonLimit; index++) {
+  for (let index = pokemonStart; index < pokemonEnd; index++) {
     contentRef.innerHTML += renderPokemonCardTemplate(
       pokemonDataArray[index - pokemonStart],
       pokemonFlavorTextArray[index - pokemonStart],
@@ -24,7 +81,7 @@ renderPokemonCards();
 
 async function getPokemonData() {
   const pokemonData = [];
-  for (let index = pokemonStart; index < pokemonLimit; index++) {
+  for (let index = pokemonStart; index < pokemonEnd; index++) {
     pokemonData.push(P.getPokemonByName(index));
   }
   return Promise.all(pokemonData);
@@ -33,8 +90,8 @@ async function getPokemonData() {
 //! FlavorText
 async function findCurrentFlavorTextIndex() {
   let currentIndex = [];
-  for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
-    const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
+  for (let indexPokemonEnd = pokemonStart; indexPokemonEnd < pokemonEnd; indexPokemonEnd++) {
+    const response = await P.getPokemonSpeciesByName(indexPokemonEnd);
     for (let indexFlavorText = 0; indexFlavorText < response.flavor_text_entries.length; indexFlavorText++) {
       if (response.flavor_text_entries[indexFlavorText].language.name === currentLanguage) {
         currentIndex.push(indexFlavorText);
@@ -48,7 +105,7 @@ async function findCurrentFlavorTextIndex() {
 async function getPokemonFlavorText() {
   const flavorTextLanguage = await findCurrentFlavorTextIndex();
   const PokemonFlavorText = [];
-  for (let index = pokemonStart; index < pokemonLimit; index++) {
+  for (let index = pokemonStart; index < pokemonEnd; index++) {
     PokemonFlavorText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
         const selectedEntry = response.flavor_text_entries[flavorTextLanguage[index - pokemonStart]];
@@ -67,8 +124,8 @@ async function getPokemonFlavorText() {
 //! GeneraText
 async function findCurrentGeneraTextIndex() {
   let generaCurrentIndex = [];
-  for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
-    const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
+  for (let indexPokemonEnd = pokemonStart; indexPokemonEnd < pokemonEnd; indexPokemonEnd++) {
+    const response = await P.getPokemonSpeciesByName(indexPokemonEnd);
     for (let indexGeneraText = 0; indexGeneraText < response.genera.length; indexGeneraText++) {
       if (response.genera[indexGeneraText].language.name === currentLanguage) {
         generaCurrentIndex.push(indexGeneraText);
@@ -82,7 +139,7 @@ async function findCurrentGeneraTextIndex() {
 async function getPokemonGeneraText() {
   const GeneraTextLanguage = await findCurrentGeneraTextIndex();
   const PokemonGeneraText = [];
-  for (let index = pokemonStart; index < pokemonLimit; index++) {
+  for (let index = pokemonStart; index < pokemonEnd; index++) {
     PokemonGeneraText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
         const genusEntry = response.genera[GeneraTextLanguage[index - pokemonStart]];
@@ -101,8 +158,8 @@ async function getPokemonGeneraText() {
 //! PokemonNames
 async function findCurrentNamesTextIndex() {
   let NamesCurrentIndex = [];
-  for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
-    const response = await P.getPokemonSpeciesByName(indexPokemonLimit);
+  for (let indexPokemonEnd = pokemonStart; indexPokemonEnd < pokemonEnd; indexPokemonEnd++) {
+    const response = await P.getPokemonSpeciesByName(indexPokemonEnd);
     for (let indexNamesText = 0; indexNamesText < response.names.length; indexNamesText++) {
       if (response.names[indexNamesText].language.name === currentLanguage) {
         NamesCurrentIndex.push(indexNamesText);
@@ -116,7 +173,7 @@ async function findCurrentNamesTextIndex() {
 async function getPokemonNamesText() {
   const NamesTextLanguage = await findCurrentNamesTextIndex();
   const PokemonNamesText = [];
-  for (let index = pokemonStart; index < pokemonLimit; index++) {
+  for (let index = pokemonStart; index < pokemonEnd; index++) {
     PokemonNamesText.push(
       P.getPokemonSpeciesByName(index).then((response) => {
         const nameEntry = response.names[NamesTextLanguage[index - pokemonStart]];
@@ -143,8 +200,8 @@ async function getPokemonStats() {
     "special-defense": [],
     speed: [],
   };
-  for (let indexPokemonLimit = pokemonStart; indexPokemonLimit < pokemonLimit; indexPokemonLimit++) {
-    const response = await P.getPokemonByName(indexPokemonLimit);
+  for (let indexPokemonEnd = pokemonStart; indexPokemonEnd < pokemonEnd; indexPokemonEnd++) {
+    const response = await P.getPokemonByName(indexPokemonEnd);
     for (let indexPokemonStats = 0; indexPokemonStats < response.stats.length; indexPokemonStats++) {
       const statName = response.stats[indexPokemonStats].stat.name;
       if (pokemonStatsCurrentIndex.hasOwnProperty(statName)) {

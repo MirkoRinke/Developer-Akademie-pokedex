@@ -1,11 +1,11 @@
 /* Colors */
 /* Variables */
 /* @media breakpoints */
-/** 1550px oder schmaler */
-/** 1250 oder schmaler */
-/** 950px oder schmaler */
-/** 650px oder schmaler */
-/** 350px oder schmaler */
+/** 1700px oder schmaler */
+/** 1500px oder schmaler */
+/** 1200px oder schmaler */
+/** 850px oder schmaler */
+/** 550px oder schmaler */
 /** 1550px oder schmaler */
 /** 1250 oder schmaler */
 /** 950px oder schmaler */
@@ -198,7 +198,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  position: relative;
+  overflow-x: hidden;
 }
 body::before {
   content: "";
@@ -212,10 +212,81 @@ body::before {
   z-index: -1;
 }
 
+.pokeballLeft {
+  position: absolute;
+  height: 300px;
+  width: auto;
+  top: 50%;
+  left: -10px;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: shake 2s infinite;
+  transition: transform 300ms ease-in-out;
+}
+@media (max-width: 850px) {
+  .pokeballLeft {
+    display: none;
+  }
+}
+.pokeballLeft:hover {
+  cursor: pointer;
+  transform: translateY(-50%) translateX(-35%) scale(1.05);
+}
+
+.pokeballRight {
+  position: absolute;
+  height: 300px;
+  width: auto;
+  top: 50%;
+  right: -10px;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: shake 2s infinite;
+  transition: transform 300ms ease-in-out;
+}
+@media (max-width: 850px) {
+  .pokeballRight {
+    display: none;
+  }
+}
+.pokeballRight:hover {
+  cursor: pointer;
+  transform: translateY(-50%) translateX(35%) scale(1.05);
+}
+
+.pokeballMobileButtons {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 25px;
+  padding-bottom: 10px;
+  z-index: 2;
+}
+@media (max-width: 850px) {
+  .pokeballMobileButtons {
+    display: flex;
+  }
+}
+.pokeballMobileButtons .pokeballMobileLeft {
+  height: 50px;
+}
+.pokeballMobileButtons .pokeballMobileLeft:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.pokeballMobileButtons .pokeballMobileRight {
+  height: 50px;
+}
+.pokeballMobileButtons .pokeballMobileRight:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 .content {
-  max-height: 100vh;
-  height: -moz-fit-content;
-  height: fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
   max-width: 1440px;
   width: -moz-fit-content;
   width: fit-content;
@@ -226,29 +297,31 @@ body::before {
   align-items: center;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
-  /** 1550px oder schmaler */
-  /** 1250 oder schmaler */
-  /** 950px oder schmaler */
-  /** 650px oder schmaler */
+  /** 1700px oder schmaler */
+  /** 1500px oder schmaler */
+  /** 1200px oder schmaler */
+  /** 850px oder schmaler */
 }
-@media (max-width: 1550px) {
+@media (max-width: 1700px) {
   .content {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (max-width: 1250px) {
+@media (max-width: 1500px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 850px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
+    margin-top: 30px;
+    margin-bottom: 80px;
   }
 }
 .content .container {
