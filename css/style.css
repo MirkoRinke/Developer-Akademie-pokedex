@@ -221,6 +221,12 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+@media (max-width: 1700px) {
+  main {
+    justify-content: unset;
+    margin-top: 25px;
+  }
+}
 
 .content {
   max-height: -moz-fit-content;
@@ -253,7 +259,6 @@ main {
 @media (max-width: 1000px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 30px;
     margin-bottom: 80px;
   }
 }
@@ -318,6 +323,7 @@ main {
   margin-top: 5px;
   margin-right: 10px;
   display: flex;
+  align-items: center;
   gap: 5px;
 }
 .content .container .card .info .infoRight .battlePoints {
@@ -333,7 +339,6 @@ main {
   width: fit-content;
   padding: 2px 4px;
   font-size: 14px;
-  text-align: center;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   border: 2px groove rgb(179, 138, 4);

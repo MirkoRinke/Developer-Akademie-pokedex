@@ -1,4 +1,4 @@
-function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray) {
+function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, pokemonStatArray) {
   return /*html*/ `
     <div class="container">
         <div class="card ${pokemonDataArray.types[0].type.name}_card_before">
@@ -7,7 +7,7 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
                     <h1 class="name">${pokemonNamesTextArray}</h1>
                 </div>
                 <div class="infoRight">
-                    <div class="battlePoints">${pokemonDataArray.stats[0].base_stat} HP</div> <!-- -->
+                    <div class="battlePoints">${pokemonDataArray.stats[`${pokemonStatArray.hp[0]}`].base_stat} HP</div>
                     <div class="number">${pokemonDataArray.id}</div>
                 </div>
             </div>

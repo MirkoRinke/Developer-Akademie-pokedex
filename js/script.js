@@ -3,8 +3,19 @@ const debouncedForward = debounce(forward, 1000);
 const debouncedBackward = debounce(backward, 1000);
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
-let pokemonLimit = 1026; // Max
+let pokemonLimit = 11; // Max 152
 let currentLanguage = "en";
+
+async function preLoadPokemonAPIData() {
+  const promises = [];
+  for (let index = pokemonStart; index < pokemonLimit; index++) {
+    promises.push(P.getPokemonByName(index));
+    promises.push(P.getPokemonSpeciesByName(index));
+  }
+  await Promise.all(promises);
+}
+
+preLoadPokemonAPIData();
 
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
 function debounce(func, delay) {
@@ -50,11 +61,7 @@ function backward() {
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowRight") {
     debouncedForward();
-  }
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowLeft") {
+  } else if (event.key === "ArrowLeft") {
     debouncedBackward();
   }
 });
@@ -84,6 +91,8 @@ async function getPokemonData() {
   for (let index = pokemonStart; index < pokemonEnd; index++) {
     pokemonData.push(P.getPokemonByName(index));
   }
+  // preLoadPokemonStart();
+  // preLoadPokemonBack();
   return Promise.all(pokemonData);
 }
 
