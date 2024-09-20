@@ -11,13 +11,17 @@
     <title>Pokedex</title>
   </head>
   <body>
+    <nav class="nav">
+      <label class="searchLabel" for="pokemonSearchInput">Suche</label>
+      <input class="pokemonSearchInput" id="pokemonSearchInput" type="text" />
+    </nav>
     <main>
-      <div class="pokeArrowLeftContainer">
+      <div id="pokeArrowLeftContainer" class="pokeArrowLeftContainer">
         <img onclick="debouncedBackward()" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />
         <img onclick="debouncedBackward()" class="pokeArrowLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
-      <section class="content" id="content"></section>
-      <div class="pokeArrowRightContainer">
+      <section class="contentCards" id="contentCards"></section>
+      <div id="pokeArrowRightContainer" class="pokeArrowRightContainer">
         <img onclick="debouncedForward()" class="pokeArrowRight" src="./assets/icons/arrowRight.png" alt="" />
         <img onclick="debouncedForward()" class="pokeArrowRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
@@ -25,6 +29,7 @@
         <img onclick="debouncedBackward()" class="pokeArrowMobileLeft" src="./assets/icons/arrowLeftMobil.png" alt="" />
         <img onclick="debouncedForward()" class="pokeArrowMobileRight" src="./assets/icons/arrowRightMobile.png" alt="" />
       </div>
+      <section class="contentBigCard d_none" id="contentBigCard"></section>
     </main>
   </body>
 </html>
