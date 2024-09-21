@@ -5,17 +5,20 @@
 /** 1600px oder schmaler */
 /** 1300px oder schmaler */
 /** 1000px oder schmaler */
+/** 800px oder schmaler */
 /** 550px oder schmaler */
-/** 1550px oder schmaler */
-/** 1250 oder schmaler */
-/** 950px oder schmaler */
-/** 650px oder schmaler */
-/** 350px oder schmaler */
+/** 1700px oder schmaler */
+/** 1600px oder schmaler */
+/** 1300px oder schmaler */
+/** 1000px oder schmaler */
+/** 800px oder schmaler */
+/** 550px oder schmaler */
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: "Times New Roman";
+  font-size: 16px;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
@@ -194,13 +197,20 @@ a {
 }
 
 body {
-  background-image: url(../assets/img/bg1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   overflow-x: hidden;
 }
-body::before {
+
+.bg {
+  background-image: url(../assets/img/bg1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+}
+.bg::before {
   content: "";
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
@@ -209,12 +219,14 @@ body::before {
   left: 0;
   right: 0;
   pointer-events: none;
+  height: 100vh;
+  width: 100vw;
   z-index: -1;
 }
 
 main {
   max-width: 1920px;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   margin-inline: auto;
   position: relative;
   display: flex;
@@ -399,6 +411,11 @@ main {
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
+@media (max-width: 550px) {
+  .contentCards .container .card .footerLine {
+    font-size: 8px;
+  }
+}
 .contentCards .container .pokemon {
   position: absolute;
   width: 60%;
@@ -517,20 +534,86 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: -80px;
   left: 0;
   right: 0;
   bottom: 0;
+  min-height: 100vh;
+  min-width: 100%;
   z-index: 5;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
 }
-.contentBigCard .infoBox {
+.contentBigCard .containerBigCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 80px;
+}
+.contentBigCard .containerBigCard .pokeArrowLeftBigCard {
+  position: absolute;
+  top: 5px;
+  right: 320px;
+  transform: translateY(-50%);
+  z-index: -2;
+}
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
+    right: 250px;
+  }
+}
+@media (max-width: 800px) {
+  .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
+    top: -385px;
+    right: 50px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
+    top: -280px;
+    right: 25px;
+  }
+}
+.contentBigCard .containerBigCard .pokeArrowLeftBigCard .pokeArrowLeft {
+  height: 100px;
+  width: auto;
+}
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowLeftBigCard .pokeArrowLeft {
+    height: 80px;
+  }
+}
+.contentBigCard .containerBigCard .pokeArrowLeftBigCard:hover {
+  cursor: pointer;
+  transform: translateY(-50%) scale(1);
+}
+.contentBigCard .containerBigCard .pokeArrowLeftBigCard:hover .pokeArrowLeftBall {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(180deg);
+}
+.contentBigCard .containerBigCard .pokeArrowLeftBigCard .pokeArrowLeftBall {
+  transition: transform 300ms ease-in-out;
+  position: absolute;
+  top: 39.5%;
+  right: 46.2%;
+  height: 18px;
+  width: auto;
+}
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowLeftBigCard .pokeArrowLeftBall {
+    height: 14px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
   height: 837.7777777778px;
+  width: 600px;
   background-image: url(../assets/img/bg1.jpg);
   background-size: cover;
   background-position: center;
@@ -539,7 +622,19 @@ main {
   z-index: -2;
   transition: transform 0.5s;
 }
-.contentBigCard .infoBox::before {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox {
+    max-height: 670.2222222222px;
+    max-width: 480px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox {
+    max-height: 418.8888888889px;
+    max-width: 300px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox::before {
   content: "";
   position: absolute;
   top: 0;
@@ -549,32 +644,54 @@ main {
   pointer-events: none;
   z-index: -1;
 }
-.contentBigCard .infoBox .info {
+.contentBigCard .containerBigCard .infoBox .info {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.contentBigCard .infoBox .info .infoLeft {
+.contentBigCard .containerBigCard .infoBox .info .infoLeft {
+  display: flex;
+  align-items: center;
   margin-top: 5px;
   margin-left: 10px;
 }
-.contentBigCard .infoBox .info .infoLeft .name {
+.contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.7);
 }
-.contentBigCard .infoBox .info .infoRight {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
+    font-size: 18px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
+    font-size: 14px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .info .infoRight {
   margin-top: 5px;
   margin-right: 10px;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.contentBigCard .infoBox .info .infoRight .battlePoints {
+.contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
   font-size: 24px;
   font-weight: bold;
   color: darkred;
 }
-.contentBigCard .infoBox .info .infoRight .number {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
+    font-size: 18px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
+    font-size: 14px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .info .infoRight .number {
   display: inline-block;
   height: -moz-fit-content;
   height: fit-content;
@@ -587,7 +704,17 @@ main {
   border: 2px groove rgb(179, 138, 4);
   border-radius: 6px;
 }
-.contentBigCard .infoBox .window {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoRight .number {
+    font-size: 18px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .info .infoRight .number {
+    font-size: 14px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .window {
   display: flex;
   justify-content: center;
   margin-top: 5px;
@@ -598,10 +725,10 @@ main {
   border: 6px ridge rgb(179, 138, 4);
   z-index: 0;
 }
-.contentBigCard .infoBox .window .pokemon {
+.contentBigCard .containerBigCard .infoBox .window .pokemon {
   width: 350px;
 }
-.contentBigCard .infoBox .basicData {
+.contentBigCard .containerBigCard .infoBox .basicData {
   font-size: 18px;
   font-weight: bold;
   width: 85%;
@@ -611,7 +738,17 @@ main {
   padding: 2px;
   background-image: linear-gradient(90deg, rgb(150, 120, 15) 0%, rgb(237, 191, 35) 5%, rgb(150, 120, 15) 25%, rgb(208, 167, 28) 75%, rgb(237, 191, 35) 95%, rgb(150, 120, 15) 100%);
 }
-.contentBigCard .infoBox .description {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .basicData {
+    font-size: 16px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .basicData {
+    font-size: 8px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .description {
   width: 85%;
   height: 28%;
   margin-top: 10px;
@@ -620,16 +757,27 @@ main {
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
-.contentBigCard .infoBox .types {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .description {
+    font-size: 18px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .description {
+    height: 20%;
+    font-size: 14px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .types {
   display: flex;
   gap: 10px;
   width: 85%;
   margin-block: 10px;
 }
-.contentBigCard .infoBox .types img {
+.contentBigCard .containerBigCard .infoBox .types img {
   width: 33%;
 }
-.contentBigCard .infoBox .footerLine {
+.contentBigCard .containerBigCard .infoBox .footerLine {
   position: absolute;
   bottom: 0;
   font-size: 18px;
@@ -637,59 +785,68 @@ main {
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
-
-.pokeArrowRightBigCard {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .footerLine {
+    font-size: 16px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .footerLine {
+    font-size: 9px;
+  }
+}
+.contentBigCard .containerBigCard .pokeArrowRightBigCard {
   position: absolute;
-  bottom: -60px;
-  right: -30px;
-  z-index: 1;
+  top: 0;
+  left: 320px;
   transform: translateY(-50%);
+  z-index: -2;
 }
-.pokeArrowRightBigCard .pokeArrowRight {
-  height: 60px;
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowRightBigCard {
+    left: 250px;
+  }
+}
+@media (max-width: 800px) {
+  .contentBigCard .containerBigCard .pokeArrowRightBigCard {
+    top: -385px;
+    left: 50px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .pokeArrowRightBigCard {
+    top: -280px;
+    left: 25px;
+  }
+}
+.contentBigCard .containerBigCard .pokeArrowRightBigCard .pokeArrowRight {
+  height: 100px;
   width: auto;
+  z-index: -10;
 }
-.pokeArrowRightBigCard:hover {
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowRightBigCard .pokeArrowRight {
+    height: 80px;
+  }
+}
+.contentBigCard .containerBigCard .pokeArrowRightBigCard:hover {
   cursor: pointer;
   transform: translateY(-50%) scale(1);
 }
-.pokeArrowRightBigCard:hover .pokeArrowRightBall {
+.contentBigCard .containerBigCard .pokeArrowRightBigCard:hover .pokeArrowRightBall {
   transition: transform 300ms ease-in-out;
   transform: rotate(-180deg);
 }
-.pokeArrowRightBigCard .pokeArrowRightBall {
+.contentBigCard .containerBigCard .pokeArrowRightBigCard .pokeArrowRightBall {
   transition: transform 300ms ease-in-out;
   position: absolute;
-  top: 40%;
-  left: 47%;
-  height: 9px;
+  top: 39.5%;
+  left: 46.2%;
+  height: 18px;
   width: auto;
 }
-
-.pokeArrowLeftBigCard {
-  position: absolute;
-  bottom: -60px;
-  left: -30px;
-  z-index: 1;
-  transform: translateY(-50%);
-}
-.pokeArrowLeftBigCard .pokeArrowLeft {
-  height: 60px;
-  width: auto;
-}
-.pokeArrowLeftBigCard:hover {
-  cursor: pointer;
-  transform: translateY(-50%) scale(1);
-}
-.pokeArrowLeftBigCard:hover .pokeArrowLeftBall {
-  transition: transform 300ms ease-in-out;
-  transform: rotate(180deg);
-}
-.pokeArrowLeftBigCard .pokeArrowLeftBall {
-  transition: transform 300ms ease-in-out;
-  position: absolute;
-  top: 40%;
-  right: 47%;
-  height: 9px;
-  width: auto;
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .pokeArrowRightBigCard .pokeArrowRightBall {
+    height: 14px;
+  }
 }/*# sourceMappingURL=style.css.map */

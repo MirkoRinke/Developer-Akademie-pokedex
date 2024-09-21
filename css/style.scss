@@ -15,11 +15,18 @@ $BigCardWidth: calc(270px / $BigCardFactor);
 $navHeight: 80px;
 
 body {
+  overflow-x: hidden;
+}
+
+.bg {
   background-image: url(../assets/img/bg1.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
 
   &::before {
     content: "";
@@ -30,19 +37,19 @@ body {
     left: 0;
     right: 0;
     pointer-events: none;
+    height: 100vh;
+    width: 100vw;
     z-index: -1;
   }
 }
 
 main {
   max-width: 1920px;
-  height: calc(100vh - $navHeight);
+  min-height: calc(100vh - $navHeight);
   margin-inline: auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // margin-top: 25px;
 
   @media (max-width: $breakpoint-lg) {
     justify-content: unset;
@@ -234,6 +241,10 @@ main {
         margin-bottom: 5px;
         color: rgba(0, 0, 0, 0.7);
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+        @media (max-width: $breakpoint-xxxs) {
+          font-size: 8px;
+        }
       }
     }
 
@@ -365,208 +376,325 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: -$navHeight;
   left: 0;
   right: 0;
   bottom: 0;
+  min-height: 100vh;
+  min-width: 100%;
   z-index: 5;
 
-  .infoBox {
-    position: absolute;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+
+  .containerBigCard {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: $BigCardWidth;
-    height: $BigCardHeight;
-    background-image: url(../assets/img/bg1.jpg);
-    background-size: cover;
-    background-position: center;
-    border: 10px solid rgb(182, 152, 55);
-    border-radius: 10px;
-    z-index: -2;
+    position: relative;
+    margin-top: 80px;
 
-    transition: transform 0.5s;
-
-    &::before {
-      content: "";
+    .pokeArrowLeftBigCard {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
+      top: 5px;
+      right: 320px;
+      transform: translateY(-50%);
+      z-index: -2;
 
-    .info {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
+      @media (max-width: $breakpoint-xs) {
+        right: 250px;
+      }
 
-      .infoLeft {
-        margin-top: 5px;
-        margin-left: 10px;
+      @media (max-width: $breakpoint-xxs) {
+        top: -385px;
+        right: 50px;
+      }
 
-        .name {
-          font-size: 24px;
-          color: rgba(0, 0, 0, 0.7);
+      @media (max-width: $breakpoint-xxxs) {
+        top: -280px;
+        right: 25px;
+      }
+
+      .pokeArrowLeft {
+        height: 100px;
+        width: auto;
+
+        @media (max-width: $breakpoint-xs) {
+          height: 80px;
         }
       }
 
-      .infoRight {
-        margin-top: 5px;
-        margin-right: 10px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-50%) scale(1);
+      }
 
-        .battlePoints {
-          font-size: 24px;
-          font-weight: bold;
-          color: darkred;
-        }
+      &:hover .pokeArrowLeftBall {
+        transition: transform 300ms ease-in-out;
+        transform: rotate(180deg);
+      }
 
-        .number {
-          display: inline-block;
-          height: fit-content;
-          width: fit-content;
-          padding: 2px 4px;
-          font-size: 24px;
-          color: rgba(0, 0, 0, 0.7);
-          text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-          border: 2px groove rgb(179, 138, 4);
-          border-radius: 6px;
+      .pokeArrowLeftBall {
+        transition: transform 300ms ease-in-out;
+        position: absolute;
+        top: 39.5%;
+        right: 46.2%;
+        height: 18px;
+        width: auto;
+
+        @media (max-width: $breakpoint-xs) {
+          height: 14px;
         }
       }
     }
-    .window {
+
+    .infoBox {
+      position: absolute;
       display: flex;
-      justify-content: center;
-      margin-top: 5px;
-      height: 45%;
-      width: 85%;
+      flex-direction: column;
+      align-items: center;
+      height: $BigCardHeight;
+      width: $BigCardWidth;
+      background-image: url(../assets/img/bg1.jpg);
       background-size: cover;
       background-position: center;
-      border: 6px ridge rgb(179, 138, 4);
-      z-index: 0;
+      border: 10px solid rgb(182, 152, 55);
+      border-radius: 10px;
+      z-index: -2;
+      transition: transform 0.5s;
 
-      .pokemon {
-        width: 350px;
+      @media (max-width: $breakpoint-xs) {
+        max-height: calc($BigCardHeight * 0.8);
+        max-width: calc($BigCardWidth * 0.8);
+      }
+
+      @media (max-width: $breakpoint-xxxs) {
+        max-height: calc($BigCardHeight * 0.5);
+        max-width: calc($BigCardWidth * 0.5);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .infoLeft {
+          display: flex;
+          align-items: center;
+          margin-top: 5px;
+          margin-left: 10px;
+
+          .name {
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.7);
+
+            @media (max-width: $breakpoint-xs) {
+              font-size: 18px;
+            }
+
+            @media (max-width: $breakpoint-xxxs) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .infoRight {
+          margin-top: 5px;
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .battlePoints {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkred;
+
+            @media (max-width: $breakpoint-xs) {
+              font-size: 18px;
+            }
+
+            @media (max-width: $breakpoint-xxxs) {
+              font-size: 14px;
+            }
+          }
+
+          .number {
+            display: inline-block;
+            height: fit-content;
+            width: fit-content;
+            padding: 2px 4px;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.7);
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+            border: 2px groove rgb(179, 138, 4);
+            border-radius: 6px;
+
+            @media (max-width: $breakpoint-xs) {
+              font-size: 18px;
+            }
+
+            @media (max-width: $breakpoint-xxxs) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .window {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+        height: 45%;
+        width: 85%;
+        background-size: cover;
+        background-position: center;
+        border: 6px ridge rgb(179, 138, 4);
+        z-index: 0;
+
+        .pokemon {
+          width: 350px;
+        }
+      }
+
+      .basicData {
+        font-size: 18px;
+        font-weight: bold;
+        width: 85%;
+        margin-top: 2px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.7);
+        padding: 2px;
+        background-image: linear-gradient(
+          90deg,
+          rgba(150, 120, 15, 1) 0%,
+          rgba(237, 191, 35, 1) 5%,
+          rgba(150, 120, 15, 1) 25%,
+          rgba(208, 167, 28, 1) 75%,
+          rgba(237, 191, 35, 1) 95%,
+          rgba(150, 120, 15, 1) 100%
+        );
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
+        }
+
+        @media (max-width: $breakpoint-xxxs) {
+          font-size: 8px;
+        }
+      }
+
+      .description {
+        width: 85%;
+        height: 28%;
+        margin-top: 10px;
+        font-size: 24px;
+        text-align: justify;
+        color: rgba(0, 0, 0, 0.7);
+        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 18px;
+        }
+        @media (max-width: $breakpoint-xxxs) {
+          height: 20%;
+          font-size: 14px;
+        }
+      }
+
+      .types {
+        display: flex;
+        gap: 10px;
+        width: 85%;
+        margin-block: 10px;
+
+        & img {
+          width: 33%;
+        }
+      }
+
+      .footerLine {
+        position: absolute;
+        bottom: 0;
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: rgba(0, 0, 0, 0.7);
+        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
+        }
+        @media (max-width: $breakpoint-xxxs) {
+          font-size: 9px;
+        }
       }
     }
 
-    .basicData {
-      font-size: 18px;
-      font-weight: bold;
-      width: 85%;
-      margin-top: 2px;
-      text-align: center;
-      color: rgba(0, 0, 0, 0.7);
-      padding: 2px;
-      background-image: linear-gradient(
-        90deg,
-        rgba(150, 120, 15, 1) 0%,
-        rgba(237, 191, 35, 1) 5%,
-        rgba(150, 120, 15, 1) 25%,
-        rgba(208, 167, 28, 1) 75%,
-        rgba(237, 191, 35, 1) 95%,
-        rgba(150, 120, 15, 1) 100%
-      );
-    }
-
-    .description {
-      width: 85%;
-      height: 28%;
-      margin-top: 10px;
-      font-size: 24px;
-      text-align: justify;
-      color: rgba(0, 0, 0, 0.7);
-      text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .types {
-      display: flex;
-      gap: 10px;
-      width: 85%;
-      margin-block: 10px;
-
-      & img {
-        width: 33%;
-      }
-    }
-
-    .footerLine {
+    .pokeArrowRightBigCard {
       position: absolute;
-      bottom: 0;
-      font-size: 18px;
-      margin-bottom: 5px;
-      color: rgba(0, 0, 0, 0.7);
-      text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 320px;
+      transform: translateY(-50%);
+      z-index: -2;
+
+      @media (max-width: $breakpoint-xs) {
+        left: 250px;
+      }
+
+      @media (max-width: $breakpoint-xxs) {
+        top: -385px;
+        left: 50px;
+      }
+
+      @media (max-width: $breakpoint-xxxs) {
+        top: -280px;
+        left: 25px;
+      }
+
+      .pokeArrowRight {
+        height: 100px;
+        width: auto;
+        z-index: -10;
+
+        @media (max-width: $breakpoint-xs) {
+          height: 80px;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-50%) scale(1);
+      }
+
+      &:hover .pokeArrowRightBall {
+        transition: transform 300ms ease-in-out;
+        transform: rotate(-180deg);
+      }
+
+      .pokeArrowRightBall {
+        transition: transform 300ms ease-in-out;
+        position: absolute;
+        top: 39.5%;
+        left: 46.2%;
+        height: 18px;
+        width: auto;
+
+        @media (max-width: $breakpoint-xs) {
+          height: 14px;
+        }
+      }
     }
-  }
-}
-
-.pokeArrowRightBigCard {
-  position: absolute;
-  bottom: -60px;
-  right: -30px;
-  z-index: 1;
-  transform: translateY(-50%);
-
-  .pokeArrowRight {
-    height: 60px;
-    width: auto;
-  }
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-50%) scale(1);
-  }
-
-  &:hover .pokeArrowRightBall {
-    transition: transform 300ms ease-in-out;
-    transform: rotate(-180deg);
-  }
-
-  .pokeArrowRightBall {
-    transition: transform 300ms ease-in-out;
-    position: absolute;
-    top: 40%;
-    left: 47%;
-    height: 9px;
-    width: auto;
-  }
-}
-
-.pokeArrowLeftBigCard {
-  position: absolute;
-  bottom: -60px;
-  left: -30px;
-  z-index: 1;
-  transform: translateY(-50%);
-
-  .pokeArrowLeft {
-    height: 60px;
-    width: auto;
-  }
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-50%) scale(1);
-  }
-
-  &:hover .pokeArrowLeftBall {
-    transition: transform 300ms ease-in-out;
-    transform: rotate(180deg);
-  }
-
-  .pokeArrowLeftBall {
-    transition: transform 300ms ease-in-out;
-    position: absolute;
-    top: 40%;
-    right: 47%;
-    height: 9px;
-    width: auto;
   }
 }

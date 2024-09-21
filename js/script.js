@@ -168,12 +168,16 @@ async function getPokemonNamesText() {
 //! Pokemon Details Big Card
 function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
+  pokeArrowLeftContainerRef.classList.toggle("d_none");
+  pokeArrowRightContainerRef.classList.toggle("d_none");
   renderPokemonDetails(IndexPokeID);
 }
 
 contentBigCardRef.addEventListener("click", function (event) {
   if (event.target == contentBigCardRef) {
     contentBigCardRef.classList.toggle("d_none");
+    pokeArrowLeftContainerRef.classList.toggle("d_none");
+    pokeArrowRightContainerRef.classList.toggle("d_none");
   }
 });
 
@@ -211,13 +215,12 @@ pokemonSearchInputRef.addEventListener("input", function () {
 async function searchPokemonByName(search) {
   let selectedPokemonIDs = [];
   if (pokemonDataCache.length === 0) {
-    console.log("Cache wird geladen...");
     await preLoadPokemonAPIData();
   }
   for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
     if (pokemonDataCache[IndexPokeID]) {
       let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
-      let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[8].name;
+      let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
       if (PokeNameEng.toLowerCase().includes(search.toLowerCase()) || PokeNameGer.toLowerCase().includes(search.toLowerCase())) {
         selectedPokemonIDs.push(IndexPokeID - 1);
       }

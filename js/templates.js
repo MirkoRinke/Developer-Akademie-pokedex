@@ -33,38 +33,42 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
 
 function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID) {
   return /*html*/ `
-      <div class="infoBox ${pokemonDataArray.types[0].type.name}_card_before">
-          <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
-              <img onclick="renderPokemonDetails(${IndexPokeID - 1})" class="pokeArrowLeft" src="./assets/icons/ballLeft.png" alt="" />
-          </div>
-          <div class="info">
-              <div class="infoLeft">
-                  <h1 class="name">${pokemonNamesTextArray}</h1>
-              </div>
-              <div class="infoRight">
-                  <div class="battlePoints">${pokemonDataArray.stats[0].base_stat} HP</div>
-                  <div class="number">${pokemonDataArray.id}</div>
-              </div>
-          </div>
-          <div class="window ${pokemonDataArray.types[0].type.name}_window_bg">
-              <img class="pokemon" src="${pokemonDataArray.sprites.other.home.front_default}" />
-          </div>
-          <div class="basicData">
-              ${pokemonGeneraTextArray} 
-              Größe: ${(pokemonDataArray.height / 10).toFixed(2)}m 
-              Gewicht: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
-          </div>
-          <p class="description">
-              ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
-          </p>
-          <div class="types">
-              ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
-              ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
-          </div>
-          <p class="footerLine">Ein großer Dank an Ditto für die hervorragende Modellarbeit.</p>
-          <div id="pokeArrowRightBigCard" class="pokeArrowRightBigCard">
-              <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRight" src="./assets/icons/ballRight.png" alt="" />
-          </div>
-      </div>
+    <div class="containerBigCard">
+        <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
+            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" class="pokeArrowLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        </div>
+        <div class="infoBox ${pokemonDataArray.types[0].type.name}_card_before">
+            <div class="info">
+                <div class="infoLeft">
+                    <h1 class="name">${pokemonNamesTextArray}</h1>
+                </div>
+                <div class="infoRight">
+                    <div class="battlePoints">${pokemonDataArray.stats[0].base_stat} HP</div>
+                    <div class="number">${pokemonDataArray.id}</div>
+                </div>
+            </div>
+            <div class="window ${pokemonDataArray.types[0].type.name}_window_bg">
+                <img class="pokemon" src="${pokemonDataArray.sprites.other.home.front_default}" />
+            </div>
+            <div class="basicData">
+                ${pokemonGeneraTextArray} 
+                Größe: ${(pokemonDataArray.height / 10).toFixed(2)}m 
+                Gewicht: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
+            </div>
+            <p class="description">
+                ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
+            </p>
+            <div class="types">
+                ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
+                ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
+            </div>
+            <p class="footerLine">Ein großer Dank an Ditto für die hervorragende Modellarbeit.</p>
+        </div>
+        <div id="pokeArrowRightBigCard" class="pokeArrowRightBigCard">
+            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRight" src="./assets/icons/ArrowRight.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        </div>
+    </div>
     `;
 }
