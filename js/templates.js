@@ -63,6 +63,17 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
                 ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
                 ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
             </div>
+            <div class="baseStats">
+                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/attack.png" alt="">${pokemonDataArray.stats[1].base_stat} </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/defense.png" alt="">${pokemonDataArray.stats[2].base_stat} </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/special-attack.png" alt="">${
+                  pokemonDataArray.stats[3].base_stat
+                } </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/special-defense.png" alt="">${
+                  pokemonDataArray.stats[4].base_stat
+                } </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/speed.png" alt="">${pokemonDataArray.stats[5].base_stat} </p>    
+            </div>
             <p class="footerLine">${labels.description}</p>
         </div>
         <div id="pokeArrowRightBigCard" class="pokeArrowRightBigCard">

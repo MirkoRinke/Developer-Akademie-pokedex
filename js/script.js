@@ -11,7 +11,7 @@ let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
 let pokemonLimit = 152; // Max 152 , 1026
-let currentLanguage = "ja";
+let currentLanguage = "de";
 
 // console.log(P.getPokemonSpeciesByName(1));
 

@@ -59,14 +59,14 @@ main {
 
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
   align-items: center;
   max-width: 1440px;
   width: 100%;
   height: $navHeight;
   margin-inline: auto;
   gap: 10px;
-  padding-block: 25px;
+  padding: 25px;
 
   .search {
     display: flex;
@@ -77,13 +77,41 @@ main {
       color: white;
 
       .searchIcon {
-        height: 50px;
+        height: 35px;
+        animation: shake 1s infinite;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(-1px, -1px);
+        }
+        50% {
+          transform: translate(0.5px, 0);
+        }
+        75% {
+          transform: translate(0, 0.5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
       }
     }
 
     .pokemonSearchInput {
-      width: 200px;
-      height: 25px;
+      width: 190px;
+      height: 35px;
+      color: white;
+      background-color: transparent;
+      outline: none;
+      border-top: 2px solid rgb(253, 253, 253);
+      border-left: 2px solid rgb(253, 253, 253);
+      border-right: 2px solid rgb(231, 47, 46);
+      border-bottom: 2px solid rgb(231, 47, 46);
+      border-radius: 5px;
+      padding-left: 10px;
     }
   }
 }
@@ -611,7 +639,7 @@ main {
 
       .description {
         width: 85%;
-        height: 28%;
+        height: 25%;
         margin-top: 10px;
         font-size: 24px;
         text-align: justify;
@@ -624,6 +652,48 @@ main {
         @media (max-width: $breakpoint-xxxs) {
           height: 20%;
           font-size: 14px;
+        }
+      }
+
+      .baseStats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 85%;
+        margin-top: 10px;
+
+        .baseStat {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          font-size: 28px;
+
+          @media (max-width: $breakpoint-xs) {
+            font-size: 20px;
+            margin-bottom: 40px;
+          }
+
+          @media (max-width: $breakpoint-xxxs) {
+            font-size: 14px;
+          }
+
+          .baseStatIcon {
+            height: 32px;
+            width: 32px;
+
+            @media (max-width: $breakpoint-xs) {
+              height: 25px;
+              width: 25px;
+            }
+
+            @media (max-width: $breakpoint-xxxs) {
+              height: 18px;
+              width: 18px;
+              gap: 3px;
+            }
+          }
         }
       }
 
