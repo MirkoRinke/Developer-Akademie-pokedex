@@ -16,7 +16,6 @@ $navHeight: 80px;
 
 body {
   overflow-x: hidden;
-  // overflow: hidden;  //! Mit JS setzen wen Big Card oben
 }
 
 .bg {
@@ -60,19 +59,32 @@ main {
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 10px;
+  max-width: 1440px;
+  width: 100%;
   height: $navHeight;
+  margin-inline: auto;
+  gap: 10px;
   padding-block: 25px;
 
-  .searchLabel {
-    color: white;
-  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-  .pokemonSearchInput {
-    width: 200px;
-    height: 25px;
+    .searchLabel {
+      color: white;
+
+      .searchIcon {
+        height: 50px;
+      }
+    }
+
+    .pokemonSearchInput {
+      width: 200px;
+      height: 25px;
+    }
   }
 }
 
@@ -85,7 +97,7 @@ main {
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(5, 1fr);
-  gap: 30px;
+  gap: 20px;
 
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: repeat(4, 1fr);

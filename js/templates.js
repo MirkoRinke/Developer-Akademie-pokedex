@@ -1,4 +1,4 @@
-function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray) {
+function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
           <div onclick="showPokemonDetails(${pokemonDataArray.id})" class="card ${pokemonDataArray.types[0].type.name}_card_before">
@@ -14,8 +14,8 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
               <div class="window ${pokemonDataArray.types[0].type.name}_window_bg"></div>
               <div class="basicData">
                   ${pokemonGeneraTextArray} 
-                  Größe: ${(pokemonDataArray.height / 10).toFixed(2)}m 
-                  Gewicht: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
+                  ${labels.size}: ${(pokemonDataArray.height / 10).toFixed(2)}m 
+                  ${labels.weight}: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
               </div>
               <p class="description">
                   ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
@@ -24,14 +24,14 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
                   ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
                   ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
               </div>
-              <p class="footerLine">Ein großer Dank an Ditto für die hervorragende Modellarbeit.</p>
+              <p class="footerLine">${labels.description}</p>
           </div>
           <img onclick="showPokemonDetails(${pokemonDataArray.id})" class="pokemon" src="${pokemonDataArray.sprites.other.home.front_default}" />
       </div>
     `;
 }
 
-function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID) {
+function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID, labels) {
   return /*html*/ `
     <div class="containerBigCard">
         <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
@@ -53,8 +53,8 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
             </div>
             <div class="basicData">
                 ${pokemonGeneraTextArray} 
-                Größe: ${(pokemonDataArray.height / 10).toFixed(2)}m 
-                Gewicht: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
+                ${labels.size}: ${(pokemonDataArray.height / 10).toFixed(2)}m 
+                ${labels.weight}: ${(pokemonDataArray.weight / 10).toFixed(2)}kg
             </div>
             <p class="description">
                 ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
@@ -63,7 +63,7 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
                 ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
                 ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
             </div>
-            <p class="footerLine">Ein großer Dank an Ditto für die hervorragende Modellarbeit.</p>
+            <p class="footerLine">${labels.description}</p>
         </div>
         <div id="pokeArrowRightBigCard" class="pokeArrowRightBigCard">
             <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRight" src="./assets/icons/ArrowRight.png" alt="" />

@@ -10,11 +10,13 @@
     <script src="./js/script.js" defer></script>
     <title>Pokedex</title>
   </head>
-  <body>
+  <body id="body">
     <div class="bg"></div>
     <nav class="nav">
-      <label class="searchLabel" for="pokemonSearchInput">Suche</label>
-      <input class="pokemonSearchInput" id="pokemonSearchInput" type="text" />
+      <div class="search">
+        <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/search.png" alt="" /></label>
+        <input class="pokemonSearchInput" id="pokemonSearchInput" type="text" />
+      </div>
     </nav>
     <main>
       <div id="pokeArrowLeftContainer" class="pokeArrowLeftContainer">

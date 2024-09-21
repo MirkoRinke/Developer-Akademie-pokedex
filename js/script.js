@@ -5,12 +5,35 @@ const contentBigCardRef = document.getElementById("contentBigCard");
 const pokeArrowLeftContainerRef = document.getElementById("pokeArrowLeftContainer");
 const pokeArrowRightContainerRef = document.getElementById("pokeArrowRightContainer");
 const contentBigCardContainerRef = document.getElementById("contentBigCardContainer");
+const bodyRef = document.getElementById("body");
 const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
 let pokemonLimit = 152; // Max 152 , 1026
-let currentLanguage = "en";
+let currentLanguage = "ja";
+
+// console.log(P.getPokemonSpeciesByName(1));
+
+const translations = {
+  en: {
+    size: "Size",
+    weight: "Weight",
+    description: "A big thanks to Ditto for the excellent modeling work.",
+  },
+  de: {
+    size: "Größe",
+    weight: "Gewicht",
+    description: "Ein großer Dank an Ditto für die hervorragende Modellarbeit.",
+  },
+  ja: {
+    size: "サイズ",
+    weight: "重さ",
+    description: "モデリングに優れた仕事をしたメタモンに感謝します。",
+  },
+};
+
+const labels = translations[currentLanguage];
 
 //! Page Buttons and EventListener
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
@@ -109,7 +132,8 @@ async function renderPokemonCards() {
       pokemonDataArray[IndexPokeID - 1],
       pokemonFlavorTextArray[IndexPokeID - 1],
       pokemonGeneraTextArray[IndexPokeID - 1],
-      pokemonNamesTextArray[IndexPokeID - 1]
+      pokemonNamesTextArray[IndexPokeID - 1],
+      labels
     );
   }
 }
@@ -170,6 +194,7 @@ function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
   pokeArrowLeftContainerRef.classList.toggle("d_none");
   pokeArrowRightContainerRef.classList.toggle("d_none");
+  bodyRef.classList.toggle("overflow");
   renderPokemonDetails(IndexPokeID);
 }
 
@@ -178,6 +203,7 @@ contentBigCardRef.addEventListener("click", function (event) {
     contentBigCardRef.classList.toggle("d_none");
     pokeArrowLeftContainerRef.classList.toggle("d_none");
     pokeArrowRightContainerRef.classList.toggle("d_none");
+    bodyRef.classList.toggle("overflow");
   }
 });
 
@@ -197,7 +223,8 @@ async function renderPokemonDetails(IndexPokeID) {
     pokemonFlavorTextArray[IndexPokeID - 1],
     pokemonGeneraTextArray[IndexPokeID - 1],
     pokemonNamesTextArray[IndexPokeID - 1],
-    IndexPokeID
+    IndexPokeID,
+    labels
   );
 }
 
@@ -224,7 +251,13 @@ async function searchPokemonByName(search) {
     if (pokemonDataCache[IndexPokeID]) {
       let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
       let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
-      if (PokeNameEng.toLowerCase().includes(search.toLowerCase()) || PokeNameGer.toLowerCase().includes(search.toLowerCase())) {
+      let PokeNameJa = pokemonDataCache[IndexPokeID].species.names[9].name;
+      if (
+        PokeNameEng.toLowerCase().includes(search.toLowerCase()) ||
+        PokeNameGer.toLowerCase().includes(search.toLowerCase()) ||
+        PokeNameJa.toLowerCase().includes(search.toLowerCase())
+      ) {
+        console.log(pokemonDataCache[IndexPokeID]);
         selectedPokemonIDs.push(IndexPokeID - 1);
       }
     }
@@ -246,7 +279,8 @@ async function renderSelectedPokemonCards(pokemonIDs) {
         pokemonDataArray[pokeID],
         pokemonFlavorTextArray[pokeID],
         pokemonGeneraTextArray[pokeID],
-        pokemonNamesTextArray[pokeID]
+        pokemonNamesTextArray[pokeID],
+        labels
       );
     }
   }
