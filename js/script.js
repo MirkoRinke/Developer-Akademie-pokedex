@@ -65,7 +65,7 @@ document.addEventListener("keydown", function (event) {
 //!  preLoadPokemonAPIData
 async function preLoadPokemonAPIData() {
   const promises = [];
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const pokemonData = P.getPokemonByName(IndexPokeID);
     const pokemonSpecies = P.getPokemonSpeciesByName(IndexPokeID);
     promises.push(
@@ -90,7 +90,7 @@ loadAndRenderPokemonCards();
 //! Get Pokemon Data
 async function getPokemonData() {
   const pokemonDataArray = [];
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     pokemonDataArray.push(pokemonDataCache[IndexPokeID].data);
   }
   return pokemonDataArray;
@@ -106,10 +106,10 @@ async function renderPokemonCards() {
   const pokemonNamesTextArray = await getPokemonNamesText();
   for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonEnd; IndexPokeID++) {
     contentRef.innerHTML += renderPokemonCardTemplate(
-      pokemonDataArray[IndexPokeID - pokemonStart],
-      pokemonFlavorTextArray[IndexPokeID - pokemonStart],
-      pokemonGeneraTextArray[IndexPokeID - pokemonStart],
-      pokemonNamesTextArray[IndexPokeID - pokemonStart]
+      pokemonDataArray[IndexPokeID - 1],
+      pokemonFlavorTextArray[IndexPokeID - 1],
+      pokemonGeneraTextArray[IndexPokeID - 1],
+      pokemonNamesTextArray[IndexPokeID - 1]
     );
   }
 }
@@ -117,7 +117,7 @@ async function renderPokemonCards() {
 //! FlavorText
 async function getPokemonFlavorText() {
   const flavorTextArray = [];
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
     let pokeFlavorText = "";
     for (let indexFlavorText = 0; indexFlavorText < speciesData.flavor_text_entries.length; indexFlavorText++) {
@@ -134,7 +134,7 @@ async function getPokemonFlavorText() {
 //! GeneraText
 async function getPokemonGeneraText() {
   const generaTextArray = [];
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
     let pokeGenera = "";
     for (let indexGenera = 0; indexGenera < speciesData.genera.length; indexGenera++) {
@@ -151,7 +151,7 @@ async function getPokemonGeneraText() {
 //! PokemonNames
 async function getPokemonNamesText() {
   const namesTextArray = [];
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
     let pokeName = "";
     for (let indexNames = 0; indexNames < speciesData.names.length; indexNames++) {
@@ -182,18 +182,21 @@ contentBigCardRef.addEventListener("click", function (event) {
 });
 
 async function renderPokemonDetails(IndexPokeID) {
-  if (IndexPokeID < pokemonStart) IndexPokeID = pokemonLimit - 1;
-  if (IndexPokeID >= pokemonLimit) IndexPokeID = pokemonStart;
+  if (IndexPokeID < 1) {
+    IndexPokeID = pokemonLimit - 1;
+  } else if (IndexPokeID >= pokemonLimit) {
+    IndexPokeID = 1;
+  }
   contentBigCardRef.innerHTML = "";
   const pokemonDataArray = await getPokemonData();
   const pokemonFlavorTextArray = await getPokemonFlavorText();
   const pokemonGeneraTextArray = await getPokemonGeneraText();
   const pokemonNamesTextArray = await getPokemonNamesText();
   contentBigCardRef.innerHTML = renderPokemonBigCardTemplate(
-    pokemonDataArray[IndexPokeID - pokemonStart],
-    pokemonFlavorTextArray[IndexPokeID - pokemonStart],
-    pokemonGeneraTextArray[IndexPokeID - pokemonStart],
-    pokemonNamesTextArray[IndexPokeID - pokemonStart],
+    pokemonDataArray[IndexPokeID - 1],
+    pokemonFlavorTextArray[IndexPokeID - 1],
+    pokemonGeneraTextArray[IndexPokeID - 1],
+    pokemonNamesTextArray[IndexPokeID - 1],
     IndexPokeID
   );
 }
@@ -217,7 +220,7 @@ async function searchPokemonByName(search) {
   if (pokemonDataCache.length === 0) {
     await preLoadPokemonAPIData();
   }
-  for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonLimit; IndexPokeID++) {
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     if (pokemonDataCache[IndexPokeID]) {
       let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
       let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
