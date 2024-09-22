@@ -1,7 +1,7 @@
 function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
-            <div tabindex="${pokemonDataArray.id + 1}" 
+            <div tabindex="${pokemonDataArray.id + 10}" 
                 onclick="showPokemonDetails(${pokemonDataArray.id})" 
                 class="card ${pokemonDataArray.types[0].type.name}_card_before">
               <div class="info">

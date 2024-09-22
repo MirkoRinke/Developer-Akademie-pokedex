@@ -60,13 +60,21 @@ main {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 1440px;
   width: 100%;
   height: $navHeight;
   margin-inline: auto;
   gap: 10px;
   padding: 25px;
+
+  .homeButton {
+    width: 100px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   .search {
     display: flex;
@@ -140,6 +148,10 @@ main {
         }
       }
     }
+  }
+
+  .placeholder {
+    width: 100px;
   }
 }
 

@@ -9,6 +9,8 @@ const pokeArrowMobileButtonsRightRef = document.getElementById("pokeArrowMobileB
 const contentBigCardContainerRef = document.getElementById("contentBigCardContainer");
 const bodyRef = document.getElementById("body");
 const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
+const searchSuggestionsRef = document.getElementById("searchSuggestions");
+let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
@@ -313,9 +315,6 @@ async function renderSelectedPokemonCards(selectedPokemonIDs) {
   }
 }
 
-const searchSuggestionsRef = document.getElementById("searchSuggestions");
-let searchSuggestions = [];
-
 //! Search Suggestions
 async function getSuggestions() {
   if (pokemonDataCache.length === 0) await preLoadPokemonAPIData();
@@ -350,8 +349,8 @@ pokemonSearchInputRef.addEventListener("input", function () {
 });
 
 function clickSuggestions(filteredSuggestions) {
-  searchSuggestionsRef.classList.add("d_none");
   pokemonSearchInputRef.value = filteredSuggestions;
+  searchSuggestionsRef.classList.add("d_none");
   pokemonSearchInput();
 }
 
@@ -362,6 +361,7 @@ pokemonSearchInputRef.addEventListener("keydown", function (event) {
 });
 
 pokemonSearchInputRef.addEventListener("blur", function () {
-  // https://www.w3schools.com/jsref/dom_obj_event.asp
-  searchSuggestionsRef.classList.add("d_none");
+  setTimeout(function () {
+    searchSuggestionsRef.classList.add("d_none");
+  }, 300);
 });
