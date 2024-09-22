@@ -543,32 +543,68 @@ main {
   width: auto;
 }
 
-.pokeArrowMobileButtons {
+.pokeArrowMobileButtonsRight {
   display: none;
   position: fixed;
+  right: 25px;
   bottom: 0;
-  justify-content: space-between;
-  width: 100%;
-  padding-inline: 25px;
-  padding-bottom: 10px;
   z-index: 2;
 }
 @media (max-width: 1000px) {
-  .pokeArrowMobileButtons {
-    display: flex;
+  .pokeArrowMobileButtonsRight {
+    display: block;
   }
 }
-.pokeArrowMobileButtons .pokeArrowMobileLeft {
+.pokeArrowMobileButtonsRight .pokeArrowMobileRight {
   height: 50px;
 }
-.pokeArrowMobileButtons .pokeArrowMobileLeft:hover {
+.pokeArrowMobileButtonsRight .pokeArrowMobileRight:hover {
   cursor: pointer;
 }
-.pokeArrowMobileButtons .pokeArrowMobileRight {
+.pokeArrowMobileButtonsRight .pokeArrowMobileRightBall {
+  position: absolute;
+  top: 21px;
+  right: 29px;
+  height: 8px;
+}
+.pokeArrowMobileButtonsRight .pokeArrowMobileRightBall:hover {
+  cursor: pointer;
+}
+.pokeArrowMobileButtonsRight:hover .pokeArrowMobileRightBall {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(-180deg);
+}
+
+.pokeArrowMobileButtonsLeft {
+  display: none;
+  position: fixed;
+  left: 25px;
+  bottom: 0;
+  z-index: 2;
+}
+@media (max-width: 1000px) {
+  .pokeArrowMobileButtonsLeft {
+    display: block;
+  }
+}
+.pokeArrowMobileButtonsLeft .pokeArrowMobileLeft {
   height: 50px;
 }
-.pokeArrowMobileButtons .pokeArrowMobileRight:hover {
+.pokeArrowMobileButtonsLeft .pokeArrowMobileLeft:hover {
   cursor: pointer;
+}
+.pokeArrowMobileButtonsLeft .pokeArrowMobileLeftBall {
+  position: absolute;
+  top: 21px;
+  left: 29px;
+  height: 8px;
+}
+.pokeArrowMobileButtonsLeft .pokeArrowMobileLeftBall:hover {
+  cursor: pointer;
+}
+.pokeArrowMobileButtonsLeft:hover .pokeArrowMobileLeftBall {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(-180deg);
 }
 
 .contentBigCard {
@@ -608,13 +644,13 @@ main {
 }
 @media (max-width: 800px) {
   .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
-    top: -385px;
+    top: 390px;
     right: 50px;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
-    top: -280px;
+    top: 270px;
     right: 25px;
   }
 }
@@ -765,9 +801,25 @@ main {
   background-position: center;
   border: 6px ridge rgb(179, 138, 4);
   z-index: 0;
+  position: relative;
 }
 .contentBigCard .containerBigCard .infoBox .window .pokemon {
-  width: 350px;
+  position: absolute;
+  bottom: 0;
+  height: 320px;
+  width: 320px;
+}
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .window .pokemon {
+    height: 250px;
+    width: 250px;
+  }
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .window .pokemon {
+    height: 130px;
+    width: 130px;
+  }
 }
 .contentBigCard .containerBigCard .infoBox .basicData {
   font-size: 18px;
@@ -893,13 +945,13 @@ main {
 }
 @media (max-width: 800px) {
   .contentBigCard .containerBigCard .pokeArrowRightBigCard {
-    top: -385px;
+    top: 390px;
     left: 50px;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .pokeArrowRightBigCard {
-    top: -280px;
+    top: 270px;
     left: 25px;
   }
 }

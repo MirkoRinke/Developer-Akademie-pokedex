@@ -4,6 +4,8 @@ const debouncedBackward = debounce(backward, 1000);
 const contentBigCardRef = document.getElementById("contentBigCard");
 const pokeArrowLeftContainerRef = document.getElementById("pokeArrowLeftContainer");
 const pokeArrowRightContainerRef = document.getElementById("pokeArrowRightContainer");
+const pokeArrowMobileButtonsLeftRef = document.getElementById("pokeArrowMobileButtonsLeft");
+const pokeArrowMobileButtonsRightRef = document.getElementById("pokeArrowMobileButtonsRight");
 const contentBigCardContainerRef = document.getElementById("contentBigCardContainer");
 const bodyRef = document.getElementById("body");
 const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
@@ -194,6 +196,8 @@ function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
   pokeArrowLeftContainerRef.classList.toggle("d_none");
   pokeArrowRightContainerRef.classList.toggle("d_none");
+  pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
+  pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
   bodyRef.classList.toggle("overflow");
   renderPokemonDetails(IndexPokeID);
 }
@@ -203,6 +207,8 @@ contentBigCardRef.addEventListener("click", function (event) {
     contentBigCardRef.classList.toggle("d_none");
     pokeArrowLeftContainerRef.classList.toggle("d_none");
     pokeArrowRightContainerRef.classList.toggle("d_none");
+    pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
+    pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
     bodyRef.classList.toggle("overflow");
   }
 });

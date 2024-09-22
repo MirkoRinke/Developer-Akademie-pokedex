@@ -59,7 +59,6 @@ main {
 
 .nav {
   display: flex;
-  // justify-content: space-evenly;
   align-items: center;
   max-width: 1440px;
   width: 100%;
@@ -382,18 +381,51 @@ main {
   }
 }
 
-.pokeArrowMobileButtons {
+.pokeArrowMobileButtonsRight {
   display: none;
   position: fixed;
+  right: 25px;
   bottom: 0;
-  justify-content: space-between;
-  width: 100%;
-  padding-inline: 25px;
-  padding-bottom: 10px;
   z-index: 2;
 
   @media (max-width: $breakpoint-xs) {
-    display: flex;
+    display: block;
+  }
+
+  .pokeArrowMobileRight {
+    height: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .pokeArrowMobileRightBall {
+    position: absolute;
+    top: 21px;
+    right: 29px;
+    height: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:hover .pokeArrowMobileRightBall {
+    transition: transform 300ms ease-in-out;
+    transform: rotate(-180deg);
+  }
+}
+
+.pokeArrowMobileButtonsLeft {
+  display: none;
+  position: fixed;
+  left: 25px;
+  bottom: 0;
+  z-index: 2;
+
+  @media (max-width: $breakpoint-xs) {
+    display: block;
   }
 
   .pokeArrowMobileLeft {
@@ -404,12 +436,20 @@ main {
     }
   }
 
-  .pokeArrowMobileRight {
-    height: 50px;
+  .pokeArrowMobileLeftBall {
+    position: absolute;
+    top: 21px;
+    left: 29px;
+    height: 8px;
 
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &:hover .pokeArrowMobileLeftBall {
+    transition: transform 300ms ease-in-out;
+    transform: rotate(-180deg);
   }
 }
 
@@ -449,12 +489,12 @@ main {
       }
 
       @media (max-width: $breakpoint-xxs) {
-        top: -385px;
+        top: 390px;
         right: 50px;
       }
 
       @media (max-width: $breakpoint-xxxs) {
-        top: -280px;
+        top: 270px;
         right: 25px;
       }
 
@@ -605,8 +645,23 @@ main {
         border: 6px ridge rgb(179, 138, 4);
         z-index: 0;
 
+        position: relative;
+
         .pokemon {
-          width: 350px;
+          position: absolute;
+          bottom: 0;
+          height: 320px;
+          width: 320px;
+
+          @media (max-width: $breakpoint-xs) {
+            height: 250px;
+            width: 250px;
+          }
+
+          @media (max-width: $breakpoint-xxxs) {
+            height: 130px;
+            width: 130px;
+          }
         }
       }
 
@@ -737,12 +792,12 @@ main {
       }
 
       @media (max-width: $breakpoint-xxs) {
-        top: -385px;
+        top: 390px;
         left: 50px;
       }
 
       @media (max-width: $breakpoint-xxxs) {
-        top: -280px;
+        top: 270px;
         left: 25px;
       }
 
