@@ -14,6 +14,7 @@ let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
 let pokemonLimit = 152; // Max 152 , 1026
 let currentLanguage = "de";
+let bigCardOpen = false;
 
 // console.log(P.getPokemonSpeciesByName(1));
 
@@ -81,9 +82,18 @@ function backward() {
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowRight") {
-    debouncedForward();
+    if (!bigCardOpen) debouncedForward();
+    if (bigCardOpen) document.getElementById("pokeArrowRight").click();
   } else if (event.key === "ArrowLeft") {
-    debouncedBackward();
+    if (!bigCardOpen) debouncedBackward();
+    if (bigCardOpen) document.getElementById("pokeArrowLeft").click();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    const activeElement = document.activeElement;
+    if (activeElement) activeElement.click();
   }
 });
 
@@ -109,6 +119,7 @@ async function preLoadPokemonAPIData() {
 async function loadAndRenderPokemonCards() {
   await preLoadPokemonAPIData();
   renderPokemonCards();
+  getSuggestions();
 }
 loadAndRenderPokemonCards();
 
@@ -199,17 +210,29 @@ function showPokemonDetails(IndexPokeID) {
   pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
   pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
   bodyRef.classList.toggle("overflow");
+  bigCardOpen = true;
   renderPokemonDetails(IndexPokeID);
 }
 
+function toggleBigCard() {
+  contentBigCardRef.classList.toggle("d_none");
+  pokeArrowLeftContainerRef.classList.toggle("d_none");
+  pokeArrowRightContainerRef.classList.toggle("d_none");
+  pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
+  pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
+  bodyRef.classList.toggle("overflow");
+  bigCardOpen = !bigCardOpen;
+}
+
 contentBigCardRef.addEventListener("click", function (event) {
-  if (event.target == contentBigCardRef) {
-    contentBigCardRef.classList.toggle("d_none");
-    pokeArrowLeftContainerRef.classList.toggle("d_none");
-    pokeArrowRightContainerRef.classList.toggle("d_none");
-    pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
-    pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
-    bodyRef.classList.toggle("overflow");
+  if (event.target === contentBigCardRef) {
+    toggleBigCard();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    toggleBigCard();
   }
 });
 
@@ -308,8 +331,6 @@ async function getSuggestions() {
   }
 }
 
-getSuggestions();
-
 pokemonSearchInputRef.addEventListener("input", function () {
   const query = pokemonSearchInputRef.value.toLowerCase();
   searchSuggestionsRef.innerHTML = "";
@@ -333,3 +354,14 @@ function clickSuggestions(filteredSuggestions) {
   pokemonSearchInputRef.value = filteredSuggestions;
   pokemonSearchInput();
 }
+
+pokemonSearchInputRef.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    searchSuggestionsRef.classList.add("d_none");
+  }
+});
+
+pokemonSearchInputRef.addEventListener("blur", function () {
+  // https://www.w3schools.com/jsref/dom_obj_event.asp
+  searchSuggestionsRef.classList.add("d_none");
+});

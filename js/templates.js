@@ -1,7 +1,9 @@
 function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
-          <div onclick="showPokemonDetails(${pokemonDataArray.id})" class="card ${pokemonDataArray.types[0].type.name}_card_before">
+            <div tabindex="${pokemonDataArray.id + 1}" 
+                onclick="showPokemonDetails(${pokemonDataArray.id})" 
+                class="card ${pokemonDataArray.types[0].type.name}_card_before">
               <div class="info">
                   <div class="infoLeft">
                       <h1 class="name">${pokemonNamesTextArray}</h1>
@@ -35,8 +37,14 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
   return /*html*/ `
     <div class="containerBigCard">
         <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
-            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />
-            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" class="pokeArrowLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" 
+                class="pokeArrowLeft" 
+                id="pokeArrowLeft" 
+                src="./assets/icons/arrowLeft.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID - 1})" 
+                class="pokeArrowLeftBall" 
+                src="./assets/icons/pokeballArrow.png" 
+                alt="" />
         </div>
         <div class="infoBox ${pokemonDataArray.types[0].type.name}_card_before">
             <div class="info">
@@ -64,21 +72,26 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
                 ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
             </div>
             <div class="baseStats">
-                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/attack.png" alt="">${pokemonDataArray.stats[1].base_stat} </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/defense.png" alt="">${pokemonDataArray.stats[2].base_stat} </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/special-attack.png" alt="">${
+                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/attack.png" alt="">${pokemonDataArray.stats[1].base_stat} </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/defense.png" alt="">${pokemonDataArray.stats[2].base_stat} </p>
+                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/special-attack.png" alt="">${
                   pokemonDataArray.stats[3].base_stat
                 } </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/special-defense.png" alt="">${
+                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/special-defense.png" alt="">${
                   pokemonDataArray.stats[4].base_stat
                 } </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="../assets/icons/speed.png" alt="">${pokemonDataArray.stats[5].base_stat} </p>    
+                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/speed.png" alt="">${pokemonDataArray.stats[5].base_stat} </p>    
             </div>
             <p class="footerLine">${labels.description}</p>
         </div>
         <div id="pokeArrowRightBigCard" class="pokeArrowRightBigCard">
-            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRight" src="./assets/icons/ArrowRight.png" alt="" />
-            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" class="pokeArrowRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" 
+                class="pokeArrowRight" 
+                id="pokeArrowRight" 
+                src="./assets/icons/arrowRight.png" alt="" />
+            <img onclick="renderPokemonDetails(${IndexPokeID + 1})" 
+                class="pokeArrowRightBall" 
+                src="./assets/icons/pokeballArrow.png" alt="" />
         </div>
     </div>
     `;
