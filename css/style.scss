@@ -74,6 +74,7 @@ main {
     gap: 10px;
     width: 13vw;
     min-width: 250px;
+    position: relative;
 
     .searchLabel {
       color: white;
@@ -114,6 +115,30 @@ main {
       border-bottom: 2px solid rgb(231, 47, 46);
       border-radius: 5px;
       padding-left: 10px;
+    }
+
+    .searchSuggestions {
+      position: absolute;
+      width: 100%;
+      top: 45px;
+      left: 0;
+      color: rgb(231, 47, 46);
+      background-color: white;
+      border: 2px solid rgb(231, 47, 46);
+      border-radius: 3px;
+      padding: 5px;
+      z-index: 2;
+
+      :hover {
+        cursor: pointer;
+      }
+      .suggestion {
+        padding: 5px;
+        &:hover {
+          background-color: rgb(231, 47, 46);
+          color: white;
+        }
+      }
     }
   }
 }
@@ -721,11 +746,14 @@ main {
         width: 85%;
         margin-top: 10px;
 
+        @media (max-width: $breakpoint-xxxs) {
+          gap: 15px;
+        }
+
         .baseStat {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 5px;
           font-size: 28px;
 
           @media (max-width: $breakpoint-xs) {
@@ -749,7 +777,6 @@ main {
             @media (max-width: $breakpoint-xxxs) {
               height: 18px;
               width: 18px;
-              gap: 3px;
             }
           }
         }

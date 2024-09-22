@@ -250,9 +250,7 @@ pokemonSearchInputRef.addEventListener("input", function () {
 //! Pokemon Search Funktion "searchPokemonByName("pik")"
 async function searchPokemonByName(search) {
   let selectedPokemonIDs = [];
-  if (pokemonDataCache.length === 0) {
-    await preLoadPokemonAPIData();
-  }
+  if (pokemonDataCache.length === 0) await preLoadPokemonAPIData();
   for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     if (pokemonDataCache[IndexPokeID]) {
       let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
@@ -290,4 +288,48 @@ async function renderSelectedPokemonCards(selectedPokemonIDs) {
       );
     }
   }
+}
+
+const searchSuggestionsRef = document.getElementById("searchSuggestions");
+let searchSuggestions = [];
+
+//! Search Suggestions
+async function getSuggestions() {
+  if (pokemonDataCache.length === 0) await preLoadPokemonAPIData();
+  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
+    if (pokemonDataCache[IndexPokeID]) {
+      let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
+      let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
+      let PokeNameJa = pokemonDataCache[IndexPokeID].species.names[9].name;
+      if (!searchSuggestions.includes(PokeNameEng)) searchSuggestions.push(PokeNameEng);
+      if (!searchSuggestions.includes(PokeNameGer)) searchSuggestions.push(PokeNameGer);
+      if (!searchSuggestions.includes(PokeNameJa)) searchSuggestions.push(PokeNameJa);
+    }
+  }
+}
+
+getSuggestions();
+
+pokemonSearchInputRef.addEventListener("input", function () {
+  const query = pokemonSearchInputRef.value.toLowerCase();
+  searchSuggestionsRef.innerHTML = "";
+  searchSuggestionsRef.classList.add("d_none");
+  if (pokemonSearchInputRef.value.length < 3) return;
+  if (query) {
+    const filteredSuggestions = searchSuggestions.filter(function (item) {
+      return item.toLowerCase().includes(query);
+    });
+    for (let index = 0; index < filteredSuggestions.length; index++) {
+      searchSuggestionsRef.classList.remove("d_none");
+      searchSuggestionsRef.innerHTML += /*html*/ `
+        <div class="suggestion" onclick="clickSuggestions('${filteredSuggestions[index]}');">${filteredSuggestions[index]}</div>
+      `;
+    }
+  }
+});
+
+function clickSuggestions(filteredSuggestions) {
+  searchSuggestionsRef.classList.add("d_none");
+  pokemonSearchInputRef.value = filteredSuggestions;
+  pokemonSearchInput();
 }
