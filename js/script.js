@@ -263,8 +263,7 @@ async function searchPokemonByName(search) {
         PokeNameGer.toLowerCase().includes(search.toLowerCase()) ||
         PokeNameJa.toLowerCase().includes(search.toLowerCase())
       ) {
-        console.log(pokemonDataCache[IndexPokeID]);
-        selectedPokemonIDs.push(IndexPokeID - 1);
+        selectedPokemonIDs.push(IndexPokeID);
       }
     }
   }
@@ -272,20 +271,21 @@ async function searchPokemonByName(search) {
 }
 
 //! render Search Pokemon
-async function renderSelectedPokemonCards(pokemonIDs) {
+async function renderSelectedPokemonCards(selectedPokemonIDs) {
+  selectedPokemonIDs.length = 10;
   const contentRef = document.getElementById("contentCards");
   contentRef.innerHTML = "";
   const pokemonDataArray = await getPokemonData();
   const pokemonFlavorTextArray = await getPokemonFlavorText();
   const pokemonGeneraTextArray = await getPokemonGeneraText();
   const pokemonNamesTextArray = await getPokemonNamesText();
-  for (let pokeID of pokemonIDs) {
+  for (let pokeID of selectedPokemonIDs) {
     if (pokeID >= 1) {
       contentRef.innerHTML += renderPokemonCardTemplate(
-        pokemonDataArray[pokeID],
-        pokemonFlavorTextArray[pokeID],
-        pokemonGeneraTextArray[pokeID],
-        pokemonNamesTextArray[pokeID],
+        pokemonDataArray[pokeID - 1],
+        pokemonFlavorTextArray[pokeID - 1],
+        pokemonGeneraTextArray[pokeID - 1],
+        pokemonNamesTextArray[pokeID - 1],
         labels
       );
     }

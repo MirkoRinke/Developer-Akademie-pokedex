@@ -246,6 +246,7 @@ main {
 .nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   max-width: 1440px;
   width: 100%;
   height: 80px;
@@ -257,6 +258,8 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 13vw;
+  min-width: 250px;
 }
 .nav .search .searchLabel {
   color: white;
@@ -283,7 +286,7 @@ main {
   }
 }
 .nav .search .pokemonSearchInput {
-  width: 190px;
+  width: 100%;
   height: 35px;
   color: white;
   background-color: transparent;
