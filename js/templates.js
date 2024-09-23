@@ -96,3 +96,33 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
     </div>
     `;
 }
+
+function renderShowLoadingScreen() {
+  return /*html*/ `
+      <div class="container">
+            <div class="card">
+              <div class="info">
+                  <div class="infoLeft">
+                      <h1 class="name">Loading..</h1>
+                  </div>
+                  <div class="infoRight">
+                      <div class="battlePoints">Loading..</div>
+                      <div class="number">Loading..</div>
+                  </div>
+              </div>
+              <div class="window loading_window_bg"></div>
+              <div class="basicData">
+              Loading..
+              </div>
+              <p class="description">
+              Loading..
+              </p>
+              <div class="types">
+              Loading..
+              </div>
+              <p class="footerLine">Loading..</p>
+          </div>
+          <img class="pokemonCard loading" src="../assets/img/132.png" />
+      </div>
+      `;
+}

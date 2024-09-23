@@ -224,6 +224,14 @@ a {
   transform: unset !important;
 }
 
+.loading_window_bg {
+  background-image: url(../assets/img/window_bgs/loading_window_bg.jpg);
+}
+
+.loading_card_before::before {
+  background-color: transparent;
+}
+
 .bg {
   background-image: url(../assets/img/bg1.jpg);
   background-size: cover;
@@ -522,6 +530,10 @@ main {
   width: 60%;
   top: 33px;
   transition: transform 0.5s;
+}
+.contentCards .container .loading {
+  top: 100px;
+  width: 30%;
 }
 .contentCards .container:hover .pokemonCard {
   transform: translate3d(0%, -30%, 200px);

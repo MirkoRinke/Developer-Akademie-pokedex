@@ -17,9 +17,10 @@ let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
-let pokemonLimit = 152; // Max 152 , 1026
+let pokemonLimit = 11; // Max 152 , 1026
 let currentLanguage = "en";
 let bigCardOpen = false;
+// let preLoadCompleted = false;
 
 // console.log(P.getPokemonSpeciesByName(1));
 
@@ -122,11 +123,21 @@ async function preLoadPokemonAPIData() {
 
 //! render PokemonCards after preLoad
 async function loadAndRenderPokemonCards() {
+  showLoadingScreen();
   await preLoadPokemonAPIData();
   renderPokemonCards();
   getSuggestions();
 }
 loadAndRenderPokemonCards();
+
+//! Loading screen
+function showLoadingScreen() {
+  const contentRef = document.getElementById("contentCards");
+  contentRef.innerHTML = "";
+  for (let i = 1; i < pokemonEnd; i++) {
+    contentRef.innerHTML += renderShowLoadingScreen();
+  }
+}
 
 //! Get Pokemon Data
 async function getPokemonData() {

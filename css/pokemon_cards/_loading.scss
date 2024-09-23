@@ -1,0 +1,9 @@
+.loading_window_bg {
+  background-image: url(../assets/img/window_bgs/loading_window_bg.jpg);
+}
+
+.loading_card_before {
+  &::before {
+    background-color: transparent;
+  }
+}
