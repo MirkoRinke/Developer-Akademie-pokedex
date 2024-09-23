@@ -10,12 +10,15 @@ const contentBigCardContainerRef = document.getElementById("contentBigCardContai
 const bodyRef = document.getElementById("body");
 const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
 const searchSuggestionsRef = document.getElementById("searchSuggestions");
+const cardRef = document.getElementsByClassName("card");
+const pokemonCardRef = document.getElementsByClassName("pokemonCard");
+const containerRef = document.getElementsByClassName("container");
 let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
 let pokemonLimit = 152; // Max 152 , 1026
-let currentLanguage = "de";
+let currentLanguage = "en";
 let bigCardOpen = false;
 
 // console.log(P.getPokemonSpeciesByName(1));
@@ -204,7 +207,7 @@ async function getPokemonNamesText() {
   return namesTextArray;
 }
 
-//! Pokemon Details Big Card
+//! Pokemon Details Big Card // backsideCard
 function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
   pokeArrowLeftContainerRef.classList.toggle("d_none");
@@ -212,6 +215,11 @@ function showPokemonDetails(IndexPokeID) {
   pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
   pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
   bodyRef.classList.toggle("overflow");
+  for (let i = 0; i < cardRef.length; i++) {
+    cardRef[i].classList.toggle("backsideCard");
+    containerRef[i].classList.toggle("transformOff");
+    pokemonCardRef[i].classList.toggle("d_none");
+  }
   bigCardOpen = true;
   renderPokemonDetails(IndexPokeID);
 }
@@ -223,6 +231,13 @@ function toggleBigCard() {
   pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
   pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
   bodyRef.classList.toggle("overflow");
+  for (let i = 0; i < cardRef.length; i++) {
+    cardRef[i].classList.toggle("backsideCard");
+    containerRef[i].classList.toggle("transformOff");
+    setTimeout(() => {
+      pokemonCardRef[i].classList.toggle("d_none");
+    }, 200);
+  }
   bigCardOpen = !bigCardOpen;
 }
 

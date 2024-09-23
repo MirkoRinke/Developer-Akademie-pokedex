@@ -2,7 +2,7 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
   return /*html*/ `
       <div class="container">
             <div tabindex="${pokemonDataArray.id + 10}" 
-                onclick="showPokemonDetails(${pokemonDataArray.id})" 
+                onclick="showPokemonDetails(${pokemonDataArray.id})"                 
                 class="card ${pokemonDataArray.types[0].type.name}_card_before">
               <div class="info">
                   <div class="infoLeft">
@@ -28,7 +28,7 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
               </div>
               <p class="footerLine">${labels.description}</p>
           </div>
-          <img onclick="showPokemonDetails(${pokemonDataArray.id})" class="pokemon" src="${pokemonDataArray.sprites.other.home.front_default}" />
+          <img onclick="showPokemonDetails(${pokemonDataArray.id})" class="pokemonCard" src="${pokemonDataArray.sprites.other.home.front_default}" />
       </div>
     `;
 }

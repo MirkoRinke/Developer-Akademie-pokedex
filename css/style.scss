@@ -2,7 +2,7 @@
 @import "./var";
 @import "./default";
 @import "./js_css";
-@import "./pokemon_types/pokemon_types";
+@import "./pokemon_cards/pokemon_cards";
 
 $cardFactor: 1;
 $cardHeight: calc(377px / $cardFactor);
@@ -14,9 +14,9 @@ $BigCardWidth: calc(270px / $BigCardFactor);
 
 $navHeight: 80px;
 
-body {
-  overflow-x: hidden;
-}
+// body {
+//   overflow-x: hidden;
+// }
 
 .bg {
   background-image: url(../assets/img/bg1.jpg);
@@ -90,6 +90,10 @@ main {
       .searchIcon {
         height: 35px;
         animation: shake 1s infinite;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       @keyframes shake {
@@ -145,6 +149,7 @@ main {
         &:hover {
           background-color: rgb(231, 47, 46);
           color: white;
+          border-radius: 3px;
         }
       }
     }
@@ -193,6 +198,7 @@ main {
     }
 
     &:hover .card {
+      transition: transform 0.5s;
       transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
     }
 
@@ -209,7 +215,6 @@ main {
       border: 10px solid rgb(182, 152, 55);
       border-radius: 10px;
       z-index: -2;
-
       transition: transform 0.5s;
 
       &::before {
@@ -328,14 +333,14 @@ main {
       }
     }
 
-    .pokemon {
+    .pokemonCard {
       position: absolute;
       width: 60%;
       top: 33px;
       transition: transform 0.5s;
     }
 
-    &:hover .pokemon {
+    &:hover .pokemonCard {
       transform: translate3d(0%, -30%, 200px);
     }
   }
@@ -343,7 +348,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: 50%;
+  top: calc(50% - ($navHeight / 2) + 15px);
   right: 10px;
   z-index: 1;
   transform: translateY(-50%);
@@ -383,7 +388,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: 50%;
+  top: calc(50% - ($navHeight / 2) + 15px);
   left: 10px;
   z-index: 1;
   transform: translateY(-50%);
