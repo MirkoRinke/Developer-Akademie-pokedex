@@ -17,32 +17,40 @@ let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
 let pokemonEnd = 11; // Ende
-let pokemonLimit = 11; // Max 152 , 1026
-let currentLanguage = "en";
+let pokemonLimit = 152; // Max 152 , 1026
+let currentLanguage = "de";
 let bigCardOpen = false;
-// let preLoadCompleted = false;
+let labels = {};
 
 // console.log(P.getPokemonSpeciesByName(1));
 
-const translations = {
-  en: {
-    size: "Size",
-    weight: "Weight",
-    description: "A big thanks to Ditto for the excellent modeling work.",
-  },
-  de: {
-    size: "Größe",
-    weight: "Gewicht",
-    description: "Ein großer Dank an Ditto für die hervorragende Modellarbeit.",
-  },
-  ja: {
-    size: "サイズ",
-    weight: "重さ",
-    description: "モデリングに優れた仕事をしたメタモンに感謝します。",
-  },
-};
+function customTranslations() {
+  const translations = {
+    en: {
+      size: "Size",
+      weight: "Weight",
+      description: "A big thanks to Ditto for the excellent modeling work.",
+    },
+    de: {
+      size: "Größe",
+      weight: "Gewicht",
+      description: "Ein großer Dank an Ditto für die hervorragende Modellarbeit.",
+    },
+    ja: {
+      size: "サイズ",
+      weight: "重さ",
+      description: "モデリングに優れた仕事をしたメタモンに感謝します。",
+    },
+  };
+  labels = translations[currentLanguage];
+}
+customTranslations();
 
-const labels = translations[currentLanguage];
+function selectedLanguage(selected) {
+  currentLanguage = selected;
+  customTranslations();
+  renderPokemonCards();
+}
 
 //! Page Buttons and EventListener
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 100 900;
+}
 /* Colors */
 /* Variables */
 /* @media breakpoints */
@@ -17,11 +29,24 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Times New Roman";
+  font-family: "Figtree";
   font-size: 16px;
-  scrollbar-width: thin;
   scroll-behavior: smooth;
-  scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(231, 47, 46);
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .overflow {
@@ -258,7 +283,7 @@ a {
 
 main {
   max-width: 1920px;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 100px);
   margin-inline: auto;
   position: relative;
   display: flex;
@@ -275,12 +300,27 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
+  max-width: 1820px;
   width: 100%;
-  height: 80px;
+  height: 100px;
   margin-inline: auto;
-  gap: 10px;
   padding: 25px;
+}
+@media (max-width: 1700px) {
+  .nav {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1000px) {
+  .nav {
+    grid-template-columns: repeat(1, 1fr);
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 0;
+    gap: 10px;
+  }
 }
 .nav .homeButton {
   width: 100px;
@@ -291,13 +331,14 @@ main {
 .nav .search {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   width: 13vw;
   min-width: 250px;
   position: relative;
 }
 .nav .search .searchLabel {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .nav .search .searchLabel .searchIcon {
   height: 35px;
@@ -326,11 +367,11 @@ main {
 .nav .search .pokemonSearchInput {
   width: 100%;
   height: 35px;
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: transparent;
   outline: none;
-  border-top: 2px solid rgb(253, 253, 253);
-  border-left: 2px solid rgb(253, 253, 253);
+  border-top: 2px solid rgb(255, 255, 255);
+  border-left: 2px solid rgb(255, 255, 255);
   border-right: 2px solid rgb(231, 47, 46);
   border-bottom: 2px solid rgb(231, 47, 46);
   border-radius: 5px;
@@ -342,7 +383,7 @@ main {
   top: 45px;
   left: 0;
   color: rgb(231, 47, 46);
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 2px solid rgb(231, 47, 46);
   border-radius: 3px;
   padding: 5px;
@@ -356,11 +397,25 @@ main {
 }
 .nav .search .searchSuggestions .suggestion:hover {
   background-color: rgb(231, 47, 46);
-  color: white;
+  color: rgb(255, 255, 255);
   border-radius: 3px;
 }
-.nav .placeholder {
-  width: 100px;
+.nav .languageSettings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+.nav .languageSettings img {
+  width: 35px;
+  height: 35px;
+  border-radius: 99999px;
+}
+.nav .languageSettings img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
 }
 
 .contentCards {
@@ -447,7 +502,7 @@ main {
   margin-left: 10px;
 }
 .contentCards .container .card .info .infoLeft .name {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: rgba(0, 0, 0, 0.7);
 }
 .contentCards .container .card .info .infoRight {
@@ -458,7 +513,7 @@ main {
   gap: 5px;
 }
 .contentCards .container .card .info .infoRight .battlePoints {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   color: darkred;
 }
@@ -469,7 +524,7 @@ main {
   width: -moz-fit-content;
   width: fit-content;
   padding: 2px 4px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   border: 2px groove rgb(179, 138, 4);
@@ -485,7 +540,7 @@ main {
   z-index: 0;
 }
 .contentCards .container .card .basicData {
-  font-size: 8px;
+  font-size: 0.5rem;
   font-weight: bold;
   width: 85%;
   margin-top: 2px;
@@ -498,7 +553,7 @@ main {
   width: 85%;
   height: 18%;
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: justify;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -515,14 +570,14 @@ main {
 .contentCards .container .card .footerLine {
   position: absolute;
   bottom: 0;
-  font-size: 9px;
+  font-size: 0.5625rem;
   margin-bottom: 5px;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 550px) {
   .contentCards .container .card .footerLine {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
 }
 .contentCards .container .pokemonCard {
@@ -541,7 +596,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - 40px + 15px);
+  top: calc(50% - 35px);
   right: 10px;
   z-index: 1;
   transform: translateY(-50%);
@@ -579,7 +634,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - 40px + 15px);
+  top: calc(50% - 35px);
   left: 10px;
   z-index: 1;
   transform: translateY(-50%);
@@ -684,7 +739,7 @@ main {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: -80px;
+  top: -100px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -805,17 +860,17 @@ main {
   margin-left: 10px;
 }
 .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .info .infoRight {
@@ -826,18 +881,18 @@ main {
   gap: 5px;
 }
 .contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: darkred;
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .info .infoRight .battlePoints {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .info .infoRight .number {
@@ -847,7 +902,7 @@ main {
   width: -moz-fit-content;
   width: fit-content;
   padding: 2px 4px;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   border: 2px groove rgb(179, 138, 4);
@@ -855,12 +910,12 @@ main {
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .info .infoRight .number {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .info .infoRight .number {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .window {
@@ -894,7 +949,7 @@ main {
   }
 }
 .contentBigCard .containerBigCard .infoBox .basicData {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   width: 85%;
   margin-top: 2px;
@@ -905,32 +960,32 @@ main {
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .basicData {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .basicData {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .description {
   width: 85%;
   height: 25%;
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: justify;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .description {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .description {
     height: 20%;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .baseStats {
@@ -950,17 +1005,17 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .baseStats .baseStat {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 40px;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .baseStats .baseStat {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .contentBigCard .containerBigCard .infoBox .baseStats .baseStat .baseStatIcon {
@@ -991,19 +1046,19 @@ main {
 .contentBigCard .containerBigCard .infoBox .footerLine {
   position: absolute;
   bottom: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 5px;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .infoBox .footerLine {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .footerLine {
-    font-size: 9px;
+    font-size: 0.5625rem;
   }
 }
 .contentBigCard .containerBigCard .pokeArrowRightBigCard {

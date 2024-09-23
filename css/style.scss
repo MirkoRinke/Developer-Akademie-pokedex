@@ -12,7 +12,7 @@ $BigCardFactor: 0.45;
 $BigCardHeight: calc(377px / $BigCardFactor);
 $BigCardWidth: calc(270px / $BigCardFactor);
 
-$navHeight: 80px;
+$navHeight: 100px;
 
 .bg {
   background-image: url(../assets/img/bg1.jpg);
@@ -57,12 +57,23 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
+  max-width: 1820px;
   width: 100%;
   height: $navHeight;
   margin-inline: auto;
-  gap: 10px;
   padding: 25px;
+
+  @media (max-width: $breakpoint-lg) {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: repeat(1, 1fr);
+    height: fit-content;
+    padding: 0;
+    gap: 10px;
+  }
 
   .homeButton {
     width: 100px;
@@ -75,13 +86,14 @@ main {
   .search {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     width: 13vw;
     min-width: 250px;
     position: relative;
 
     .searchLabel {
-      color: white;
+      color: $pokemonWhite;
 
       .searchIcon {
         height: 35px;
@@ -114,13 +126,13 @@ main {
     .pokemonSearchInput {
       width: 100%;
       height: 35px;
-      color: white;
+      color: $pokemonWhite;
       background-color: transparent;
       outline: none;
-      border-top: 2px solid rgb(253, 253, 253);
-      border-left: 2px solid rgb(253, 253, 253);
-      border-right: 2px solid rgb(231, 47, 46);
-      border-bottom: 2px solid rgb(231, 47, 46);
+      border-top: 2px solid $pokemonWhite;
+      border-left: 2px solid $pokemonWhite;
+      border-right: 2px solid $pokemonRed;
+      border-bottom: 2px solid $pokemonRed;
       border-radius: 5px;
       padding-left: 10px;
     }
@@ -130,9 +142,9 @@ main {
       width: 100%;
       top: 45px;
       left: 0;
-      color: rgb(231, 47, 46);
-      background-color: white;
-      border: 2px solid rgb(231, 47, 46);
+      color: $pokemonRed;
+      background-color: $pokemonWhite;
+      border: 2px solid $pokemonRed;
       border-radius: 3px;
       padding: 5px;
       z-index: 2;
@@ -143,16 +155,31 @@ main {
       .suggestion {
         padding: 5px;
         &:hover {
-          background-color: rgb(231, 47, 46);
-          color: white;
+          background-color: $pokemonRed;
+          color: $pokemonWhite;
           border-radius: 3px;
         }
       }
     }
   }
 
-  .placeholder {
-    width: 100px;
+  .languageSettings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+
+    & img {
+      width: 35px;
+      height: 35px;
+      border-radius: 99999px;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+      }
+    }
   }
 }
 
@@ -234,7 +261,7 @@ main {
           margin-left: 10px;
 
           .name {
-            font-size: 18px;
+            font-size: 1.125rem;
             color: rgba(0, 0, 0, 0.7);
           }
         }
@@ -247,7 +274,7 @@ main {
           gap: 5px;
 
           .battlePoints {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: bold;
             color: darkred;
           }
@@ -257,7 +284,7 @@ main {
             height: fit-content;
             width: fit-content;
             padding: 2px 4px;
-            font-size: 14px;
+            font-size: 0.875rem;
             color: rgba(0, 0, 0, 0.7);
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
             border: 2px groove rgb(179, 138, 4);
@@ -276,7 +303,7 @@ main {
       }
 
       .basicData {
-        font-size: 8px;
+        font-size: 0.5rem;
         font-weight: bold;
         width: 85%;
         margin-top: 2px;
@@ -298,7 +325,7 @@ main {
         width: 85%;
         height: 18%;
         margin-top: 10px;
-        font-size: 12px;
+        font-size: 0.75rem;
         text-align: justify;
         color: rgba(0, 0, 0, 0.7);
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -318,13 +345,13 @@ main {
       .footerLine {
         position: absolute;
         bottom: 0;
-        font-size: 9px;
+        font-size: 0.5625rem;
         margin-bottom: 5px;
         color: rgba(0, 0, 0, 0.7);
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 
         @media (max-width: $breakpoint-xxxs) {
-          font-size: 8px;
+          font-size: 0.5rem;
         }
       }
     }
@@ -349,7 +376,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - ($navHeight / 2) + 15px);
+  top: calc(50% - ($navHeight - 65px));
   right: 10px;
   z-index: 1;
   transform: translateY(-50%);
@@ -389,7 +416,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - ($navHeight / 2) + 15px);
+  top: calc(50% - ($navHeight - 65px));
   left: 10px;
   z-index: 1;
   transform: translateY(-50%);
@@ -625,15 +652,15 @@ main {
           margin-left: 10px;
 
           .name {
-            font-size: 24px;
+            font-size: 1.5rem;
             color: rgba(0, 0, 0, 0.7);
 
             @media (max-width: $breakpoint-xs) {
-              font-size: 18px;
+              font-size: 1.125rem;
             }
 
             @media (max-width: $breakpoint-xxxs) {
-              font-size: 14px;
+              font-size: 0.875rem;
             }
           }
         }
@@ -646,16 +673,16 @@ main {
           gap: 5px;
 
           .battlePoints {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
             color: darkred;
 
             @media (max-width: $breakpoint-xs) {
-              font-size: 18px;
+              font-size: 1.125rem;
             }
 
             @media (max-width: $breakpoint-xxxs) {
-              font-size: 14px;
+              font-size: 0.875rem;
             }
           }
 
@@ -664,18 +691,18 @@ main {
             height: fit-content;
             width: fit-content;
             padding: 2px 4px;
-            font-size: 24px;
+            font-size: 1.5rem;
             color: rgba(0, 0, 0, 0.7);
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
             border: 2px groove rgb(179, 138, 4);
             border-radius: 6px;
 
             @media (max-width: $breakpoint-xs) {
-              font-size: 18px;
+              font-size: 1.125rem;
             }
 
             @media (max-width: $breakpoint-xxxs) {
-              font-size: 14px;
+              font-size: 0.875rem;
             }
           }
         }
@@ -712,7 +739,7 @@ main {
       }
 
       .basicData {
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: bold;
         width: 85%;
         margin-top: 2px;
@@ -730,11 +757,11 @@ main {
         );
 
         @media (max-width: $breakpoint-xs) {
-          font-size: 16px;
+          font-size: 1rem;
         }
 
         @media (max-width: $breakpoint-xxxs) {
-          font-size: 8px;
+          font-size: 0.5rem;
         }
       }
 
@@ -742,17 +769,17 @@ main {
         width: 85%;
         height: 25%;
         margin-top: 10px;
-        font-size: 24px;
+        font-size: 1.5rem;
         text-align: justify;
         color: rgba(0, 0, 0, 0.7);
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 
         @media (max-width: $breakpoint-xs) {
-          font-size: 18px;
+          font-size: 1.125rem;
         }
         @media (max-width: $breakpoint-xxxs) {
           height: 20%;
-          font-size: 14px;
+          font-size: 0.875rem;
         }
       }
 
@@ -772,15 +799,15 @@ main {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 28px;
+          font-size: 1.75rem;
 
           @media (max-width: $breakpoint-xs) {
-            font-size: 20px;
+            font-size: 1.25rem;
             margin-bottom: 40px;
           }
 
           @media (max-width: $breakpoint-xxxs) {
-            font-size: 14px;
+            font-size: 0.875rem;
           }
 
           .baseStatIcon {
@@ -814,16 +841,16 @@ main {
       .footerLine {
         position: absolute;
         bottom: 0;
-        font-size: 18px;
+        font-size: 1.125rem;
         margin-bottom: 5px;
         color: rgba(0, 0, 0, 0.7);
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 
         @media (max-width: $breakpoint-xs) {
-          font-size: 16px;
+          font-size: 1rem;
         }
         @media (max-width: $breakpoint-xxxs) {
-          font-size: 9px;
+          font-size: 0.5625rem;
         }
       }
     }
