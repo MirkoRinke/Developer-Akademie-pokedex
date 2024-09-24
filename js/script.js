@@ -13,6 +13,9 @@ const searchSuggestionsRef = document.getElementById("searchSuggestions");
 const cardRef = document.getElementsByClassName("card");
 const pokemonCardRef = document.getElementsByClassName("pokemonCard");
 const containerRef = document.getElementsByClassName("container");
+const languageSettingsJa = document.getElementById("languageSettingsJa");
+const languageSettingsEn = document.getElementById("languageSettingsEn");
+const languageSettingsDe = document.getElementById("languageSettingsDe");
 let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
@@ -50,7 +53,18 @@ function selectedLanguage(selected) {
   currentLanguage = selected;
   customTranslations();
   renderPokemonCards();
+  getSelectedLanguage();
 }
+
+function getSelectedLanguage() {
+  languageSettingsJa.style.border = "";
+  languageSettingsEn.style.border = "";
+  languageSettingsDe.style.border = "";
+  if (currentLanguage == "ja") languageSettingsJa.style.border = "3px solid rgb(182, 152, 55)";
+  if (currentLanguage == "en") languageSettingsEn.style.border = "3px solid rgb(182, 152, 55)";
+  if (currentLanguage == "de") languageSettingsDe.style.border = "3px solid rgb(182, 152, 55)";
+}
+getSelectedLanguage();
 
 //! Page Buttons and EventListener
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
