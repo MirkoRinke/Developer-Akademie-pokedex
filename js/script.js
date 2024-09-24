@@ -49,6 +49,7 @@ function customTranslations() {
 }
 customTranslations();
 
+//! Selected Language
 function selectedLanguage(selected) {
   currentLanguage = selected;
   customTranslations();
@@ -65,6 +66,13 @@ function getSelectedLanguage() {
   if (currentLanguage == "de") languageSettingsDe.style.border = "3px solid rgb(182, 152, 55)";
 }
 getSelectedLanguage();
+
+//! backToHome
+function backToHome() {
+  pokemonStart = 1;
+  pokemonEnd = 11;
+  renderPokemonCards();
+}
 
 //! Page Buttons and EventListener
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
