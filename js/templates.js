@@ -22,9 +22,9 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
               <p class="description">
                   ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
               </p>
-              <div class="types">
-                  ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
-                  ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
+              <div class="types">             
+                ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.svg" alt="" />` : ""}    
+                ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.svg" alt="" />` : ""}              
               </div>
               <p class="footerLine">${labels.description}</p>
           </div>
@@ -67,9 +67,9 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
             <p class="description">
                 ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
             </p>
-            <div class="types">
-                ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.png" alt="" />` : ""}
-                ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.png" alt="" />` : ""}
+            <div class="types">             
+                ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.svg" alt="" />` : ""}    
+                ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.svg" alt="" />` : ""}              
             </div>
             <div class="baseStats">
                 <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/attack.png" alt="">${pokemonDataArray.stats[1].base_stat} </p>

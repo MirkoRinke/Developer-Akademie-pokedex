@@ -324,7 +324,7 @@ main {
 
       .description {
         width: 85%;
-        height: 18%;
+        height: 20%;
         margin-top: 10px;
         font-size: 0.75rem;
         text-align: justify;
@@ -334,12 +334,14 @@ main {
 
       .types {
         display: flex;
-        gap: 10px;
+        align-items: center;
+        gap: 15px;
         width: 85%;
         margin-block: 10px;
 
         & img {
-          width: 33%;
+          width: 20px;
+          filter: drop-shadow(1px 1px 0px #000000);
         }
       }
 
@@ -779,8 +781,28 @@ main {
           font-size: 1.125rem;
         }
         @media (max-width: $breakpoint-xxxs) {
-          height: 20%;
           font-size: 0.875rem;
+        }
+      }
+
+      .types {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 85%;
+        margin-block: 20px;
+
+        & img {
+          width: 30px;
+          filter: drop-shadow(1px 1px 0px #000000);
+
+          @media (max-width: $breakpoint-xs) {
+            width: 20px;
+          }
+
+          @media (max-width: $breakpoint-xxxs) {
+            width: 15px;
+          }
         }
       }
 
@@ -825,17 +847,6 @@ main {
               width: 18px;
             }
           }
-        }
-      }
-
-      .types {
-        display: flex;
-        gap: 10px;
-        width: 85%;
-        margin-block: 10px;
-
-        & img {
-          width: 33%;
         }
       }
 
