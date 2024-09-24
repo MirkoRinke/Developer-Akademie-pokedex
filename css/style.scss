@@ -383,6 +383,7 @@ main {
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
+  opacity: 0.7;
 
   @media (max-width: $breakpoint-lg) {
     position: fixed;
@@ -423,6 +424,7 @@ main {
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
+  opacity: 0.7;
 
   @media (max-width: $breakpoint-lg) {
     position: fixed;
@@ -463,6 +465,7 @@ main {
   right: 25px;
   bottom: 0;
   z-index: 2;
+  opacity: 0.7;
 
   @media (max-width: $breakpoint-xs) {
     display: block;
@@ -499,6 +502,7 @@ main {
   left: 25px;
   bottom: 0;
   z-index: 2;
+  opacity: 0.7;
 
   @media (max-width: $breakpoint-xs) {
     display: block;
@@ -559,6 +563,7 @@ main {
       right: 320px;
       transform: translateY(-50%);
       z-index: -2;
+      opacity: 0.7;
 
       @media (max-width: $breakpoint-xs) {
         right: 250px;
@@ -873,6 +878,7 @@ main {
       left: 320px;
       transform: translateY(-50%);
       z-index: -2;
+      opacity: 0.7;
 
       @media (max-width: $breakpoint-xs) {
         left: 250px;

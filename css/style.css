@@ -603,6 +603,7 @@ main {
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
+  opacity: 0.7;
 }
 @media (max-width: 1700px) {
   .pokeArrowRightContainer {
@@ -641,6 +642,7 @@ main {
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
+  opacity: 0.7;
 }
 @media (max-width: 1700px) {
   .pokeArrowLeftContainer {
@@ -679,6 +681,7 @@ main {
   right: 25px;
   bottom: 0;
   z-index: 2;
+  opacity: 0.7;
 }
 @media (max-width: 1000px) {
   .pokeArrowMobileButtonsRight {
@@ -711,6 +714,7 @@ main {
   left: 25px;
   bottom: 0;
   z-index: 2;
+  opacity: 0.7;
 }
 @media (max-width: 1000px) {
   .pokeArrowMobileButtonsLeft {
@@ -766,6 +770,7 @@ main {
   right: 320px;
   transform: translateY(-50%);
   z-index: -2;
+  opacity: 0.7;
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .pokeArrowLeftBigCard {
@@ -1081,6 +1086,7 @@ main {
   left: 320px;
   transform: translateY(-50%);
   z-index: -2;
+  opacity: 0.7;
 }
 @media (max-width: 1000px) {
   .contentBigCard .containerBigCard .pokeArrowRightBigCard {
