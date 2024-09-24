@@ -324,7 +324,7 @@ main {
   }
 }
 .nav .homeButton {
-  height: 70px;
+  height: 60px;
 }
 .nav .homeButton:hover {
   cursor: pointer;
