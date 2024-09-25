@@ -75,7 +75,7 @@ function backToHome() {
   renderPokemonCards();
 }
 
-//! Page Buttons and EventListener
+//! General Page Buttons and EventListener
 // https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
 function debounce(func, delay) {
   let timeoutId;
@@ -165,7 +165,7 @@ loadAndRenderPokemonCards();
 function showLoadingScreen() {
   const contentRef = document.getElementById("contentCards");
   contentRef.innerHTML = "";
-  for (let i = 1; i < pokemonEnd; i++) {
+  for (let index = 1; index < pokemonEnd; index++) {
     contentRef.innerHTML += renderShowLoadingScreen();
   }
 }
@@ -286,20 +286,15 @@ document.querySelector("#contentBigCard").addEventListener("wheel", preventScrol
 function preventScroll(e) {
   e.preventDefault();
   e.stopPropagation();
-
   return false;
 }
 
 contentBigCardRef.addEventListener("click", function (event) {
-  if (event.target === contentBigCardRef) {
-    toggleBigCard();
-  }
+  if (event.target === contentBigCardRef) toggleBigCard();
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    toggleBigCard();
-  }
+  if (event.key === "Escape") toggleBigCard();
 });
 
 async function renderPokemonDetails(IndexPokeID) {
@@ -399,6 +394,10 @@ pokemonSearchInputRef.addEventListener("input", function () {
   searchSuggestionsRef.innerHTML = "";
   searchSuggestionsRef.classList.add("d_none");
   if (pokemonSearchInputRef.value.length < 3) return;
+  showSearchSuggestions(query);
+});
+
+function showSearchSuggestions(query) {
   if (query) {
     const filteredSuggestions = searchSuggestions.filter(function (item) {
       return item.toLowerCase().includes(query);
@@ -410,7 +409,7 @@ pokemonSearchInputRef.addEventListener("input", function () {
       `;
     }
   }
-});
+}
 
 function clickSuggestions(filteredSuggestions) {
   pokemonSearchInputRef.value = filteredSuggestions;
@@ -419,11 +418,10 @@ function clickSuggestions(filteredSuggestions) {
 }
 
 pokemonSearchInputRef.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    searchSuggestionsRef.classList.add("d_none");
-  }
+  if (event.key === "Enter") searchSuggestionsRef.classList.add("d_none");
 });
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
 pokemonSearchInputRef.addEventListener("blur", function () {
   setTimeout(function () {
     searchSuggestionsRef.classList.add("d_none");
@@ -440,9 +438,7 @@ function getUserName() {
 }
 
 userNameInputRef.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    getUserName();
-  }
+  if (event.key === "Enter") getUserName();
 });
 
 // https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript
@@ -457,7 +453,5 @@ function nameToPokemon(userName) {
     hash = hash & hash;
   }
   let index = Math.abs(hash) % pokemonArray.length; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
-  console.log(hash);
-  console.log(Math.abs(hash));
   return showPokemonDetails(index);
 }
