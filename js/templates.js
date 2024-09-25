@@ -1,4 +1,4 @@
-function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
+export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
             <div tabindex="${pokemonDataArray.id + 10}" 
@@ -33,7 +33,14 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
     `;
 }
 
-function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID, labels) {
+export function renderPokemonBigCardTemplate(
+  pokemonDataArray,
+  pokemonFlavorTextArray,
+  pokemonGeneraTextArray,
+  pokemonNamesTextArray,
+  IndexPokeID,
+  labels
+) {
   return /*html*/ `
     <div class="containerBigCard">
         <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
@@ -97,7 +104,7 @@ function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, 
     `;
 }
 
-function renderShowLoadingScreen() {
+export function renderShowLoadingScreen() {
   return /*html*/ `
       <div class="container">
             <div class="card">
@@ -122,7 +129,7 @@ function renderShowLoadingScreen() {
               </div>
               <p class="footerLine">Loading..</p>
           </div>
-          <img class="pokemonCard loading" src="../assets/img/132.png" />
+          <img class="pokemonCard loading" src="./assets/img/132.png" />
       </div>
       `;
 }

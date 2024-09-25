@@ -6,8 +6,7 @@
     <link rel="icon" href="./assets/icons/fav.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
-    <script src="./js/templates.js" defer></script>
-    <script src="./js/script.js" defer></script>
+    <script type="module" src="./js/script.js" defer></script>
     <title>Pokedex</title>
   </head>
   <body id="body">
@@ -31,23 +30,23 @@
     </nav>
     <main>
       <div id="pokeArrowLeftContainer" class="pokeArrowLeftContainer">
-        <img onclick="debouncedBackward()" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />
-        <img onclick="debouncedBackward()" class="pokeArrowLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        <img onclick="backward()" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />
+        <img onclick="backward()" class="pokeArrowLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
       <div id="content" class="content">
         <section class="contentCards" id="contentCards"></section>
       </div>
       <div id="pokeArrowRightContainer" class="pokeArrowRightContainer">
-        <img onclick="debouncedForward()" class="pokeArrowRight" src="./assets/icons/arrowRight.png" alt="" />
-        <img onclick="debouncedForward()" class="pokeArrowRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        <img onclick="forward()" class="pokeArrowRight" src="./assets/icons/arrowRight.png" alt="" />
+        <img onclick="forward()" class="pokeArrowRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
       <div id="pokeArrowMobileButtonsLeft" class="pokeArrowMobileButtonsLeft">
-        <img onclick="debouncedBackward()" class="pokeArrowMobileLeft" src="./assets/icons/arrowLeft.png" alt="" />
-        <img onclick="debouncedBackward()" class="pokeArrowMobileLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        <img onclick="backward()" class="pokeArrowMobileLeft" src="./assets/icons/arrowLeft.png" alt="" />
+        <img onclick="backward()" class="pokeArrowMobileLeftBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
       <div id="pokeArrowMobileButtonsRight" class="pokeArrowMobileButtonsRight">
-        <img onclick="debouncedForward()" class="pokeArrowMobileRight" src="./assets/icons/arrowRight.png" alt="" />
-        <img onclick="debouncedForward()" class="pokeArrowMobileRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
+        <img onclick="forward()" class="pokeArrowMobileRight" src="./assets/icons/arrowRight.png" alt="" />
+        <img onclick="forward()" class="pokeArrowMobileRightBall" src="./assets/icons/pokeballArrow.png" alt="" />
       </div>
       <section class="contentBigCard d_none" id="contentBigCard"></section>
     </main>
