@@ -119,11 +119,9 @@ function backward() {
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowRight") {
-    if (!bigCardOpen) debouncedForward();
-    if (bigCardOpen) document.getElementById("pokeArrowRight").click();
+    !bigCardOpen ? debouncedForward() : document.getElementById("pokeArrowRight").click();
   } else if (event.key === "ArrowLeft") {
-    if (!bigCardOpen) debouncedBackward();
-    if (bigCardOpen) document.getElementById("pokeArrowLeft").click();
+    !bigCardOpen ? debouncedBackward() : document.getElementById("pokeArrowLeft").click();
   }
 });
 
