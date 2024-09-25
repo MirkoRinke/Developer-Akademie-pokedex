@@ -128,7 +128,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
+  if (event.key === "Enter" && !bigCardOpen) {
     const activeElement = document.activeElement;
     if (activeElement) activeElement.click();
   }
@@ -256,7 +256,6 @@ function showPokemonDetails(IndexPokeID) {
   pokeArrowRightContainerRef.classList.toggle("d_none");
   pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
   pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
-  bodyRef.classList.toggle("overflow");
   for (let i = 0; i < cardRef.length; i++) {
     cardRef[i].classList.toggle("backsideCard");
     containerRef[i].classList.toggle("transformOff");
@@ -272,7 +271,6 @@ function toggleBigCard() {
   pokeArrowRightContainerRef.classList.toggle("d_none");
   pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
   pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
-  bodyRef.classList.toggle("overflow");
   for (let i = 0; i < cardRef.length; i++) {
     cardRef[i].classList.toggle("backsideCard");
     containerRef[i].classList.toggle("transformOff");
@@ -281,6 +279,15 @@ function toggleBigCard() {
     }, 200);
   }
   bigCardOpen = !bigCardOpen;
+}
+
+// https://alvarotrigo.com/blog/prevent-scroll-on-scrollable-element-js/
+document.querySelector("#contentBigCard").addEventListener("wheel", preventScroll, { passive: false });
+function preventScroll(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  return false;
 }
 
 contentBigCardRef.addEventListener("click", function (event) {
@@ -440,6 +447,7 @@ userNameInputRef.addEventListener("keydown", function (event) {
 
 // https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript
 function nameToPokemon(userName) {
+  if (userName == "") return;
   let hash = 0;
   let pokemonArray = [];
   for (let i = 1; i < pokemonLimit; i++) pokemonArray.push(i);
@@ -448,7 +456,8 @@ function nameToPokemon(userName) {
     hash = (hash << 5) - hash + char;
     hash = hash & hash;
   }
-  if (hash == 1336663922) return showPokemonDetails(54);
-  let index = Math.abs(hash) % pokemonArray.length;
+  let index = Math.abs(hash) % pokemonArray.length; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+  console.log(hash);
+  console.log(Math.abs(hash));
   return showPokemonDetails(index);
 }
