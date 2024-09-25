@@ -283,7 +283,7 @@ a {
 
 main {
   max-width: 1920px;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 80px);
   margin-inline: auto;
   position: relative;
   display: flex;
@@ -300,18 +300,19 @@ main {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1820px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1720px;
   width: 100%;
-  height: 100px;
+  height: 80px;
   margin-inline: auto;
-  padding: 25px;
+  padding-top: 10px;
+  gap: 20px;
 }
 @media (max-width: 1700px) {
   .nav {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (max-width: 1000px) {
@@ -326,6 +327,11 @@ main {
 .nav .homeButton {
   height: 60px;
 }
+@media (max-width: 1000px) {
+  .nav .homeButton {
+    margin-top: 25px;
+  }
+}
 .nav .homeButton:hover {
   cursor: pointer;
 }
@@ -335,7 +341,7 @@ main {
   justify-content: center;
   gap: 10px;
   width: 13vw;
-  min-width: 250px;
+  min-width: 270px;
   position: relative;
 }
 .nav .search .searchLabel {
@@ -343,6 +349,7 @@ main {
 }
 .nav .search .searchLabel .searchIcon {
   height: 35px;
+  margin: 10px;
   animation: shake 1s infinite;
 }
 .nav .search .searchLabel .searchIcon:hover {
@@ -418,6 +425,73 @@ main {
   cursor: pointer;
   transform: scale(1.1);
 }
+.nav .yourName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 13vw;
+  min-width: 270px;
+  position: relative;
+}
+@media (max-width: 1000px) {
+  .nav .yourName {
+    flex-direction: row-reverse;
+  }
+}
+.nav .yourName .yourNameLabel {
+  color: rgb(255, 255, 255);
+}
+.nav .yourName .yourNameLabel .yourNameIcon {
+  height: 45px;
+  margin: 5px;
+  filter: saturate(1.4) contrast(1.1);
+}
+.nav .yourName .yourNameLabel .yourNameIcon:hover {
+  cursor: pointer;
+}
+@keyframes shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1px, -1px);
+  }
+  50% {
+    transform: translate(0.5px, 0);
+  }
+  75% {
+    transform: translate(0, 0.5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.nav .yourName .userNameInput {
+  width: 100%;
+  height: 35px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  outline: none;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-left: 2px solid rgb(255, 255, 255);
+  border-right: 2px solid rgb(231, 47, 46);
+  border-bottom: 2px solid rgb(231, 47, 46);
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.nav .yourName .userNameInput::-moz-placeholder {
+  background: linear-gradient(0deg, rgb(255, 255, 255) 40%, rgb(232, 46, 45) 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav .yourName .userNameInput::placeholder {
+  background: linear-gradient(0deg, rgb(255, 255, 255) 40%, rgb(232, 46, 45) 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .contentCards {
   max-height: -moz-fit-content;
@@ -426,6 +500,7 @@ main {
   width: -moz-fit-content;
   width: fit-content;
   margin-inline: auto;
+  margin-top: 20px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -496,11 +571,11 @@ main {
 .contentCards .container .card .info {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 85%;
 }
 .contentCards .container .card .info .infoLeft {
   margin-top: 5px;
-  margin-left: 10px;
 }
 .contentCards .container .card .info .infoLeft .name {
   font-size: 1.125rem;
@@ -508,7 +583,6 @@ main {
 }
 .contentCards .container .card .info .infoRight {
   margin-top: 5px;
-  margin-right: 10px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -599,7 +673,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - 35px);
+  top: calc(50% - 15px);
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -638,7 +712,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - 35px);
+  top: calc(50% - 15px);
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -746,7 +820,7 @@ main {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: -100px;
+  top: -80px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -859,13 +933,13 @@ main {
 .contentBigCard .containerBigCard .infoBox .info {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 85%;
 }
 .contentBigCard .containerBigCard .infoBox .info .infoLeft {
   display: flex;
   align-items: center;
   margin-top: 5px;
-  margin-left: 10px;
 }
 .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
   font-size: 1.5rem;
@@ -883,7 +957,6 @@ main {
 }
 .contentBigCard .containerBigCard .infoBox .info .infoRight {
   margin-top: 5px;
-  margin-right: 10px;
   display: flex;
   align-items: center;
   gap: 5px;

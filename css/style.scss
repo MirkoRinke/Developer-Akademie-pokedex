@@ -12,7 +12,7 @@ $BigCardFactor: 0.45;
 $BigCardHeight: calc(377px / $BigCardFactor);
 $BigCardWidth: calc(270px / $BigCardFactor);
 
-$navHeight: 100px;
+$navHeight: 80px;
 
 .bg {
   background-image: url(../assets/img/bg2.jpg);
@@ -57,17 +57,18 @@ main {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1820px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1720px;
   width: 100%;
   height: $navHeight;
   margin-inline: auto;
-  padding: 25px;
+  padding-top: 10px;
+  gap: 20px;
 
   @media (max-width: $breakpoint-lg) {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   @media (max-width: $breakpoint-xs) {
     grid-template-columns: repeat(1, 1fr);
@@ -78,6 +79,10 @@ main {
 
   .homeButton {
     height: 60px;
+
+    @media (max-width: $breakpoint-xs) {
+      margin-top: 25px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -90,7 +95,7 @@ main {
     justify-content: center;
     gap: 10px;
     width: 13vw;
-    min-width: 250px;
+    min-width: 270px;
     position: relative;
 
     .searchLabel {
@@ -98,6 +103,7 @@ main {
 
       .searchIcon {
         height: 35px;
+        margin: 10px;
         animation: shake 1s infinite;
 
         &:hover {
@@ -182,6 +188,73 @@ main {
       }
     }
   }
+
+  .yourName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 13vw;
+    min-width: 270px;
+    position: relative;
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: row-reverse;
+    }
+
+    .yourNameLabel {
+      color: $pokemonWhite;
+
+      .yourNameIcon {
+        height: 45px;
+        margin: 5px;
+        filter: saturate(1.4) contrast(1.1);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(-1px, -1px);
+        }
+        50% {
+          transform: translate(0.5px, 0);
+        }
+        75% {
+          transform: translate(0, 0.5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+    }
+
+    .userNameInput {
+      width: 100%;
+      height: 35px;
+      color: $pokemonWhite;
+      background-color: transparent;
+      outline: none;
+      border-top: 2px solid $pokemonWhite;
+      border-left: 2px solid $pokemonWhite;
+      border-right: 2px solid $pokemonRed;
+      border-bottom: 2px solid $pokemonRed;
+      border-radius: 5px;
+      padding-left: 10px;
+
+      &::placeholder {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1) 40%, rgba(232, 46, 45, 1) 60%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
 }
 
 .contentCards {
@@ -189,6 +262,7 @@ main {
   max-width: 1440px;
   width: fit-content;
   margin-inline: auto;
+  margin-top: 20px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -255,11 +329,11 @@ main {
       .info {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
+        width: 85%;
 
         .infoLeft {
           margin-top: 5px;
-          margin-left: 10px;
 
           .name {
             font-size: 1.125rem;
@@ -269,7 +343,6 @@ main {
 
         .infoRight {
           margin-top: 5px;
-          margin-right: 10px;
           display: flex;
           align-items: center;
           gap: 5px;
@@ -651,13 +724,13 @@ main {
       .info {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
+        width: 85%;
 
         .infoLeft {
           display: flex;
           align-items: center;
           margin-top: 5px;
-          margin-left: 10px;
 
           .name {
             font-size: 1.5rem;
@@ -675,7 +748,6 @@ main {
 
         .infoRight {
           margin-top: 5px;
-          margin-right: 10px;
           display: flex;
           align-items: center;
           gap: 5px;

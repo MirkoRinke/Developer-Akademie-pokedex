@@ -6,7 +6,7 @@ function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pok
                 class="card ${pokemonDataArray.types[0].type.name}_card_before">
               <div class="info">
                   <div class="infoLeft">
-                      <h1 class="name">${pokemonNamesTextArray}</h1>
+                      <h2 class="name">${pokemonNamesTextArray}</h2>
                   </div>
                   <div class="infoRight">
                       <div class="battlePoints">${pokemonDataArray.stats[0].base_stat} HP</div>

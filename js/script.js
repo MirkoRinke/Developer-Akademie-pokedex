@@ -16,6 +16,7 @@ const containerRef = document.getElementsByClassName("container");
 const languageSettingsJa = document.getElementById("languageSettingsJa");
 const languageSettingsEn = document.getElementById("languageSettingsEn");
 const languageSettingsDe = document.getElementById("languageSettingsDe");
+const userNameInputRef = document.getElementById("userNameInput");
 let searchSuggestions = [];
 let pokemonDataCache = []; // Cache
 let pokemonStart = 1; // Start
@@ -248,7 +249,7 @@ async function getPokemonNamesText() {
   return namesTextArray;
 }
 
-//! Pokemon Details Big Card // backsideCard
+//! Pokemon Details Big Card
 function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
   pokeArrowLeftContainerRef.classList.toggle("d_none");
@@ -421,3 +422,33 @@ pokemonSearchInputRef.addEventListener("blur", function () {
     searchSuggestionsRef.classList.add("d_none");
   }, 300);
 });
+
+//! Your name your Pokemon
+function getUserName() {
+  let userName = userNameInputRef.value;
+  setTimeout(() => {
+    userNameInputRef.value = "";
+  }, 300);
+  return nameToPokemon(userName);
+}
+
+userNameInputRef.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    getUserName();
+  }
+});
+
+// https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript
+function nameToPokemon(userName) {
+  let hash = 0;
+  let pokemonArray = [];
+  for (let i = 1; i < pokemonLimit; i++) pokemonArray.push(i);
+  for (let i = 0; i < userName.length; i++) {
+    char = userName.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  if (hash == 1336663922) return showPokemonDetails(54);
+  let index = Math.abs(hash) % pokemonArray.length;
+  return showPokemonDetails(index);
+}
