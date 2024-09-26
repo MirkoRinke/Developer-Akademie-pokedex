@@ -1057,8 +1057,13 @@ main {
   justify-content: center;
   align-items: center;
   width: 85%;
-  gap: 25px;
+  gap: 0px;
   margin-bottom: 25px;
+}
+@media (max-width: 1000px) {
+  .contentBigCard .containerBigCard .infoBox .quickInfos {
+    gap: 15px;
+  }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .quickInfos {
@@ -1083,11 +1088,6 @@ main {
   gap: 30px;
   width: 85%;
   margin-block: 20px;
-}
-@media (max-width: 1000px) {
-  .contentBigCard .containerBigCard .infoBox .quickInfos .types {
-    gap: 30px;
-  }
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .quickInfos .types {

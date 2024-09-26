@@ -853,8 +853,12 @@ main {
         justify-content: center;
         align-items: center;
         width: 85%;
-        gap: 25px;
+        gap: 0px;
         margin-bottom: 25px;
+
+        @media (max-width: $breakpoint-xs) {
+          gap: 15px;
+        }
 
         @media (max-width: $breakpoint-xxxs) {
           gap: 5px;
@@ -878,10 +882,6 @@ main {
           gap: 30px;
           width: 85%;
           margin-block: 20px;
-
-          @media (max-width: $breakpoint-xs) {
-            gap: 30px;
-          }
 
           @media (max-width: $breakpoint-xxxs) {
             gap: 15px;

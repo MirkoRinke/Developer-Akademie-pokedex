@@ -16,7 +16,7 @@ export const userNameInputRef = document.getElementById("userNameInput");
 
 export let searchSuggestions = [];
 export let pokemonDataCache = [];
-export let pokemonLimit = 11; // 152 , 1026
+export let pokemonLimit = 152; // 152 , 1026
 
 export let pokemonStart = 1; // Start
 window.overwritePokemonStart = overwritePokemonStart;

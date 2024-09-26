@@ -110,8 +110,8 @@ function renderChart(attack, defense, specialAttack, specialDefense, speed) {
         ],
       },
       options: {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: true,
         scales: {
           y: {
             grid: {
