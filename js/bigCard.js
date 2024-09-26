@@ -27,6 +27,9 @@ export function showPokemonDetails(IndexPokeID) {
   }
   overwriteBigCardOpen(true);
   renderPokemonDetails(IndexPokeID);
+  // setTimeout(() => {
+  //   getDataForChart();
+  // }, 1);
 }
 
 function toggleBigCard() {
@@ -80,4 +83,80 @@ export async function renderPokemonDetails(IndexPokeID) {
     IndexPokeID,
     labels
   );
+  getDataForChart(pokemonDataArray[IndexPokeID - 1]);
+}
+
+function getDataForChart(pokemonDataArray) {
+  let attack = pokemonDataArray.stats[1].base_stat;
+  let defense = pokemonDataArray.stats[2].base_stat;
+  let specialAttack = pokemonDataArray.stats[3].base_stat;
+  let specialDefense = pokemonDataArray.stats[4].base_stat;
+  let speed = pokemonDataArray.stats[5].base_stat;
+
+  renderChart(attack, defense, specialAttack, specialDefense, speed);
+}
+
+function renderChart(attack, defense, specialAttack, specialDefense, speed) {
+  const ctx = document.getElementById("myChart");
+  if (ctx) {
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Atk", "Def", "Sp. Atk", "Sp. Def", "Spd"],
+        datasets: [
+          {
+            data: [attack, defense, specialAttack, specialDefense, speed],
+          },
+        ],
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            grid: {
+              display: false, // Rasterlinien
+            },
+            ticks: {
+              display: false, // Skalenwerte
+            },
+            title: {
+              display: false,
+            },
+            border: {
+              display: false, // X-Achsenlinie
+            },
+          },
+          x: {
+            grid: {
+              display: false, // Rasterlinien
+            },
+            ticks: {
+              display: true, // Skalenwerte
+              color: "black",
+            },
+            title: {
+              display: false,
+            },
+            border: {
+              display: false, // X-Achsenlinie
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          datalabels: {
+            anchor: "end",
+            align: "end",
+            offset: -30,
+            formatter: (value) => value,
+            color: "black",
+          },
+        },
+      },
+      plugins: [ChartDataLabels],
+    });
+  }
 }

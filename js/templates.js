@@ -33,14 +33,7 @@ export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArr
     `;
 }
 
-export function renderPokemonBigCardTemplate(
-  pokemonDataArray,
-  pokemonFlavorTextArray,
-  pokemonGeneraTextArray,
-  pokemonNamesTextArray,
-  IndexPokeID,
-  labels
-) {
+export function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID, labels) {
   return /*html*/ `
     <div class="containerBigCard">
         <div id="pokeArrowLeftBigCard" class="pokeArrowLeftBigCard">
@@ -74,20 +67,12 @@ export function renderPokemonBigCardTemplate(
             <p class="description">
                 ${pokemonFlavorTextArray.replaceAll("\f", "\n")}
             </p>
-            <div class="types">             
-                ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.svg" alt="" />` : ""}    
-                ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.svg" alt="" />` : ""}              
-            </div>
-            <div class="baseStats">
-                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/attack.png" alt="">${pokemonDataArray.stats[1].base_stat} </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/defense.png" alt="">${pokemonDataArray.stats[2].base_stat} </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/special-attack.png" alt="">${
-                  pokemonDataArray.stats[3].base_stat
-                } </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/special-defense.png" alt="">${
-                  pokemonDataArray.stats[4].base_stat
-                } </p>
-                <p class="baseStat" ><img class="baseStatIcon" src="./assets/icons/speed.png" alt="">${pokemonDataArray.stats[5].base_stat} </p>    
+            <div class="quickInfos">
+                <div class="types">             
+                    ${pokemonDataArray.types[0] ? `<img src="./assets/img/types/${pokemonDataArray.types[0].type.name}.svg" alt="" />` : ""}    
+                    ${pokemonDataArray.types[1] ? `<img src="./assets/img/types/${pokemonDataArray.types[1].type.name}.svg" alt="" />` : ""}
+                </div>
+                <canvas class="myChart" id="myChart"></canvas>              
             </div>
             <p class="footerLine">${labels.description}</p>
         </div>

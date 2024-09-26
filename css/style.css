@@ -1035,7 +1035,7 @@ main {
 }
 .contentBigCard .containerBigCard .infoBox .description {
   width: 85%;
-  height: 25%;
+  height: 15%;
   margin-top: 10px;
   font-size: 1.5rem;
   text-align: justify;
@@ -1052,71 +1052,60 @@ main {
     font-size: 0.875rem;
   }
 }
-.contentBigCard .containerBigCard .infoBox .types {
+.contentBigCard .containerBigCard .infoBox .quickInfos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .quickInfos {
+    gap: 5px;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .quickInfos .myChart {
+  max-height: 100% !important;
+  max-width: 100% !important;
+}
+@media (max-width: 550px) {
+  .contentBigCard .containerBigCard .infoBox .quickInfos .myChart {
+    max-height: 100% !important;
+    max-width: 80% !important;
+  }
+}
+.contentBigCard .containerBigCard .infoBox .quickInfos .types {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
   width: 85%;
   margin-block: 20px;
 }
-.contentBigCard .containerBigCard .infoBox .types img {
-  width: 30px;
-  filter: drop-shadow(1px 1px 0px #000000);
-}
 @media (max-width: 1000px) {
-  .contentBigCard .containerBigCard .infoBox .types img {
-    width: 20px;
+  .contentBigCard .containerBigCard .infoBox .quickInfos .types {
+    gap: 30px;
   }
 }
 @media (max-width: 550px) {
-  .contentBigCard .containerBigCard .infoBox .types img {
-    width: 15px;
-  }
-}
-.contentBigCard .containerBigCard .infoBox .baseStats {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 85%;
-  margin-top: 10px;
-}
-@media (max-width: 550px) {
-  .contentBigCard .containerBigCard .infoBox .baseStats {
+  .contentBigCard .containerBigCard .infoBox .quickInfos .types {
     gap: 15px;
   }
 }
-.contentBigCard .containerBigCard .infoBox .baseStats .baseStat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
+.contentBigCard .containerBigCard .infoBox .quickInfos .types img {
+  width: 40px;
+  filter: drop-shadow(1px 1px 0px #000000);
 }
 @media (max-width: 1000px) {
-  .contentBigCard .containerBigCard .infoBox .baseStats .baseStat {
-    font-size: 1.25rem;
-    margin-bottom: 40px;
+  .contentBigCard .containerBigCard .infoBox .quickInfos .types img {
+    width: 30px;
   }
 }
 @media (max-width: 550px) {
-  .contentBigCard .containerBigCard .infoBox .baseStats .baseStat {
-    font-size: 0.875rem;
-  }
-}
-.contentBigCard .containerBigCard .infoBox .baseStats .baseStat .baseStatIcon {
-  height: 32px;
-  width: 32px;
-}
-@media (max-width: 1000px) {
-  .contentBigCard .containerBigCard .infoBox .baseStats .baseStat .baseStatIcon {
-    height: 25px;
-    width: 25px;
-  }
-}
-@media (max-width: 550px) {
-  .contentBigCard .containerBigCard .infoBox .baseStats .baseStat .baseStatIcon {
-    height: 18px;
-    width: 18px;
+  .contentBigCard .containerBigCard .infoBox .quickInfos .types img {
+    width: 20px;
   }
 }
 .contentBigCard .containerBigCard .infoBox .footerLine {
