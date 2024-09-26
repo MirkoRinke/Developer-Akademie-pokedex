@@ -552,6 +552,7 @@ main {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  mix-blend-mode: hard-light;
 }
 .contentCards .container .card .info {
   display: flex;
@@ -914,6 +915,7 @@ main {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  mix-blend-mode: hard-light;
 }
 .contentBigCard .containerBigCard .infoBox .info {
   display: flex;
