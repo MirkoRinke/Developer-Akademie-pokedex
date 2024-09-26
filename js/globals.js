@@ -1,4 +1,12 @@
-export const P = new Pokedex.Pokedex();
+const customOptions = {
+  protocol: "https",
+  hostName: "pokeapi.co",
+  versionPath: "/api/v2/",
+  cache: true,
+  timeout: 5 * 1000, // 5s
+  cacheImages: true,
+};
+export const P = new Pokedex.Pokedex(customOptions);
 export const contentBigCardRef = document.getElementById("contentBigCard");
 export const pokeArrowLeftContainerRef = document.getElementById("pokeArrowLeftContainer");
 export const pokeArrowRightContainerRef = document.getElementById("pokeArrowRightContainer");

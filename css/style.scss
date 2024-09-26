@@ -151,9 +151,10 @@ main {
       left: 0;
       color: $pokemonRed;
       background-color: $pokemonWhite;
-      border: 2px solid $pokemonRed;
+      border: 4px solid $pokemonRed;
       border-radius: 3px;
       padding: 5px;
+      margin-top: 10px;
       z-index: 2;
 
       :hover {
@@ -162,8 +163,8 @@ main {
       .suggestion {
         padding: 5px;
         &:hover {
-          background-color: $pokemonRed;
-          color: $pokemonWhite;
+          background-color: black;
+          color: white;
           border-radius: 3px;
         }
       }
