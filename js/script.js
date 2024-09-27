@@ -1,5 +1,5 @@
 import { backToHome, backward, forward } from "./navigate.js";
-import { preLoadPokemonAPIData, selectedPokemonLimit } from "./pokeapiData.js";
+import { preLoadPokemonAPIData, selectedPokemonLimit, showRegionsMenu } from "./pokeapiData.js";
 import { showLoadingScreen } from "./loadingScreen.js";
 import { selectedLanguage } from "./language.js";
 import { renderPokemonCards } from "./cards.js";
@@ -15,6 +15,7 @@ window.backToHome = backToHome;
 window.backward = backward;
 window.forward = forward;
 window.getUserName = getUserName;
+window.showRegionsMenu = showRegionsMenu;
 window.selectedPokemonLimit = selectedPokemonLimit;
 window.loadAndRenderPokemonCards = loadAndRenderPokemonCards;
 

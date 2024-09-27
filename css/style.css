@@ -406,92 +406,46 @@ main {
   color: white;
   border-radius: 3px;
 }
-.nav .languageSettings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
-  gap: 10px;
+.nav .pokemonRegions .pokemonRegionsIcon {
+  height: 55px;
 }
-.nav .languageSettings img {
-  width: 35px;
-  height: 35px;
-  border-radius: 99999px;
-}
-.nav .languageSettings img:hover {
+.nav .pokemonRegions .pokemonRegionsIcon:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-.nav .pokemonLimit {
-  display: flex;
-  align-items: center;
-}
-.nav .pokemonLimit .gameboyIcon {
-  height: 45px;
-  margin: 10px;
-}
-@media (max-width: 1000px) {
-  .nav .pokemonLimit .gameboyIcon {
-    margin: 10px 15px 10px 5px;
-  }
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer {
-  position: relative;
-  display: flex;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer:hover .pokemonLimitItems {
-  display: block;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer:hover .pokemonLimitButton {
-  background-color: white;
-  border-bottom: unset;
-  border-radius: 3px 3px 0px 0px;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer .pokemonLimitButton {
-  background-color: white;
-  color: black;
-  padding: 8px;
-  font-size: 16px;
-  border: none;
-  height: 35px;
-  min-width: 176px;
-  border: 2px solid rgb(231, 47, 46);
-  border-radius: 3px 3px 3px 3px;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer .pokemonLimitButton:hover {
-  cursor: pointer;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer .pokemonLimitItems {
-  display: none;
+.nav .pokemonRegions .selectedPokemonRegions {
   position: absolute;
-  top: 35px;
+  top: -35%;
   left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  min-width: 176px;
-  z-index: 1;
-  border: 2px solid rgb(231, 47, 46);
-  border-top: unset;
-  border-radius: 0px 0px 3px 3px;
-  padding: 5px;
-}
-.nav .pokemonLimit .pokemonLimitButtonContainer .pokemonLimitItems a {
-  color: black;
-  padding: 5px;
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 25px;
   height: -moz-fit-content;
   height: fit-content;
-  padding-inline: 25px;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: white;
+  transform: translateX(-50%);
+  z-index: 1;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+  transition: top 1s ease-in-out;
 }
-.nav .pokemonLimit .pokemonLimitButtonContainer .pokemonLimitItems a:hover {
+.nav .pokemonRegions .selectedPokemonRegions img {
+  height: 50px;
+  width: auto;
+}
+.nav .pokemonRegions .selectedPokemonRegions img:hover {
   cursor: pointer;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
+  transform: scale(1.1);
+}
+.nav .pokemonRegions .transformIn {
+  transition: top 1s ease-in-out;
+  top: 15%;
 }
 .nav .yourName {
   display: flex;
@@ -547,6 +501,23 @@ main {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.nav .languageSettings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+.nav .languageSettings img {
+  width: 35px;
+  height: 35px;
+  border-radius: 99999px;
+}
+.nav .languageSettings img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .contentCards {
@@ -685,7 +656,7 @@ main {
   width: 85%;
   height: 20%;
   margin-top: 10px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-align: justify;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -1111,7 +1082,7 @@ main {
   width: 85%;
   height: 15%;
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: justify;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);

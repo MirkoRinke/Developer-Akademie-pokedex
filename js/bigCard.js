@@ -27,9 +27,6 @@ export function showPokemonDetails(IndexPokeID) {
   }
   overwriteBigCardOpen(true);
   renderPokemonDetails(IndexPokeID);
-  // setTimeout(() => {
-  //   getDataForChart();
-  // }, 1);
 }
 
 function toggleBigCard() {

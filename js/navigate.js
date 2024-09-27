@@ -1,4 +1,4 @@
-import { pokemonStart, pokemonEnd, pokemonLimit, bigCardOpen, loadingCompleted } from "./globals.js";
+import { pokemonStart, pokemonEnd, pokemonLimit, bigCardOpen, loadingCompleted, RegionsMenuOpen } from "./globals.js";
 import { renderPokemonCards } from "./cards.js";
 
 export function backToHome() {
@@ -51,7 +51,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter" && !bigCardOpen && loadingCompleted) {
+  if (event.key === "Enter" && !bigCardOpen && !RegionsMenuOpen && loadingCompleted) {
     const activeElement = document.activeElement;
     if (activeElement) activeElement.click();
   }

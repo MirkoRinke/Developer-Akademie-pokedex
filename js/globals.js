@@ -21,7 +21,7 @@ export const languageSettingsJa = document.getElementById("languageSettingsJa");
 export const languageSettingsEn = document.getElementById("languageSettingsEn");
 export const languageSettingsDe = document.getElementById("languageSettingsDe");
 export const userNameInputRef = document.getElementById("userNameInput");
-
+export const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
 export let searchSuggestions = [];
 export let pokemonDataCache = [];
 
@@ -65,4 +65,10 @@ export let loadingCompleted = false;
 window.overwriteLoadingCompleted = overwriteLoadingCompleted;
 function overwriteLoadingCompleted(overwrite) {
   loadingCompleted = overwrite;
+}
+
+export let RegionsMenuOpen = false;
+window.overwriteRegionsMenuOpen = overwriteRegionsMenuOpen;
+function overwriteRegionsMenuOpen(overwrite) {
+  RegionsMenuOpen = overwrite;
 }

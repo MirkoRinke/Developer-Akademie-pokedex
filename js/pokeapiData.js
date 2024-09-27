@@ -1,4 +1,5 @@
-import { P, pokemonDataCache, pokemonLimit, currentLanguage } from "./globals.js";
+import { P, pokemonDataCache, pokemonLimit, currentLanguage, selectedPokemonRegionsRef, RegionsMenuOpen } from "./globals.js";
+import { customFlavorTextGer, customFlavorTextJa, customGeneraTextGer, customGeneraTextJa } from "./fallbackFlavorText.js";
 
 export async function preLoadPokemonAPIData() {
   const promises = [];
@@ -36,9 +37,16 @@ export async function getPokemonFlavorText() {
         break;
       }
     }
+    if (!pokeFlavorText) pokeFlavorText = getFallbackFlavorText(IndexPokeID);
     flavorTextArray.push(pokeFlavorText);
   }
   return flavorTextArray;
+}
+
+function getFallbackFlavorText(IndexPokeID) {
+  if (currentLanguage === "de") return customFlavorTextGer[IndexPokeID] || "";
+  if (currentLanguage === "ja") return customFlavorTextJa[IndexPokeID] || "";
+  return "";
 }
 
 export async function getPokemonGeneraText() {
@@ -52,9 +60,16 @@ export async function getPokemonGeneraText() {
         break;
       }
     }
+    if (!pokeGenera) pokeGenera = getFallbackGeneraText(IndexPokeID);
     generaTextArray.push(pokeGenera);
   }
   return generaTextArray;
+}
+
+function getFallbackGeneraText(IndexPokeID) {
+  if (currentLanguage === "de") return customGeneraTextGer[IndexPokeID] || "";
+  if (currentLanguage === "ja") return customGeneraTextJa[IndexPokeID] || "";
+  return "";
 }
 
 export async function getPokemonNamesText() {
@@ -73,9 +88,21 @@ export async function getPokemonNamesText() {
   return namesTextArray;
 }
 
+export function showRegionsMenu() {
+  selectedPokemonRegionsRef.classList.toggle("transformIn");
+  overwriteRegionsMenuOpen(!RegionsMenuOpen);
+}
+
 export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, selectedPokemonLimit) {
   overwritePokemonLimit(selectedPokemonLimit);
   overwritePokemonStart(selectedPokemonStart);
   overwritePokemonEnd(selectedPokemonEnd);
-  loadAndRenderPokemonCards();
+  showRegionsMenu();
+  setTimeout(() => {
+    loadAndRenderPokemonCards();
+  }, 1000);
 }
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && RegionsMenuOpen) showRegionsMenu();
+});
