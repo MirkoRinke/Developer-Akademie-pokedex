@@ -20,6 +20,25 @@
         <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
         <div id="searchSuggestions" class="searchSuggestions d_none"></div>
       </div>
+
+      <div class="pokemonLimit">
+        <!-- <img class="gameboyIcon" src="./assets/icons/gameboy.png" alt="" /> -->
+        <div class="pokemonLimitButtonContainer">
+          <button id="pokemonLimitButton" class="pokemonLimitButton">Editions</button>
+          <div class="pokemonLimitItems">
+            <a onclick="selectedPokemonLimit(1,11,152)"><span>Kanto</span> <span>151</span></a>
+            <a onclick="selectedPokemonLimit(153,163,252)"><span>Johto</span> <span>251</span></a>
+            <a onclick="selectedPokemonLimit(253,263,387)"><span>Hoenn</span> <span>386</span></a>
+            <a onclick="selectedPokemonLimit(388,398,494)"><span>Sinnoh</span> <span>493</span></a>
+            <a onclick="selectedPokemonLimit(495,505,650)"><span>Einall</span> <span>649</span></a>
+            <a onclick="selectedPokemonLimit(651,661,722)"><span>Kalos</span> <span>721</span></a>
+            <a onclick="selectedPokemonLimit(723,733,810)"><span>Alola</span> <span>809</span></a>
+            <a onclick="selectedPokemonLimit(811,821,899)"><span>Galar</span> <span>898</span></a>
+            <a onclick="selectedPokemonLimit(900,910,1026)"><span>Paldea</span> <span>1025</span></a>
+          </div>
+        </div>
+      </div>
+
       <div class="yourName">
         <input tabindex="3" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="Dein Name dein Pokemon" />
         <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>

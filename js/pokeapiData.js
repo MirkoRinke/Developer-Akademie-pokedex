@@ -72,3 +72,10 @@ export async function getPokemonNamesText() {
   }
   return namesTextArray;
 }
+
+export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, selectedPokemonLimit) {
+  overwritePokemonLimit(selectedPokemonLimit);
+  overwritePokemonStart(selectedPokemonStart);
+  overwritePokemonEnd(selectedPokemonEnd);
+  loadAndRenderPokemonCards();
+}

@@ -57,8 +57,8 @@ main {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 1720px;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1612px;
   width: 100%;
   height: $navHeight;
   margin-inline: auto;
@@ -68,8 +68,10 @@ main {
   @media (max-width: $breakpoint-lg) {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
   }
+
   @media (max-width: $breakpoint-xs) {
     grid-template-columns: repeat(1, 1fr);
     height: fit-content;
@@ -95,7 +97,7 @@ main {
     justify-content: center;
     gap: 10px;
     width: 13vw;
-    min-width: 270px;
+    min-width: 241px;
     position: relative;
 
     .searchLabel {
@@ -190,13 +192,91 @@ main {
     }
   }
 
+  .pokemonLimit {
+    display: flex;
+    align-items: center;
+
+    .gameboyIcon {
+      height: 45px;
+      margin: 10px;
+
+      @media (max-width: $breakpoint-xs) {
+        margin: 10px 15px 10px 5px;
+      }
+    }
+
+    .pokemonLimitButtonContainer {
+      position: relative;
+      display: flex;
+
+      &:hover .pokemonLimitItems {
+        display: block;
+      }
+
+      &:hover .pokemonLimitButton {
+        background-color: white;
+        border-bottom: unset;
+        border-radius: 3px 3px 0px 0px;
+      }
+
+      .pokemonLimitButton {
+        background-color: white;
+        color: black;
+        padding: 8px;
+        font-size: 16px;
+        border: none;
+        height: 35px;
+        min-width: 176px;
+        border: 2px solid $pokemonRed;
+        border-radius: 3px 3px 3px 3px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .pokemonLimitItems {
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        min-width: 176px;
+        z-index: 1;
+        border: 2px solid $pokemonRed;
+        border-top: unset;
+        border-radius: 0px 0px 3px 3px;
+        padding: 5px;
+
+        & a {
+          color: black;
+          padding: 5px;
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: fit-content;
+          padding-inline: 25px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+
   .yourName {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     width: 13vw;
-    min-width: 270px;
+    min-width: 241px;
     position: relative;
 
     @media (max-width: $breakpoint-xs) {
@@ -232,7 +312,7 @@ main {
       caret-color: white;
 
       &::placeholder {
-        font-size: 14px;
+        font-size: 12px;
         padding-left: 5px;
         background: linear-gradient(0deg, rgba(255, 255, 255, 1) 40%, rgba(232, 46, 45, 1) 60%);
         background-clip: text;
