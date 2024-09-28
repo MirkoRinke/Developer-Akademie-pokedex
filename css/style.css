@@ -389,7 +389,7 @@ main {
   left: 0;
   color: rgb(231, 47, 46);
   background-color: rgb(255, 255, 255);
-  border: 4px solid rgb(231, 47, 46);
+  border: 2px solid rgb(231, 47, 46);
   border-radius: 3px;
   padding: 5px;
   margin-top: 10px;
@@ -408,10 +408,28 @@ main {
 }
 .nav .pokemonRegions .pokemonRegionsIcon {
   height: 55px;
+  animation: tilting 5s infinite;
 }
 .nav .pokemonRegions .pokemonRegionsIcon:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+@keyframes tilting {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-5px, 0) rotate(-5deg);
+  }
+  50% {
+    transform: translate(5px, 0) rotate(5deg);
+  }
+  75% {
+    transform: translate(-5px, 0) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 .nav .pokemonRegions .selectedPokemonRegions {
   position: absolute;
