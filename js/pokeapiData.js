@@ -1,5 +1,5 @@
 import { P, pokemonDataCache, pokemonLimit, currentLanguage, selectedPokemonRegionsRef, RegionsMenuOpen } from "./globals.js";
-import { customFlavorTextGer, customFlavorTextJa, customGeneraTextGer, customGeneraTextJa } from "./fallbackFlavorText.js";
+import { customFlavorTextGer, customFlavorTextJa, customGeneraTextGer, customGeneraTextJa } from "./cardsFallbackText.js";
 
 export async function preLoadPokemonAPIData() {
   const promises = [];
