@@ -8,6 +8,7 @@ const customOptions = {
 };
 export const P = new Pokedex.Pokedex(customOptions);
 export const contentBigCardRef = document.getElementById("contentBigCard");
+export const contentRef = document.getElementById("content");
 export const pokeArrowLeftContainerRef = document.getElementById("pokeArrowLeftContainer");
 export const pokeArrowRightContainerRef = document.getElementById("pokeArrowRightContainer");
 export const pokeArrowMobileButtonsLeftRef = document.getElementById("pokeArrowMobileButtonsLeft");

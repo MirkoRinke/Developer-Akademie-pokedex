@@ -81,6 +81,7 @@ main {
 
   .homeButton {
     height: 60px;
+    order: 1;
 
     @media (max-width: $breakpoint-xs) {
       margin-top: 25px;
@@ -99,6 +100,11 @@ main {
     width: 13vw;
     min-width: 241px;
     position: relative;
+    order: 2;
+
+    @media (max-width: $breakpoint-xs) {
+      order: 3;
+    }
 
     .searchLabel {
       color: $pokemonWhite;
@@ -174,30 +180,31 @@ main {
   }
 
   .pokemonRegions {
+    order: 3;
+
+    @media (max-width: $breakpoint-xs) {
+      order: 2;
+    }
+
     .pokemonRegionsIcon {
       height: 55px;
       animation: tilting 5s infinite;
+      filter: drop-shadow(0px 0px 10px #000000);
 
       &:hover {
         cursor: pointer;
-        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 5px #ffffff);
       }
 
       @keyframes tilting {
         0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
           transform: translate(-5px, 0) rotate(-5deg);
         }
         50% {
           transform: translate(5px, 0) rotate(5deg);
         }
-        75% {
-          transform: translate(-5px, 0) rotate(-5deg);
-        }
         100% {
-          transform: translate(0, 0) rotate(0deg);
+          transform: translate(-5px, 0) rotate(-5deg);
         }
       }
     }
@@ -206,11 +213,13 @@ main {
       top: -35%;
       left: 50%;
       display: grid;
+      justify-items: center;
       grid-template-columns: repeat(3, 1fr);
       gap: 50px;
       padding: 25px;
       height: fit-content;
       width: fit-content;
+      min-width: 300px;
       background-color: white;
       transform: translateX(-50%);
       z-index: 1;
@@ -221,20 +230,33 @@ main {
       background-color: rgba(17, 25, 40, 0.5);
       transition: top 1s ease-in-out;
 
+      box-shadow: 0px 0px 16px 5px #000000;
+
+      @media (max-width: $breakpoint-xxs) {
+        grid-template-columns: repeat(2, 1fr);
+        top: -60%;
+      }
+
+      @media (max-width: $breakpoint-xxxs) {
+        grid-template-columns: repeat(1, 1fr);
+        top: -100%;
+      }
+
       & img {
         height: 50px;
         width: auto;
+        filter: drop-shadow(0px 0px 10px #000000);
 
         &:hover {
           cursor: pointer;
-          transform: scale(1.1);
+          filter: drop-shadow(0px 0px 5px #ffffff);
         }
       }
     }
 
     .transformIn {
       transition: top 1s ease-in-out;
-      top: 15%;
+      top: 18%;
     }
   }
 
@@ -246,6 +268,7 @@ main {
     width: 13vw;
     min-width: 241px;
     position: relative;
+    order: 4;
 
     @media (max-width: $breakpoint-xs) {
       flex-direction: row-reverse;
@@ -296,6 +319,7 @@ main {
     align-items: center;
     width: fit-content;
     gap: 10px;
+    order: 5;
 
     & img {
       width: 35px;
