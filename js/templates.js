@@ -595,7 +595,7 @@ export function renderFooterTemplate(currentLanguage) {
   `;
 }
 
-export function renderPokemonRegionsTemplate(currentLanguage) {
+export function renderPokemonRegionsNavTemplate(currentLanguage) {
   return /*html*/ `
       <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions${currentLanguage.replace('"', " ")}.png" alt="" />
       <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
@@ -610,4 +610,11 @@ export function renderPokemonRegionsTemplate(currentLanguage) {
         <img src="./assets/icons/paldea${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
       </div>
     `;
+}
+
+export function renderYourNameNavTemplate(placeholderText) {
+  return /*html*/ `
+      <input tabindex="4" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="${placeholderText}" />
+      <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
+  `;
 }

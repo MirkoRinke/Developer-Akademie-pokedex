@@ -26,7 +26,6 @@ export const containerRef = document.getElementsByClassName("container");
 export const languageSettingsJa = document.getElementById("languageSettingsJa");
 export const languageSettingsEn = document.getElementById("languageSettingsEn");
 export const languageSettingsDe = document.getElementById("languageSettingsDe");
-export const userNameInputRef = document.getElementById("userNameInput");
 export const footerRef = document.getElementById("footer");
 
 export let searchSuggestions = [];

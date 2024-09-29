@@ -10,6 +10,7 @@ import { renderImprint } from "./imprint.js";
 import { renderPrivacyPolicy } from "./privacyPolicy.js";
 import { renderFooter } from "./footer.js";
 import { renderPokemonRegions, selectedPokemonLimit, toggleRegionsMenu } from "./pokemonRegions.js";
+import { renderYourName } from "./yourName.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;
@@ -27,6 +28,7 @@ window.renderPrivacyPolicy = renderPrivacyPolicy;
 window.renderFooter = renderFooter;
 window.renderPokemonRegion = renderPokemonRegions;
 
+renderYourName();
 renderFooter();
 renderPokemonRegions();
 

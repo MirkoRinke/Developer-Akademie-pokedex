@@ -1,7 +1,17 @@
-import { userNameInputRef, pokemonLimit, loadingCompleted } from "./globals.js";
+import { pokemonLimit, loadingCompleted, yourNameRef, currentLanguage } from "./globals.js";
+import { renderYourNameNavTemplate } from "./templates.js";
+
+export function renderYourName() {
+  let placeholderText = "";
+  if (currentLanguage === "de") placeholderText = "Dein Name dein Pokemon";
+  if (currentLanguage === "en") placeholderText = "Your name your Pokemon";
+  if (currentLanguage === "ja") placeholderText = "あなたの名前、あなたのポケモン";
+  yourNameRef.innerHTML = renderYourNameNavTemplate(placeholderText);
+}
 
 export function getUserName() {
   if (!loadingCompleted) return;
+  const userNameInputRef = document.getElementById("userNameInput");
   let userName = userNameInputRef.value;
   setTimeout(() => {
     userNameInputRef.value = "";
@@ -9,8 +19,13 @@ export function getUserName() {
   return nameToPokemon(userName);
 }
 
-userNameInputRef.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") getUserName();
+document.addEventListener("keydown", function (event) {
+  const userNameInputRef = document.getElementById("userNameInput");
+  if (document.activeElement === userNameInputRef) {
+    if (event.key === "Enter") {
+      getUserName();
+    }
+  }
 });
 
 // https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript
