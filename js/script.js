@@ -6,6 +6,8 @@ import { renderPokemonCards } from "./cards.js";
 import { showPokemonDetails, renderPokemonDetails } from "./bigCard.js";
 import { clickSuggestions, getSuggestions } from "./search.js";
 import { getUserName } from "./yourName.js";
+import { renderImprint } from "./imprint.js";
+import { renderPrivacyPolicy } from "./privacyPolicy.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;
@@ -18,6 +20,8 @@ window.getUserName = getUserName;
 window.toggleRegionsMenu = toggleRegionsMenu;
 window.selectedPokemonLimit = selectedPokemonLimit;
 window.loadAndRenderPokemonCards = loadAndRenderPokemonCards;
+window.renderImprint = renderImprint;
+window.renderPrivacyPolicy = renderPrivacyPolicy;
 
 //! render PokemonCards after preLoad
 async function loadAndRenderPokemonCards() {

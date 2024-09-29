@@ -1,4 +1,21 @@
-import { pokemonStart, pokemonEnd, pokemonLimit, bigCardOpen, loadingCompleted, RegionsMenuOpen } from "./globals.js";
+import {
+  pokemonStart,
+  pokemonEnd,
+  pokemonLimit,
+  bigCardOpen,
+  loadingCompleted,
+  RegionsMenuOpen,
+  pokeArrowLeftContainerRef,
+  pokeArrowRightContainerRef,
+  pokeArrowMobileButtonsLeftRef,
+  pokeArrowMobileButtonsRightRef,
+  searchRef,
+  pokemonRegionsRef,
+  yourNameRef,
+  languageSettingsRef,
+  navRef,
+} from "./globals.js";
+
 import { renderPokemonCards } from "./cards.js";
 
 export function backToHome() {
@@ -6,6 +23,38 @@ export function backToHome() {
   overwritePokemonStart(1);
   overwritePokemonEnd(11);
   renderPokemonCards();
+  navButtonsShow();
+  menuButtonsShow();
+}
+
+export function navButtonsShow() {
+  pokeArrowLeftContainerRef.classList.remove("d_none");
+  pokeArrowRightContainerRef.classList.remove("d_none");
+  pokeArrowMobileButtonsLeftRef.classList.remove("d_none");
+  pokeArrowMobileButtonsRightRef.classList.remove("d_none");
+}
+
+export function navButtonsHide() {
+  pokeArrowLeftContainerRef.classList.add("d_none");
+  pokeArrowRightContainerRef.classList.add("d_none");
+  pokeArrowMobileButtonsLeftRef.classList.add("d_none");
+  pokeArrowMobileButtonsRightRef.classList.add("d_none");
+}
+
+export function menuButtonsShow() {
+  searchRef.classList.remove("d_none");
+  pokemonRegionsRef.classList.remove("d_none");
+  yourNameRef.classList.remove("d_none");
+  languageSettingsRef.classList.remove("d_none");
+  navRef.classList.remove("menuGridTemplateColumns");
+}
+
+export function menuButtonsHide() {
+  searchRef.classList.add("d_none");
+  pokemonRegionsRef.classList.add("d_none");
+  yourNameRef.classList.add("d_none");
+  languageSettingsRef.classList.add("d_none");
+  navRef.classList.add("menuGridTemplateColumns");
 }
 
 export function forward() {

@@ -77,6 +77,10 @@ a {
   text-decoration: none;
 }
 
+.menuGridTemplateColumns {
+  grid-template-columns: repeat(1, 1fr) !important;
+}
+
 .grass_window_bg {
   background-image: url(../assets/img/window_bgs/grass_window_bg.jpg);
 }
@@ -279,7 +283,7 @@ a {
 
 main {
   max-width: 1920px;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 140px);
   margin-inline: auto;
   position: relative;
   display: flex;
@@ -296,10 +300,11 @@ main {
   display: grid;
   align-items: center;
   justify-items: center;
+  justify-content: center;
   grid-template-columns: repeat(5, 1fr);
   max-width: 1612px;
   width: 100%;
-  height: 80px;
+  height: 70px;
   margin-inline: auto;
   padding-top: 10px;
   gap: 20px;
@@ -747,7 +752,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - 15px);
+  top: calc(50% - 5px);
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -786,7 +791,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - 15px);
+  top: calc(50% - 5px);
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -894,7 +899,7 @@ main {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: -80px;
+  top: -70px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1272,4 +1277,71 @@ main {
   .contentBigCard .containerBigCard .pokeArrowRightBigCard .pokeArrowRightBall {
     height: 14px;
   }
+}
+
+.imprint {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  max-width: 1000px;
+  margin-inline: auto;
+  margin-top: 25px;
+  padding: 25px;
+  border: 2px solid rgb(231, 47, 46);
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  word-break: break-all;
+}
+.imprint .header,
+.imprint .address,
+.imprint .representedBy,
+.imprint .contact {
+  margin-block: 10px;
+}
+.imprint h2 {
+  margin-top: 15px;
+}
+.imprint h3 {
+  margin-block: 25px;
+}
+
+.privacyPolicy {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  max-width: 1000px;
+  margin-inline: auto;
+  margin-top: 25px;
+  padding: 25px;
+  border: 2px solid rgb(231, 47, 46);
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  word-break: break-all;
+}
+.privacyPolicy h1,
+.privacyPolicy h2,
+.privacyPolicy h3,
+.privacyPolicy p,
+.privacyPolicy ul {
+  margin-top: 15px;
+}
+.privacyPolicy ul {
+  margin-left: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+.footer img {
+  height: 50px;
+  filter: drop-shadow(0px 0px 10px #000000);
+}
+.footer img:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 5px #ffffff);
 }/*# sourceMappingURL=style.css.map */

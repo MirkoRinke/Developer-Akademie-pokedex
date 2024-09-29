@@ -13,14 +13,14 @@
   </head>
   <body id="body">
     <div class="bg"></div>
-    <nav class="nav">
-      <img onclick="backToHome()" tabindex="1" class="homeButton" src="./assets/icons/home.png" alt="" />
-      <div class="search">
+    <nav id="nav" class="nav">
+      <img onclick="backToHome()" tabindex="1" class="homeButton item" src="./assets/icons/home.png" alt="" />
+      <div id="search" class="search">
         <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
         <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
         <div id="searchSuggestions" class="searchSuggestions d_none"></div>
       </div>
-      <div class="pokemonRegions">
+      <div id="pokemonRegions" class="pokemonRegions">
         <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions.png" alt="" />
         <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
           <img src="./assets/icons/kanto.svg" alt="" onclick="selectedPokemonLimit(1,11,151)" />
@@ -34,11 +34,11 @@
           <img src="./assets/icons/paldea.svg" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
         </div>
       </div>
-      <div class="yourName">
+      <div id="yourName" class="yourName">
         <input tabindex="4" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="Dein Name dein Pokemon" />
         <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
       </div>
-      <div class="languageSettings">
+      <div id="languageSettings" class="languageSettings">
         <img tabindex="5" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
         <img tabindex="6" id="languageSettingsEn" onclick="selectedLanguage('en')" src="./assets/icons/us.svg" alt="" />
         <img tabindex="7" id="languageSettingsDe" onclick="selectedLanguage('de')" src="./assets/icons/de.svg" alt="" />
@@ -66,5 +66,9 @@
       </div>
       <section class="contentBigCard d_none" id="contentBigCard"></section>
     </main>
+    <footer class="footer">
+      <img onclick="renderImprint()" src="./assets/icons/imprint.png" alt="" />
+      <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy.png" alt="" />
+    </footer>
   </body>
 </html>

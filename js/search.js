@@ -1,15 +1,8 @@
-import {
-  pokemonSearchInputRef,
-  searchSuggestionsRef,
-  searchSuggestions,
-  pokemonDataCache,
-  pokemonLimit,
-  labels,
-  loadingCompleted,
-} from "./globals.js";
+import { pokemonSearchInputRef, searchSuggestionsRef, searchSuggestions, pokemonDataCache, pokemonLimit, labels, loadingCompleted } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderPokemonCardTemplate } from "./templates.js";
+import { navButtonsShow } from "./navigate.js";
 
 function pokemonSearchInput() {
   if (!loadingCompleted) return;
@@ -17,6 +10,7 @@ function pokemonSearchInput() {
     searchPokemonByName(pokemonSearchInputRef.value);
   } else {
     renderPokemonCards();
+    navButtonsShow();
   }
 }
 

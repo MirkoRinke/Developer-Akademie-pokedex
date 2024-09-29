@@ -1,25 +1,11 @@
-import {
-  contentBigCardRef,
-  pokeArrowLeftContainerRef,
-  pokeArrowRightContainerRef,
-  pokeArrowMobileButtonsLeftRef,
-  pokeArrowMobileButtonsRightRef,
-  cardRef,
-  pokemonCardRef,
-  containerRef,
-  pokemonLimit,
-  bigCardOpen,
-  labels,
-} from "./globals.js";
+import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonBigCardTemplate } from "./templates.js";
+import { navButtonsShow, navButtonsHide } from "./navigate.js";
 
 export function showPokemonDetails(IndexPokeID) {
   contentBigCardRef.classList.toggle("d_none");
-  pokeArrowLeftContainerRef.classList.toggle("d_none");
-  pokeArrowRightContainerRef.classList.toggle("d_none");
-  pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
-  pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
+  navButtonsHide();
   for (let i = 0; i < cardRef.length; i++) {
     cardRef[i].classList.toggle("backsideCard");
     containerRef[i].classList.toggle("transformOff");
@@ -31,10 +17,7 @@ export function showPokemonDetails(IndexPokeID) {
 
 function toggleBigCard() {
   contentBigCardRef.classList.toggle("d_none");
-  pokeArrowLeftContainerRef.classList.toggle("d_none");
-  pokeArrowRightContainerRef.classList.toggle("d_none");
-  pokeArrowMobileButtonsLeftRef.classList.toggle("d_none");
-  pokeArrowMobileButtonsRightRef.classList.toggle("d_none");
+  if (bigCardOpen) navButtonsShow();
   for (let i = 0; i < cardRef.length; i++) {
     cardRef[i].classList.toggle("backsideCard");
     containerRef[i].classList.toggle("transformOff");
