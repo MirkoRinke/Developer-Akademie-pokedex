@@ -1,6 +1,7 @@
 import { currentLanguage, loadingCompleted } from "./globals.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderFooter } from "./footer.js";
+import { renderPokemonRegions } from "./pokemonRegions.js";
 
 export function customTranslations() {
   const translations = {
@@ -30,6 +31,7 @@ export function selectedLanguage(selected) {
   customTranslations();
   renderPokemonCards();
   renderFooter();
+  renderPokemonRegions();
   getSelectedLanguage();
 }
 

@@ -1,4 +1,4 @@
-import { P, pokemonDataCache, pokemonLimit, currentLanguage, selectedPokemonRegionsRef, RegionsMenuOpen, contentRef } from "./globals.js";
+import { P, pokemonDataCache, pokemonLimit, currentLanguage, RegionsMenuOpen, contentRef } from "./globals.js";
 import { customFlavorTextGer, customFlavorTextJa, customGeneraTextGer, customGeneraTextJa } from "./cardsFallbackText.js";
 
 export async function preLoadPokemonAPIData() {
@@ -89,6 +89,7 @@ export async function getPokemonNamesText() {
 }
 
 export function toggleRegionsMenu() {
+  const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
   if (!RegionsMenuOpen) selectedPokemonRegionsRef.classList.toggle("d_none");
   setTimeout(() => {
     selectedPokemonRegionsRef.classList.toggle("transformIn");

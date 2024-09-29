@@ -20,20 +20,7 @@
         <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
         <div id="searchSuggestions" class="searchSuggestions d_none"></div>
       </div>
-      <div id="pokemonRegions" class="pokemonRegions">
-        <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions.png" alt="" />
-        <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
-          <img src="./assets/icons/kanto.svg" alt="" onclick="selectedPokemonLimit(1,11,151)" />
-          <img src="./assets/icons/johto.svg" alt="" onclick="selectedPokemonLimit(152,162,251)" />
-          <img src="./assets/icons/hoenn.svg" alt="" onclick="selectedPokemonLimit(252,262,386)" />
-          <img src="./assets/icons/sinnoh.svg" alt="" onclick="selectedPokemonLimit(387,397,493)" />
-          <img src="./assets/icons/einall.svg" alt="" onclick="selectedPokemonLimit(494,504,649)" />
-          <img src="./assets/icons/kalos.svg" alt="" onclick="selectedPokemonLimit(650,660,721)" />
-          <img src="./assets/icons/alola.svg" alt="" onclick="selectedPokemonLimit(722,732,809)" />
-          <img src="./assets/icons/galar.svg" alt="" onclick="selectedPokemonLimit(810,820,898)" />
-          <img src="./assets/icons/paldea.svg" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
-        </div>
-      </div>
+      <div id="pokemonRegions" class="pokemonRegions"></div>
       <div id="yourName" class="yourName">
         <input tabindex="4" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="Dein Name dein Pokemon" />
         <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>

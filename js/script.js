@@ -9,6 +9,7 @@ import { getUserName } from "./yourName.js";
 import { renderImprint } from "./imprint.js";
 import { renderPrivacyPolicy } from "./privacyPolicy.js";
 import { renderFooter } from "./footer.js";
+import { renderPokemonRegions } from "./pokemonRegions.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;
@@ -24,8 +25,10 @@ window.loadAndRenderPokemonCards = loadAndRenderPokemonCards;
 window.renderImprint = renderImprint;
 window.renderPrivacyPolicy = renderPrivacyPolicy;
 window.renderFooter = renderFooter;
+window.renderPokemonRegion = renderPokemonRegions;
 
 renderFooter();
+renderPokemonRegions();
 
 //! render PokemonCards after preLoad
 async function loadAndRenderPokemonCards() {

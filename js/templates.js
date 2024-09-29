@@ -594,3 +594,20 @@ export function renderFooterTemplate(currentLanguage) {
       <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
   `;
 }
+
+export function renderPokemonRegionsTemplate(currentLanguage) {
+  return /*html*/ `
+      <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions${currentLanguage.replace('"', " ")}.png" alt="" />
+      <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
+        <img src="./assets/icons/kanto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(1,11,151)" />
+        <img src="./assets/icons/johto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(152,162,251)" />
+        <img src="./assets/icons/hoenn${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(252,262,386)" />
+        <img src="./assets/icons/sinnoh${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(387,397,493)" />
+        <img src="./assets/icons/einall${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(494,504,649)" />
+        <img src="./assets/icons/kalos${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(650,660,721)" />
+        <img src="./assets/icons/alola${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(722,732,809)" />
+        <img src="./assets/icons/galar${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(810,820,898)" />
+        <img src="./assets/icons/paldea${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
+      </div>
+    `;
+}
