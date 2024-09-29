@@ -1135,6 +1135,11 @@ main {
   justify-content: center;
   align-items: center;
   height: $footerHeight;
+
+  @media (max-width: $breakpoint-xxxs) {
+    flex-direction: column;
+  }
+
   & img {
     height: 50px;
     filter: drop-shadow(0px 0px 10px #000000);
