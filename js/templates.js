@@ -588,15 +588,15 @@ export function renderPrivacyPolicyTemplate() {
 `;
 }
 
-export function renderFooterTemplate(currentLanguage) {
-  return /*html*/ `   
-      <img onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />
-      <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
-  `;
-}
-
-export function renderPokemonRegionsNavTemplate(currentLanguage) {
+export function renderNavTemplate(currentLanguage, placeholderText) {
   return /*html*/ `
+      <img onclick="backToHome()" tabindex="1" class="homeButton item" src="./assets/icons/home.png" alt="" />
+      <div id="search" class="search">
+        <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
+        <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
+        <div id="searchSuggestions" class="searchSuggestions d_none"></div>
+      </div>
+      <div id="pokemonRegions" class="pokemonRegions">
       <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions${currentLanguage.replace('"', " ")}.png" alt="" />
       <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
         <img src="./assets/icons/kanto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(1,11,151)" />
@@ -609,12 +609,22 @@ export function renderPokemonRegionsNavTemplate(currentLanguage) {
         <img src="./assets/icons/galar${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(810,820,898)" />
         <img src="./assets/icons/paldea${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
       </div>
-    `;
-}
-
-export function renderYourNameNavTemplate(placeholderText) {
-  return /*html*/ `
+      </div>
+      <div id="yourName" class="yourName">
       <input tabindex="4" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="${placeholderText}" />
       <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
+      </div>
+      <div id="languageSettings" class="languageSettings">
+        <img tabindex="5" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
+        <img tabindex="6" id="languageSettingsEn" onclick="selectedLanguage('en')" src="./assets/icons/us.svg" alt="" />
+        <img tabindex="7" id="languageSettingsDe" onclick="selectedLanguage('de')" src="./assets/icons/de.svg" alt="" />
+      </div>
+  `;
+}
+
+export function renderFooterTemplate(currentLanguage) {
+  return /*html*/ `   
+      <img onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />
+      <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
   `;
 }

@@ -1,10 +1,11 @@
-import { pokemonSearchInputRef, searchSuggestionsRef, searchSuggestions, pokemonDataCache, pokemonLimit, labels, loadingCompleted } from "./globals.js";
+import { searchSuggestions, pokemonDataCache, pokemonLimit, labels, loadingCompleted } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderPokemonCardTemplate } from "./templates.js";
 import { navButtonsShow } from "./navigate.js";
 
 function pokemonSearchInput() {
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
   if (!loadingCompleted) return;
   if (pokemonSearchInputRef.value.length >= 3) {
     searchPokemonByName(pokemonSearchInputRef.value);
@@ -14,8 +15,11 @@ function pokemonSearchInput() {
   }
 }
 
-pokemonSearchInputRef.addEventListener("input", function () {
-  pokemonSearchInput();
+document.addEventListener("input", function () {
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
+  if (document.activeElement === pokemonSearchInputRef) {
+    pokemonSearchInput();
+  }
 });
 
 async function searchPokemonByName(search) {
@@ -74,15 +78,20 @@ export async function getSuggestions() {
   }
 }
 
-pokemonSearchInputRef.addEventListener("input", function () {
-  const query = pokemonSearchInputRef.value.toLowerCase();
-  searchSuggestionsRef.innerHTML = "";
-  searchSuggestionsRef.classList.add("d_none");
-  if (pokemonSearchInputRef.value.length < 3) return;
-  showSearchSuggestions(query);
+document.addEventListener("input", function () {
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
+  if (document.activeElement === pokemonSearchInputRef) {
+    const query = pokemonSearchInputRef.value.toLowerCase();
+    searchSuggestionsRef.innerHTML = "";
+    searchSuggestionsRef.classList.add("d_none");
+    if (pokemonSearchInputRef.value.length < 3) return;
+    showSearchSuggestions(query);
+  }
 });
 
 function showSearchSuggestions(query) {
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
   if (query) {
     const filteredSuggestions = searchSuggestions.filter(function (item) {
       return item.toLowerCase().includes(query);
@@ -97,18 +106,28 @@ function showSearchSuggestions(query) {
 }
 
 export function clickSuggestions(filteredSuggestions) {
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
   pokemonSearchInputRef.value = filteredSuggestions;
   searchSuggestionsRef.classList.add("d_none");
   pokemonSearchInput();
 }
 
-pokemonSearchInputRef.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") searchSuggestionsRef.classList.add("d_none");
+document.addEventListener("keydown", function (event) {
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
+  if (document.activeElement === pokemonSearchInputRef) {
+    if (event.key === "Enter") searchSuggestionsRef.classList.add("d_none");
+  }
 });
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
-pokemonSearchInputRef.addEventListener("blur", function () {
-  setTimeout(function () {
-    searchSuggestionsRef.classList.add("d_none");
-  }, 300);
+document.addEventListener("blur", function () {
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
+  const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
+  if (document.activeElement === pokemonSearchInputRef) {
+    setTimeout(function () {
+      searchSuggestionsRef.classList.add("d_none");
+    }, 300);
+  }
 });

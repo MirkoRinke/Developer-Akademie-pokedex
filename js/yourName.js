@@ -1,13 +1,4 @@
-import { pokemonLimit, loadingCompleted, yourNameRef, currentLanguage } from "./globals.js";
-import { renderYourNameNavTemplate } from "./templates.js";
-
-export function renderYourName() {
-  let placeholderText = "";
-  if (currentLanguage === "de") placeholderText = "Dein Name dein Pokemon";
-  if (currentLanguage === "en") placeholderText = "Your name your Pokemon";
-  if (currentLanguage === "ja") placeholderText = "あなたの名前、あなたのポケモン";
-  yourNameRef.innerHTML = renderYourNameNavTemplate(placeholderText);
-}
+import { pokemonLimit, loadingCompleted } from "./globals.js";
 
 export function getUserName() {
   if (!loadingCompleted) return;

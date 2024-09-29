@@ -13,21 +13,7 @@
   </head>
   <body id="body">
     <div class="bg"></div>
-    <nav id="nav" class="nav">
-      <img onclick="backToHome()" tabindex="1" class="homeButton item" src="./assets/icons/home.png" alt="" />
-      <div id="search" class="search">
-        <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
-        <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
-        <div id="searchSuggestions" class="searchSuggestions d_none"></div>
-      </div>
-      <div id="pokemonRegions" class="pokemonRegions"></div>
-      <div id="yourName" class="yourName"></div>
-      <div id="languageSettings" class="languageSettings">
-        <img tabindex="5" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
-        <img tabindex="6" id="languageSettingsEn" onclick="selectedLanguage('en')" src="./assets/icons/us.svg" alt="" />
-        <img tabindex="7" id="languageSettingsDe" onclick="selectedLanguage('de')" src="./assets/icons/de.svg" alt="" />
-      </div>
-    </nav>
+    <nav id="nav" class="nav"></nav>
     <main>
       <div id="pokeArrowLeftContainer" class="pokeArrowLeftContainer">
         <img onclick="backward()" class="pokeArrowLeft" src="./assets/icons/arrowLeft.png" alt="" />

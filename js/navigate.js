@@ -9,10 +9,6 @@ import {
   pokeArrowRightContainerRef,
   pokeArrowMobileButtonsLeftRef,
   pokeArrowMobileButtonsRightRef,
-  searchRef,
-  pokemonRegionsRef,
-  yourNameRef,
-  languageSettingsRef,
   navRef,
 } from "./globals.js";
 
@@ -42,6 +38,10 @@ export function navButtonsHide() {
 }
 
 export function menuButtonsShow() {
+  const yourNameRef = document.getElementById("yourName");
+  const searchRef = document.getElementById("search");
+  const pokemonRegionsRef = document.getElementById("pokemonRegions");
+  const languageSettingsRef = document.getElementById("languageSettings");
   searchRef.classList.remove("d_none");
   pokemonRegionsRef.classList.remove("d_none");
   yourNameRef.classList.remove("d_none");
@@ -50,6 +50,10 @@ export function menuButtonsShow() {
 }
 
 export function menuButtonsHide() {
+  const searchRef = document.getElementById("search");
+  const yourNameRef = document.getElementById("yourName");
+  const pokemonRegionsRef = document.getElementById("pokemonRegions");
+  const languageSettingsRef = document.getElementById("languageSettings");
   searchRef.classList.add("d_none");
   pokemonRegionsRef.classList.add("d_none");
   yourNameRef.classList.add("d_none");

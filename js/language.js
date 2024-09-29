@@ -1,8 +1,7 @@
 import { currentLanguage, loadingCompleted, RegionsMenuOpen } from "./globals.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderFooter } from "./footer.js";
-import { renderPokemonRegions } from "./pokemonRegions.js";
-import { renderYourName } from "./yourName.js";
+import { renderNav } from "./nav.js";
 
 export function customTranslations() {
   const translations = {
@@ -31,9 +30,8 @@ export function selectedLanguage(selected) {
   overwriteCurrentLanguage(selected);
   customTranslations();
   renderPokemonCards();
+  renderNav();
   renderFooter();
-  renderYourName();
-  renderPokemonRegions();
   getSelectedLanguage();
 }
 
@@ -45,4 +43,3 @@ export function getSelectedLanguage() {
   if (currentLanguage == "en") languageSettingsEn.style.border = "3px solid rgb(182, 152, 55)";
   if (currentLanguage == "de") languageSettingsDe.style.border = "3px solid rgb(182, 152, 55)";
 }
-getSelectedLanguage();

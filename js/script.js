@@ -8,9 +8,9 @@ import { clickSuggestions, getSuggestions } from "./search.js";
 import { getUserName } from "./yourName.js";
 import { renderImprint } from "./imprint.js";
 import { renderPrivacyPolicy } from "./privacyPolicy.js";
+import { renderNav } from "./nav.js";
 import { renderFooter } from "./footer.js";
-import { renderPokemonRegions, selectedPokemonLimit, toggleRegionsMenu } from "./pokemonRegions.js";
-import { renderYourName } from "./yourName.js";
+import { selectedPokemonLimit, toggleRegionsMenu } from "./pokemonRegions.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;
@@ -25,12 +25,11 @@ window.selectedPokemonLimit = selectedPokemonLimit;
 window.loadAndRenderPokemonCards = loadAndRenderPokemonCards;
 window.renderImprint = renderImprint;
 window.renderPrivacyPolicy = renderPrivacyPolicy;
+window.renderNav = renderNav;
 window.renderFooter = renderFooter;
-window.renderPokemonRegion = renderPokemonRegions;
 
-renderYourName();
+renderNav();
 renderFooter();
-renderPokemonRegions();
 
 //! render PokemonCards after preLoad
 async function loadAndRenderPokemonCards() {

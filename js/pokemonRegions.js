@@ -1,9 +1,4 @@
-import { pokemonRegionsRef, currentLanguage, RegionsMenuOpen, contentRef, navRef } from "./globals.js";
-import { renderPokemonRegionsNavTemplate } from "./templates.js";
-
-export function renderPokemonRegions() {
-  pokemonRegionsRef.innerHTML = renderPokemonRegionsNavTemplate(currentLanguage);
-}
+import { RegionsMenuOpen, contentRef, navRef } from "./globals.js";
 
 export function toggleRegionsMenu() {
   const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
