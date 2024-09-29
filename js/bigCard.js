@@ -1,9 +1,10 @@
-import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels } from "./globals.js";
+import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels, soundGiulianoSong } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonBigCardTemplate } from "./templates.js";
 import { navButtonsShow, navButtonsHide } from "./navigate.js";
 
 export function showPokemonDetails(IndexPokeID) {
+  if (IndexPokeID === 144) toggleSound();
   contentBigCardRef.classList.toggle("d_none");
   navButtonsHide();
   for (let i = 0; i < cardRef.length; i++) {
@@ -13,6 +14,12 @@ export function showPokemonDetails(IndexPokeID) {
   }
   overwriteBigCardOpen(true);
   renderPokemonDetails(IndexPokeID);
+}
+
+function toggleSound() {
+  soundGiulianoSong.volume = 0.2;
+  soundGiulianoSong.play();
+  if (!soundGiulianoSong.paused && soundGiulianoSong.currentTime > 0) soundGiulianoSong.pause();
 }
 
 function toggleBigCard() {
@@ -25,6 +32,7 @@ function toggleBigCard() {
       pokemonCardRef[i].classList.toggle("d_none");
     }, 200);
   }
+  toggleSound();
   overwriteBigCardOpen(false);
 }
 
