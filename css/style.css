@@ -327,7 +327,7 @@ main {
   }
 }
 .nav .homeButton {
-  height: 60px;
+  height: 70px;
   order: 1;
 }
 @media (max-width: 1000px) {
