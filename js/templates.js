@@ -587,3 +587,10 @@ export function renderPrivacyPolicyTemplate() {
     </div>
 `;
 }
+
+export function renderFooterTemplate(currentLanguage) {
+  return /*html*/ `   
+      <img onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />
+      <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
+  `;
+}

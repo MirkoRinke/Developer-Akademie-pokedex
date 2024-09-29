@@ -1,5 +1,6 @@
 import { currentLanguage, loadingCompleted } from "./globals.js";
 import { renderPokemonCards } from "./cards.js";
+import { renderFooter } from "./footer.js";
 
 export function customTranslations() {
   const translations = {
@@ -28,6 +29,7 @@ export function selectedLanguage(selected) {
   overwriteCurrentLanguage(selected);
   customTranslations();
   renderPokemonCards();
+  renderFooter();
   getSelectedLanguage();
 }
 

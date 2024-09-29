@@ -8,6 +8,7 @@ import { clickSuggestions, getSuggestions } from "./search.js";
 import { getUserName } from "./yourName.js";
 import { renderImprint } from "./imprint.js";
 import { renderPrivacyPolicy } from "./privacyPolicy.js";
+import { renderFooter } from "./footer.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;
@@ -22,6 +23,9 @@ window.selectedPokemonLimit = selectedPokemonLimit;
 window.loadAndRenderPokemonCards = loadAndRenderPokemonCards;
 window.renderImprint = renderImprint;
 window.renderPrivacyPolicy = renderPrivacyPolicy;
+window.renderFooter = renderFooter;
+
+renderFooter();
 
 //! render PokemonCards after preLoad
 async function loadAndRenderPokemonCards() {

@@ -28,6 +28,8 @@ export const languageSettingsEn = document.getElementById("languageSettingsEn");
 export const languageSettingsDe = document.getElementById("languageSettingsDe");
 export const userNameInputRef = document.getElementById("userNameInput");
 export const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
+export const footerRef = document.getElementById("footer");
+
 export let searchSuggestions = [];
 export let pokemonDataCache = [];
 
@@ -49,7 +51,7 @@ function overwritePokemonEnd(overwrite) {
   pokemonEnd = overwrite;
 }
 
-export let currentLanguage = "de";
+export let currentLanguage = "en";
 window.overwriteCurrentLanguage = overwriteCurrentLanguage;
 function overwriteCurrentLanguage(overwrite) {
   currentLanguage = overwrite;
