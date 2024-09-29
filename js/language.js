@@ -1,4 +1,4 @@
-import { currentLanguage, loadingCompleted } from "./globals.js";
+import { currentLanguage, loadingCompleted, RegionsMenuOpen } from "./globals.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderFooter } from "./footer.js";
 import { renderPokemonRegions } from "./pokemonRegions.js";
@@ -26,7 +26,7 @@ export function customTranslations() {
 customTranslations();
 
 export function selectedLanguage(selected) {
-  if (!loadingCompleted) return;
+  if (!loadingCompleted || RegionsMenuOpen) return;
   overwriteCurrentLanguage(selected);
   customTranslations();
   renderPokemonCards();

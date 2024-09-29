@@ -1,5 +1,5 @@
 import { backToHome, backward, forward } from "./navigate.js";
-import { preLoadPokemonAPIData, selectedPokemonLimit, toggleRegionsMenu } from "./pokeapiData.js";
+import { preLoadPokemonAPIData } from "./pokeapiData.js";
 import { showLoadingScreen } from "./loadingScreen.js";
 import { selectedLanguage } from "./language.js";
 import { renderPokemonCards } from "./cards.js";
@@ -9,7 +9,7 @@ import { getUserName } from "./yourName.js";
 import { renderImprint } from "./imprint.js";
 import { renderPrivacyPolicy } from "./privacyPolicy.js";
 import { renderFooter } from "./footer.js";
-import { renderPokemonRegions } from "./pokemonRegions.js";
+import { renderPokemonRegions, selectedPokemonLimit, toggleRegionsMenu } from "./pokemonRegions.js";
 
 window.showPokemonDetails = showPokemonDetails;
 window.renderPokemonDetails = renderPokemonDetails;

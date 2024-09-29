@@ -1,4 +1,4 @@
-import { P, pokemonDataCache, pokemonLimit, currentLanguage, RegionsMenuOpen, contentRef } from "./globals.js";
+import { P, pokemonDataCache, pokemonLimit, currentLanguage } from "./globals.js";
 import { customFlavorTextGer, customFlavorTextJa, customGeneraTextGer, customGeneraTextJa } from "./cardsFallbackText.js";
 
 export async function preLoadPokemonAPIData() {
@@ -87,35 +87,3 @@ export async function getPokemonNamesText() {
   }
   return namesTextArray;
 }
-
-export function toggleRegionsMenu() {
-  const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
-  if (!RegionsMenuOpen) selectedPokemonRegionsRef.classList.toggle("d_none");
-  setTimeout(() => {
-    selectedPokemonRegionsRef.classList.toggle("transformIn");
-    if (!RegionsMenuOpen) {
-      setTimeout(() => {
-        selectedPokemonRegionsRef.classList.toggle("d_none");
-      }, 1000);
-    }
-  }, 10);
-  overwriteRegionsMenuOpen(!RegionsMenuOpen);
-}
-
-export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, selectedPokemonLimit) {
-  overwritePokemonLimit(selectedPokemonLimit);
-  overwritePokemonStart(selectedPokemonStart);
-  overwritePokemonEnd(selectedPokemonEnd);
-  toggleRegionsMenu();
-  setTimeout(() => {
-    loadAndRenderPokemonCards();
-  }, 1000);
-}
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && RegionsMenuOpen) toggleRegionsMenu();
-});
-
-contentRef.addEventListener("click", function (event) {
-  if (event.target === contentRef && RegionsMenuOpen) toggleRegionsMenu();
-});
