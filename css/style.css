@@ -1019,6 +1019,7 @@ main {
 .contentBigCard .containerBigCard .infoBox .info .infoLeft {
   display: flex;
   align-items: center;
+  gap: 5px;
   margin-top: 5px;
 }
 .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
@@ -1034,6 +1035,15 @@ main {
   .contentBigCard .containerBigCard .infoBox .info .infoLeft .name {
     font-size: 0.875rem;
   }
+}
+.contentBigCard .containerBigCard .infoBox .info .infoLeft .cries {
+  height: 30px;
+  fill: #b38a04;
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.contentBigCard .containerBigCard .infoBox .info .infoLeft .cries:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 5px #ffffff);
 }
 .contentBigCard .containerBigCard .infoBox .info .infoRight {
   margin-top: 5px;

@@ -811,6 +811,7 @@ main {
         .infoLeft {
           display: flex;
           align-items: center;
+          gap: 5px;
           margin-top: 5px;
 
           .name {
@@ -823,6 +824,17 @@ main {
 
             @media (max-width: $breakpoint-xxxs) {
               font-size: 0.875rem;
+            }
+          }
+
+          .cries {
+            height: 30px;
+            fill: #b38a04;
+            filter: drop-shadow(2px 2px 2px #000000);
+
+            &:hover {
+              cursor: pointer;
+              filter: drop-shadow(0px 0px 5px #ffffff);
             }
           }
         }

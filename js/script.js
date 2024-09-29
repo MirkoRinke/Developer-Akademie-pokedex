@@ -3,7 +3,7 @@ import { preLoadPokemonAPIData } from "./pokeapiData.js";
 import { showLoadingScreen } from "./loadingScreen.js";
 import { selectedLanguage } from "./language.js";
 import { renderPokemonCards } from "./cards.js";
-import { showPokemonDetails, renderPokemonDetails } from "./bigCard.js";
+import { showPokemonDetails, renderPokemonDetails, playSound } from "./bigCard.js";
 import { clickSuggestions, getSuggestions } from "./search.js";
 import { getUserName } from "./yourName.js";
 import { renderImprint } from "./imprint.js";
@@ -27,6 +27,7 @@ window.renderImprint = renderImprint;
 window.renderPrivacyPolicy = renderPrivacyPolicy;
 window.renderNav = renderNav;
 window.renderFooter = renderFooter;
+window.playSound = playSound;
 
 renderNav();
 renderFooter();

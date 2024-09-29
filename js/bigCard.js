@@ -1,10 +1,10 @@
-import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels, soundGiulianoSong } from "./globals.js";
+import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels, soundGiulianoSong, pokemonDataCache } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonBigCardTemplate } from "./templates.js";
 import { navButtonsShow, navButtonsHide } from "./navigate.js";
 
 export function showPokemonDetails(IndexPokeID) {
-  if (IndexPokeID === 144) toggleSound();
+  playCries(IndexPokeID);
   contentBigCardRef.classList.toggle("d_none");
   navButtonsHide();
   for (let i = 0; i < cardRef.length; i++) {
@@ -16,10 +16,22 @@ export function showPokemonDetails(IndexPokeID) {
   renderPokemonDetails(IndexPokeID);
 }
 
-function toggleSound() {
-  soundGiulianoSong.volume = 0.2;
-  soundGiulianoSong.play();
-  if (!soundGiulianoSong.paused && soundGiulianoSong.currentTime > 0) soundGiulianoSong.pause();
+export function playSound(IndexPokeID) {
+  let pokemonCries = new Audio(pokemonDataCache[IndexPokeID].pokemon.cries.latest);
+  pokemonCries.volume = 0.05;
+  pokemonCries.play();
+}
+
+function playCries(IndexPokeID) {
+  if (IndexPokeID === 144) {
+    soundGiulianoSong.volume = 0.2;
+    soundGiulianoSong.play();
+  }
+  if (IndexPokeID === 25) {
+    let pokemonCries = new Audio(pokemonDataCache[IndexPokeID].pokemon.cries.latest);
+    pokemonCries.volume = 0.05;
+    pokemonCries.play();
+  }
 }
 
 function toggleBigCard() {
@@ -32,7 +44,7 @@ function toggleBigCard() {
       pokemonCardRef[i].classList.toggle("d_none");
     }, 200);
   }
-  toggleSound();
+  soundGiulianoSong.pause();
   overwriteBigCardOpen(false);
 }
 

@@ -6,11 +6,13 @@ export async function preLoadPokemonAPIData() {
   for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const pokemonData = P.getPokemonByName(IndexPokeID);
     const pokemonSpecies = P.getPokemonSpeciesByName(IndexPokeID);
+    const pokemon = P.getPokemon(IndexPokeID);
     promises.push(
-      Promise.all([pokemonData, pokemonSpecies]).then(([data, species]) => {
+      Promise.all([pokemonData, pokemonSpecies, pokemon]).then(([data, species, pokemon]) => {
         pokemonDataCache[IndexPokeID] = {
           data,
           species,
+          pokemon,
         };
       })
     );
