@@ -57,7 +57,7 @@ function preventScroll(e) {
 }
 
 document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+  if ((e.key === "ArrowUp" && bigCardOpen) || (e.key === "ArrowDown" && bigCardOpen)) {
     e.preventDefault();
   }
 });
