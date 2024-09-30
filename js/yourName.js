@@ -4,18 +4,14 @@ export function getUserName() {
   if (!loadingCompleted) return;
   const userNameInputRef = document.getElementById("userNameInput");
   let userName = userNameInputRef.value;
-  setTimeout(() => {
-    userNameInputRef.value = "";
-  }, 300);
+  setTimeout(() => (userNameInputRef.value = ""), 300);
   return nameToPokemon(userName);
 }
 
 document.addEventListener("keydown", function (event) {
   const userNameInputRef = document.getElementById("userNameInput");
   if (document.activeElement === userNameInputRef) {
-    if (event.key === "Enter") {
-      getUserName();
-    }
+    if (event.key === "Enter") getUserName();
   }
 });
 

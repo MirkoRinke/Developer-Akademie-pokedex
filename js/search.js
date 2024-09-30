@@ -1,4 +1,4 @@
-import { searchSuggestions, pokemonDataCache, pokemonLimit, labels, loadingCompleted } from "./globals.js";
+import { searchSuggestions, pokemonDataCache, labels, loadingCompleted } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonCards } from "./cards.js";
 import { renderPokemonCardTemplate } from "./templates.js";
