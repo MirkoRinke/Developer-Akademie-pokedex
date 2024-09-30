@@ -17,28 +17,19 @@ function pokemonSearchInput() {
 
 document.addEventListener("input", function () {
   const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
-  if (document.activeElement === pokemonSearchInputRef) {
-    pokemonSearchInput();
-  }
+  if (document.activeElement === pokemonSearchInputRef) pokemonSearchInput();
 });
 
 async function searchPokemonByName(search) {
-  let selectedPokemonIDs = [];
   if (pokemonDataCache.length === 0) await preLoadPokemonAPIData();
-  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
-    if (pokemonDataCache[IndexPokeID]) {
-      let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
-      let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
-      let PokeNameJa = pokemonDataCache[IndexPokeID].species.names[9].name;
-      if (
-        PokeNameEng.toLowerCase().includes(search.toLowerCase()) ||
-        PokeNameGer.toLowerCase().includes(search.toLowerCase()) ||
-        PokeNameJa.toLowerCase().includes(search.toLowerCase())
-      ) {
-        selectedPokemonIDs.push(IndexPokeID);
-      }
+  const selectedPokemonIDs = [];
+  const searchLower = search.toLowerCase();
+  pokemonDataCache.forEach((pokemon, IndexPokeID) => {
+    if (pokemon) {
+      const pokemonNames = [pokemon.species.names[8].name, pokemon.species.names[5].name, pokemon.species.names[9].name];
+      if (pokemonNames.some((name) => name.toLowerCase().includes(searchLower))) selectedPokemonIDs.push(IndexPokeID); // https://www.w3schools.com/jsref/jsref_some.asp
     }
-  }
+  });
   renderSelectedPokemonCards(selectedPokemonIDs);
 }
 
@@ -66,16 +57,13 @@ async function renderSelectedPokemonCards(selectedPokemonIDs) {
 //! Search Suggestions
 export async function getSuggestions() {
   if (pokemonDataCache.length === 0) await preLoadPokemonAPIData();
-  for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
-    if (pokemonDataCache[IndexPokeID]) {
-      let PokeNameEng = pokemonDataCache[IndexPokeID].species.names[8].name;
-      let PokeNameGer = pokemonDataCache[IndexPokeID].species.names[5].name;
-      let PokeNameJa = pokemonDataCache[IndexPokeID].species.names[9].name;
-      if (!searchSuggestions.includes(PokeNameEng)) searchSuggestions.push(PokeNameEng);
-      if (!searchSuggestions.includes(PokeNameGer)) searchSuggestions.push(PokeNameGer);
-      if (!searchSuggestions.includes(PokeNameJa)) searchSuggestions.push(PokeNameJa);
-    }
-  }
+  pokemonDataCache.forEach((pokemon) => {
+    if (!pokemon) return;
+    const pokemonNames = [pokemon.species.names[8].name, pokemon.species.names[5].name, pokemon.species.names[9].name];
+    pokemonNames.forEach((name) => {
+      if (!searchSuggestions.includes(name)) searchSuggestions.push(name);
+    });
+  });
 }
 
 document.addEventListener("input", function () {
@@ -93,15 +81,14 @@ document.addEventListener("input", function () {
 function showSearchSuggestions(query) {
   const searchSuggestionsRef = document.getElementById("searchSuggestions");
   if (query) {
-    const filteredSuggestions = searchSuggestions.filter(function (item) {
-      return item.toLowerCase().includes(query);
-    });
-    for (let index = 0; index < filteredSuggestions.length; index++) {
-      searchSuggestionsRef.classList.remove("d_none");
+    const filteredSuggestions = searchSuggestions.filter((pokemon) => pokemon.toLowerCase().includes(query.toLowerCase()));
+    searchSuggestionsRef.classList.remove("d_none");
+    searchSuggestionsRef.innerHTML = "";
+    filteredSuggestions.forEach((pokemon, index) => {
       searchSuggestionsRef.innerHTML += /*html*/ `
-              <div tabindex="${index + 102}" class="suggestion" onclick="clickSuggestions('${filteredSuggestions[index]}');">${filteredSuggestions[index]}</div>
-        `;
-    }
+        <div tabindex="${index + 102}" class="suggestion" onclick="clickSuggestions('${pokemon}');">${pokemon}</div>
+      `;
+    });
   }
 }
 
