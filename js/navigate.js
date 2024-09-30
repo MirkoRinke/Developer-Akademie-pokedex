@@ -4,7 +4,6 @@ import {
   pokemonLimit,
   bigCardOpen,
   loadingCompleted,
-  RegionsMenuOpen,
   pokeArrowLeftContainerRef,
   pokeArrowRightContainerRef,
   pokeArrowMobileButtonsLeftRef,
@@ -37,11 +36,17 @@ export function navButtonsHide() {
   pokeArrowMobileButtonsRightRef.classList.add("d_none");
 }
 
+function getMenuRefs() {
+  return {
+    searchRef: document.getElementById("search"),
+    pokemonRegionsRef: document.getElementById("pokemonRegions"),
+    yourNameRef: document.getElementById("yourName"),
+    languageSettingsRef: document.getElementById("languageSettings"),
+  };
+}
+
 export function menuButtonsShow() {
-  const yourNameRef = document.getElementById("yourName");
-  const searchRef = document.getElementById("search");
-  const pokemonRegionsRef = document.getElementById("pokemonRegions");
-  const languageSettingsRef = document.getElementById("languageSettings");
+  const { searchRef, pokemonRegionsRef, yourNameRef, languageSettingsRef } = getMenuRefs();
   searchRef.classList.remove("d_none");
   pokemonRegionsRef.classList.remove("d_none");
   yourNameRef.classList.remove("d_none");
@@ -50,10 +55,7 @@ export function menuButtonsShow() {
 }
 
 export function menuButtonsHide() {
-  const searchRef = document.getElementById("search");
-  const yourNameRef = document.getElementById("yourName");
-  const pokemonRegionsRef = document.getElementById("pokemonRegions");
-  const languageSettingsRef = document.getElementById("languageSettings");
+  const { searchRef, pokemonRegionsRef, yourNameRef, languageSettingsRef } = getMenuRefs();
   searchRef.classList.add("d_none");
   pokemonRegionsRef.classList.add("d_none");
   yourNameRef.classList.add("d_none");
