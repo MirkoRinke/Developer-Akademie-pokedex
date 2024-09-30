@@ -1,7 +1,7 @@
 import { contentBigCardRef, cardRef, pokemonCardRef, containerRef, pokemonLimit, bigCardOpen, labels, soundGiulianoSong, pokemonDataCache } from "./globals.js";
-import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonBigCardTemplate } from "./templates.js";
 import { navButtonsShow, navButtonsHide } from "./navigate.js";
+import { getPokemonDataArrays } from "./cards.js";
 
 export function showPokemonDetails(IndexPokeID) {
   playCries(IndexPokeID);
@@ -77,10 +77,7 @@ export async function renderPokemonDetails(IndexPokeID) {
     IndexPokeID = 1;
   }
   contentBigCardRef.innerHTML = "";
-  const pokemonDataArray = await getPokemonData();
-  const pokemonFlavorTextArray = await getPokemonFlavorText();
-  const pokemonGeneraTextArray = await getPokemonGeneraText();
-  const pokemonNamesTextArray = await getPokemonNamesText();
+  const { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray } = await getPokemonDataArrays();
   contentBigCardRef.innerHTML = renderPokemonBigCardTemplate(
     pokemonDataArray[IndexPokeID - 1],
     pokemonFlavorTextArray[IndexPokeID - 1],
@@ -98,7 +95,6 @@ function getDataForChart(pokemonDataArray) {
   let specialAttack = pokemonDataArray.stats[3].base_stat;
   let specialDefense = pokemonDataArray.stats[4].base_stat;
   let speed = pokemonDataArray.stats[5].base_stat;
-
   renderChart(attack, defense, specialAttack, specialDefense, speed);
 }
 
