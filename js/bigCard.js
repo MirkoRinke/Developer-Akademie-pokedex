@@ -56,6 +56,12 @@ function preventScroll(e) {
   return false;
 }
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+    e.preventDefault();
+  }
+});
+
 contentBigCardRef.addEventListener("click", function (event) {
   if (event.target === contentBigCardRef) toggleBigCard();
 });
