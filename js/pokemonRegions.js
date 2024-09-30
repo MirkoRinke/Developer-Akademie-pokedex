@@ -5,11 +5,7 @@ export function toggleRegionsMenu() {
   if (!RegionsMenuOpen) selectedPokemonRegionsRef.classList.toggle("d_none");
   setTimeout(() => {
     selectedPokemonRegionsRef.classList.toggle("transformIn");
-    if (!RegionsMenuOpen) {
-      setTimeout(() => {
-        selectedPokemonRegionsRef.classList.toggle("d_none");
-      }, 1000);
-    }
+    if (!RegionsMenuOpen) setTimeout(() => selectedPokemonRegionsRef.classList.toggle("d_none"), 1000);
   }, 10);
   overwriteRegionsMenuOpen(!RegionsMenuOpen);
 }
@@ -19,9 +15,7 @@ export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, s
   overwritePokemonStart(selectedPokemonStart);
   overwritePokemonEnd(selectedPokemonEnd);
   toggleRegionsMenu();
-  setTimeout(() => {
-    loadAndRenderPokemonCards();
-  }, 1000);
+  setTimeout(() => loadAndRenderPokemonCards(), 1000);
 }
 
 document.addEventListener("keydown", function (event) {
