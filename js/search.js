@@ -33,14 +33,19 @@ async function searchPokemonByName(search) {
   renderSelectedPokemonCards(selectedPokemonIDs);
 }
 
-async function renderSelectedPokemonCards(selectedPokemonIDs) {
-  selectedPokemonIDs.length = 10;
-  const contentRef = document.getElementById("contentCards");
-  contentRef.innerHTML = "";
+async function getPokemonDataArrays() {
   const pokemonDataArray = await getPokemonData();
   const pokemonFlavorTextArray = await getPokemonFlavorText();
-  const pokemonGeneraTextArray = await getPokemonGeneraText();
-  const pokemonNamesTextArray = await getPokemonNamesText();
+  const pokemonGeneraTextArray = await getPokemonGeneraText(); // https://www.scaler.com/topics/javascript-return-multiple-values/
+  const pokemonNamesTextArray = await getPokemonNamesText(); // https://stackoverflow.com/questions/5760058/how-to-return-multiple-arrays-from-a-function-in-javascript
+  return { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray };
+}
+
+async function renderSelectedPokemonCards(selectedPokemonIDs) {
+  selectedPokemonIDs.length = 10;
+  const contentRef = document.getElementById("contentCards"); // https://www.w3schools.com/js/js_destructuring.asp
+  contentRef.innerHTML = "";
+  const { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray } = await getPokemonDataArrays();
   for (let pokeID of selectedPokemonIDs) {
     if (pokeID >= 1) {
       contentRef.innerHTML += renderPokemonCardTemplate(
