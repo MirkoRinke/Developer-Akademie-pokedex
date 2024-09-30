@@ -1,7 +1,7 @@
 export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
-            <div tabindex="${pokemonDataArray.id + 10}" 
+            <div tabindex="${pokemonDataArray.id + 500}" 
                 onclick="showPokemonDetails(${pokemonDataArray.id})"                 
                 class="card ${pokemonDataArray.types[0].type.name}_card_before">
               <div class="info">
@@ -593,41 +593,41 @@ export function renderPrivacyPolicyTemplate() {
 
 export function renderNavTemplate(currentLanguage, placeholderText) {
   return /*html*/ `
-      <img onclick="backToHome()" tabindex="1" class="homeButton item" src="./assets/icons/home.png" alt="" />
+      <img onclick="backToHome()" tabindex="101" class="homeButton item" src="./assets/icons/home.png" alt="" />
       <div id="search" class="search">
         <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
-        <input tabindex="2" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
+        <input tabindex="102" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
         <div id="searchSuggestions" class="searchSuggestions d_none"></div>
       </div>
       <div id="pokemonRegions" class="pokemonRegions">
-      <img tabindex="3" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions${currentLanguage.replace('"', " ")}.png" alt="" />
+      <img tabindex="150" onclick="toggleRegionsMenu()" class="pokemonRegionsIcon" src="./assets/icons/regions${currentLanguage.replace('"', " ")}.png" alt="" />
       <div id="selectedPokemonRegions" class="selectedPokemonRegions d_none">
-        <img src="./assets/icons/kanto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(1,11,151)" />
-        <img src="./assets/icons/johto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(152,162,251)" />
-        <img src="./assets/icons/hoenn${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(252,262,386)" />
-        <img src="./assets/icons/sinnoh${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(387,397,493)" />
-        <img src="./assets/icons/einall${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(494,504,649)" />
-        <img src="./assets/icons/kalos${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(650,660,721)" />
-        <img src="./assets/icons/alola${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(722,732,809)" />
-        <img src="./assets/icons/galar${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(810,820,898)" />
-        <img src="./assets/icons/paldea${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
+        <img tabindex="151" src="./assets/icons/kanto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(1,11,151)" />
+        <img tabindex="152" src="./assets/icons/johto${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(152,162,251)" />
+        <img tabindex="153" src="./assets/icons/hoenn${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(252,262,386)" />
+        <img tabindex="154" src="./assets/icons/sinnoh${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(387,397,493)" />
+        <img tabindex="155" src="./assets/icons/einall${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(494,504,649)" />
+        <img tabindex="156" src="./assets/icons/kalos${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(650,660,721)" />
+        <img tabindex="157" src="./assets/icons/alola${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(722,732,809)" />
+        <img tabindex="158" src="./assets/icons/galar${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(810,820,898)" />
+        <img tabindex="159" src="./assets/icons/paldea${currentLanguage.replace('"', " ")}.png" alt="" onclick="selectedPokemonLimit(899,909,1026)" />
       </div>
       </div>
       <div id="yourName" class="yourName">
-      <input tabindex="4" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="${placeholderText}" />
+      <input tabindex="160" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="${placeholderText}" />
       <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
       </div>
       <div id="languageSettings" class="languageSettings">
-        <img tabindex="5" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
-        <img tabindex="6" id="languageSettingsEn" onclick="selectedLanguage('en')" src="./assets/icons/us.svg" alt="" />
-        <img tabindex="7" id="languageSettingsDe" onclick="selectedLanguage('de')" src="./assets/icons/de.svg" alt="" />
+        <img tabindex="161" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
+        <img tabindex="162" id="languageSettingsEn" onclick="selectedLanguage('en')" src="./assets/icons/us.svg" alt="" />
+        <img tabindex="163" id="languageSettingsDe" onclick="selectedLanguage('de')" src="./assets/icons/de.svg" alt="" />
       </div>
   `;
 }
 
 export function renderFooterTemplate(currentLanguage) {
   return /*html*/ `   
-      <img onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />
-      <img onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
+      <img tabindex="201" onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />
+      <img tabindex="202" onclick="renderPrivacyPolicy()" src="./assets/icons/privacyPolicy${currentLanguage.replace('"', " ")}.png" alt="" />
   `;
 }

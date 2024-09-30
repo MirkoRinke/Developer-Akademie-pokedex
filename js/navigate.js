@@ -104,7 +104,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter" && !bigCardOpen && !RegionsMenuOpen && loadingCompleted) {
+  if (event.key === "Enter" && !bigCardOpen && loadingCompleted) {
     const activeElement = document.activeElement;
     if (activeElement) activeElement.click();
   }

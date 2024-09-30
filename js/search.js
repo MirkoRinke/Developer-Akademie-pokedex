@@ -99,7 +99,7 @@ function showSearchSuggestions(query) {
     for (let index = 0; index < filteredSuggestions.length; index++) {
       searchSuggestionsRef.classList.remove("d_none");
       searchSuggestionsRef.innerHTML += /*html*/ `
-          <div class="suggestion" onclick="clickSuggestions('${filteredSuggestions[index]}');">${filteredSuggestions[index]}</div>
+              <div tabindex="${index + 102}" class="suggestion" onclick="clickSuggestions('${filteredSuggestions[index]}');">${filteredSuggestions[index]}</div>
         `;
     }
   }
