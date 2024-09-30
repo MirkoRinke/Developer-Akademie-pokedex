@@ -1,6 +1,5 @@
 import { searchSuggestions, pokemonDataCache, labels, loadingCompleted } from "./globals.js";
-import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
-import { renderPokemonCards } from "./cards.js";
+import { renderPokemonCards, getPokemonDataArrays } from "./cards.js";
 import { renderPokemonCardTemplate } from "./templates.js";
 import { navButtonsShow } from "./navigate.js";
 
@@ -31,14 +30,6 @@ async function searchPokemonByName(search) {
     }
   });
   renderSelectedPokemonCards(selectedPokemonIDs);
-}
-
-async function getPokemonDataArrays() {
-  const pokemonDataArray = await getPokemonData();
-  const pokemonFlavorTextArray = await getPokemonFlavorText();
-  const pokemonGeneraTextArray = await getPokemonGeneraText(); // https://www.scaler.com/topics/javascript-return-multiple-values/
-  const pokemonNamesTextArray = await getPokemonNamesText(); // https://stackoverflow.com/questions/5760058/how-to-return-multiple-arrays-from-a-function-in-javascript
-  return { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray };
 }
 
 async function renderSelectedPokemonCards(selectedPokemonIDs) {

@@ -31,13 +31,13 @@ function overwritePokemonLimit(overwrite) {
   pokemonLimit = overwrite;
 }
 
-export let pokemonStart = 1; // Start
+export let pokemonStart = 1;
 window.overwritePokemonStart = overwritePokemonStart;
 function overwritePokemonStart(overwrite) {
   pokemonStart = overwrite;
 }
 
-export let pokemonEnd = 11; // Ende
+export let pokemonEnd = 11;
 window.overwritePokemonEnd = overwritePokemonEnd;
 function overwritePokemonEnd(overwrite) {
   pokemonEnd = overwrite;

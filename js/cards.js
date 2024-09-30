@@ -2,17 +2,19 @@ import { pokemonStart, pokemonEnd, labels } from "./globals.js";
 import { getPokemonData, getPokemonFlavorText, getPokemonGeneraText, getPokemonNamesText } from "./pokeapiData.js";
 import { renderPokemonCardTemplate } from "./templates.js";
 
-export async function renderPokemonCards() {
-  let contentCardsRef = document.getElementById("contentCards");
-  if (contentCardsRef == null) {
-    createContentCards();
-    contentCardsRef = document.getElementById("contentCards");
-  }
-  contentCardsRef.innerHTML = "";
+export async function getPokemonDataArrays() {
   const pokemonDataArray = await getPokemonData();
   const pokemonFlavorTextArray = await getPokemonFlavorText();
-  const pokemonGeneraTextArray = await getPokemonGeneraText();
-  const pokemonNamesTextArray = await getPokemonNamesText();
+  const pokemonGeneraTextArray = await getPokemonGeneraText(); // https://www.scaler.com/topics/javascript-return-multiple-values/
+  const pokemonNamesTextArray = await getPokemonNamesText(); // https://stackoverflow.com/questions/5760058/how-to-return-multiple-arrays-from-a-function-in-javascript
+  return { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray };
+}
+
+export async function renderPokemonCards() {
+  if (document.getElementById("contentCards") == null) createContentCards();
+  let contentCardsRef = document.getElementById("contentCards");
+  contentCardsRef.innerHTML = "";
+  const { pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray } = await getPokemonDataArrays();
   for (let IndexPokeID = pokemonStart; IndexPokeID < pokemonEnd; IndexPokeID++) {
     contentCardsRef.innerHTML += renderPokemonCardTemplate(
       pokemonDataArray[IndexPokeID - 1],
