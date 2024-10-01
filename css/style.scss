@@ -526,6 +526,7 @@ main {
 
     &:hover .pokemonCard {
       transform: translate3d(0%, -30%, 200px);
+      pointer-events: none;
     }
   }
 }
@@ -1160,5 +1161,52 @@ main {
       cursor: pointer;
       filter: drop-shadow(0px 0px 5px #ffffff);
     }
+  }
+}
+
+.cardEffekt:hover {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    mix-blend-mode: color-dodge;
+    transition: all 300ms ease;
+  }
+
+  &::before {
+    background-position: 50% 50%;
+    background-size: 500% 500%;
+    background-image: linear-gradient(115deg, transparent 0%, rgb(224, 188, 216) 25%, transparent 50%, rgb(165, 220, 228) 75%, transparent 100%);
+    transition: background-image 300ms ease-in-out;
+    animation: holoGradient 6s linear infinite;
+  }
+}
+
+@keyframes holoGradient {
+  0% {
+    background-position: 100% 100%;
+    opacity: 0.5;
+    filter: brightness(1.2) contrast(1);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    background-position: 0% 0%;
+    opacity: 1;
+    filter: brightness(1) contrast(1.25);
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 100% 100%;
+    opacity: 0.5;
+    filter: brightness(1.2) contrast(1);
   }
 }

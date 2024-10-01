@@ -3,7 +3,7 @@ const customOptions = {
   hostName: "pokeapi.co",
   versionPath: "/api/v2/",
   cache: true,
-  timeout: 5 * 1000, // 5s
+  timeout: 5 * 3000, // 15s
   cacheImages: true,
 };
 export const P = new Pokedex.Pokedex(customOptions);

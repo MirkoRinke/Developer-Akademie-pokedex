@@ -1,6 +1,10 @@
 .backsideCard {
   transform: rotateY(180deg);
 
+  &::before {
+    mix-blend-mode: unset !important;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -8,10 +12,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/backside.png);
-    background-size: cover;
+    background-image: url(../assets/img/backside.png) !important;
+    background-size: cover !important;
     pointer-events: none;
     z-index: 10;
+    mix-blend-mode: unset !important;
   }
 }
 

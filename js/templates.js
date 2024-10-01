@@ -3,7 +3,7 @@ export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArr
       <div class="container">
             <div tabindex="${pokemonDataArray.id + 500}" 
                 onclick="showPokemonDetails(${pokemonDataArray.id})"                 
-                class="card ${pokemonDataArray.types[0].type.name}_card_before">
+                class="card ${pokemonDataArray.types[0].type.name}_card_before cardEffekt">
               <div class="info">
                   <div class="infoLeft">
                       <h2 class="name">${pokemonNamesTextArray}</h2>

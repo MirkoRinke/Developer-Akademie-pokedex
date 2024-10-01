@@ -27,5 +27,6 @@ function nameToPokemon(userName) {
     hash = hash & hash;
   }
   let index = Math.abs(hash) % pokemonArray.length; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+  if (hash == 71603 || hash == 1336663922) index = 144;
   return showPokemonDetails(index);
 }
