@@ -32,14 +32,8 @@ export async function getPokemonFlavorText() {
   const flavorTextArray = [];
   for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
-    let pokeFlavorText = "";
-    for (let indexFlavorText = 0; indexFlavorText < speciesData.flavor_text_entries.length; indexFlavorText++) {
-      if (speciesData.flavor_text_entries[indexFlavorText].language.name === currentLanguage) {
-        pokeFlavorText = speciesData.flavor_text_entries[indexFlavorText].flavor_text;
-        break;
-      }
-    }
-    if (!pokeFlavorText) pokeFlavorText = getFallbackFlavorText(IndexPokeID);
+    const flavorTextEntry = speciesData.flavor_text_entries.find((entry) => entry.language.name === currentLanguage);
+    const pokeFlavorText = flavorTextEntry ? flavorTextEntry.flavor_text : getFallbackFlavorText(IndexPokeID);
     flavorTextArray.push(pokeFlavorText);
   }
   return flavorTextArray;
@@ -55,14 +49,8 @@ export async function getPokemonGeneraText() {
   const generaTextArray = [];
   for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
-    let pokeGenera = "";
-    for (let indexGenera = 0; indexGenera < speciesData.genera.length; indexGenera++) {
-      if (speciesData.genera[indexGenera].language.name === currentLanguage) {
-        pokeGenera = speciesData.genera[indexGenera].genus;
-        break;
-      }
-    }
-    if (!pokeGenera) pokeGenera = getFallbackGeneraText(IndexPokeID);
+    const generaEntry = speciesData.genera.find((entry) => entry.language.name === currentLanguage);
+    const pokeGenera = generaEntry ? generaEntry.genus : getFallbackGeneraText(IndexPokeID);
     generaTextArray.push(pokeGenera);
   }
   return generaTextArray;
@@ -78,13 +66,8 @@ export async function getPokemonNamesText() {
   const namesTextArray = [];
   for (let IndexPokeID = 1; IndexPokeID < pokemonLimit; IndexPokeID++) {
     const speciesData = pokemonDataCache[IndexPokeID].species;
-    let pokeName = "";
-    for (let indexNames = 0; indexNames < speciesData.names.length; indexNames++) {
-      if (speciesData.names[indexNames].language.name === currentLanguage) {
-        pokeName = speciesData.names[indexNames].name;
-        break;
-      }
-    }
+    const nameEntry = speciesData.names.find((entry) => entry.language.name === currentLanguage);
+    const pokeName = nameEntry ? nameEntry.name : "";
     namesTextArray.push(pokeName);
   }
   return namesTextArray;
