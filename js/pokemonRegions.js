@@ -1,4 +1,4 @@
-import { RegionsMenuOpen, contentRef, navRef } from "./globals.js";
+import { RegionsMenuOpen, contentRef, navRef, pokemonLimit } from "./globals.js";
 
 export function toggleRegionsMenu() {
   const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
@@ -11,7 +11,7 @@ export function toggleRegionsMenu() {
 }
 
 export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, selectedPokemonLimit) {
-  overwritePokemonLimit(selectedPokemonLimit);
+  if (selectedPokemonLimit > pokemonLimit) overwritePokemonLimit(selectedPokemonLimit);
   overwritePokemonStart(selectedPokemonStart);
   overwritePokemonEnd(selectedPokemonEnd);
   toggleRegionsMenu();
