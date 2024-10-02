@@ -79,6 +79,7 @@ function showSearchSuggestions(query) {
   if (query) {
     const filteredSuggestions = searchSuggestions.filter((pokemon) => pokemon.toLowerCase().startsWith(query.toLowerCase()));
     searchSuggestionsRef.classList.remove("d_none");
+    if (filteredSuggestions.length === 0) searchSuggestionsRef.classList.add("d_none");
     searchSuggestionsRef.innerHTML = "";
     filteredSuggestions.forEach((pokemon, index) => {
       searchSuggestionsRef.innerHTML += /*html*/ `
