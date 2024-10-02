@@ -1150,6 +1150,8 @@ main {
   height: $footerHeight;
 
   @media (max-width: $breakpoint-xxxs) {
+    margin-top: 30px;
+    margin-bottom: 60px;
     flex-direction: column;
   }
 
