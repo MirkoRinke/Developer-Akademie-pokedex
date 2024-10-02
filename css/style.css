@@ -757,7 +757,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - 5px);
+  top: calc(50% + 5px);
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -796,7 +796,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - 5px);
+  top: calc(50% + 5px);
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
