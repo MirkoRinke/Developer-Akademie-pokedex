@@ -4,17 +4,6 @@
 @import "./js_css";
 @import "./pokemon_cards/pokemon_cards";
 
-$cardFactor: 1.05;
-$cardHeight: calc(377px / $cardFactor);
-$cardWidth: calc(270px / $cardFactor);
-
-$BigCardFactor: 0.45;
-$BigCardHeight: calc(377px / $BigCardFactor);
-$BigCardWidth: calc(270px / $BigCardFactor);
-
-$navHeight: 60px;
-$footerHeight: 60px;
-
 .bg {
   background-image: url(../assets/img/bg2.jpg);
   background-size: cover;
