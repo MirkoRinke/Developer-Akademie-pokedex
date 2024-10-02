@@ -108,6 +108,9 @@ function renderChart(attack, defense, specialAttack, specialDefense, speed) {
         datasets: [
           {
             data: [attack, defense, specialAttack, specialDefense, speed],
+            backgroundColor: ["rgba(255, 99, 132, 0.8)", "rgba(54, 162, 235, 0.8)", "rgba(75, 192, 192, 0.8)", "rgba(153, 102, 255, 0.8)", "rgba(255, 159, 64, 0.8)"],
+            borderColor: ["rgba(0, 0, 0, 1)", "rgba(0, 0, 0, 1)", "rgba(0, 0, 0, 1)", "rgba(0, 0, 0, 1)", "rgba(0, 0, 0, 1)"],
+            borderWidth: 2,
           },
         ],
       },
@@ -136,6 +139,9 @@ function renderChart(attack, defense, specialAttack, specialDefense, speed) {
             ticks: {
               display: true, // Skalenwerte
               color: "black",
+              font: {
+                size: 11, // Schriftgröße
+              },
             },
             title: {
               display: false,
@@ -152,7 +158,7 @@ function renderChart(attack, defense, specialAttack, specialDefense, speed) {
           datalabels: {
             anchor: "end",
             align: "end",
-            offset: -30,
+            offset: -25,
             formatter: (value) => value,
             color: "black",
           },

@@ -1184,11 +1184,11 @@ main {
 }
 .contentBigCard .containerBigCard .infoBox .quickInfos .myChart {
   max-height: 100% !important;
-  max-width: 100% !important;
+  max-width: 80% !important;
 }
 @media (max-width: 550px) {
   .contentBigCard .containerBigCard .infoBox .quickInfos .myChart {
-    max-height: 100% !important;
+    max-height: 90% !important;
     max-width: 80% !important;
   }
 }
