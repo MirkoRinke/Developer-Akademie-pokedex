@@ -4,7 +4,7 @@
 @import "./js_css";
 @import "./pokemon_cards/pokemon_cards";
 
-$cardFactor: 1;
+$cardFactor: 1.05;
 $cardHeight: calc(377px / $cardFactor);
 $cardWidth: calc(270px / $cardFactor);
 
@@ -12,8 +12,8 @@ $BigCardFactor: 0.45;
 $BigCardHeight: calc(377px / $BigCardFactor);
 $BigCardWidth: calc(270px / $BigCardFactor);
 
-$navHeight: 70px;
-$footerHeight: 70px;
+$navHeight: 60px;
+$footerHeight: 60px;
 
 .bg {
   background-image: url(../assets/img/bg2.jpg);
@@ -47,6 +47,7 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   @media (max-width: $breakpoint-lg) {
     justify-content: unset;
@@ -82,7 +83,7 @@ main {
   }
 
   .homeButton {
-    height: 70px;
+    height: 60px;
     order: 1;
 
     @media (max-width: $breakpoint-xs) {
@@ -533,7 +534,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% - ($navHeight - 75px));
+  top: calc(50% - ($navHeight - 70px));
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -574,7 +575,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% - ($navHeight - 75px));
+  top: calc(50% - ($navHeight - 70px));
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);

@@ -287,11 +287,12 @@ a {
 
 main {
   max-width: 1920px;
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 120px);
   margin-inline: auto;
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 @media (max-width: 1700px) {
   main {
@@ -308,7 +309,7 @@ main {
   grid-template-columns: repeat(5, 1fr);
   max-width: 1612px;
   width: 100%;
-  height: 70px;
+  height: 60px;
   margin-inline: auto;
   padding-top: 10px;
   gap: 20px;
@@ -331,7 +332,7 @@ main {
   }
 }
 .nav .homeButton {
-  height: 70px;
+  height: 60px;
   order: 1;
 }
 @media (max-width: 1000px) {
@@ -613,8 +614,8 @@ main {
 .contentCards .container {
   display: flex;
   justify-content: center;
-  width: 270px;
-  height: 377px;
+  width: 257.1428571429px;
+  height: 359.0476190476px;
   position: relative;
   perspective: 2500px;
 }
@@ -630,8 +631,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 270px;
-  height: 377px;
+  width: 257.1428571429px;
+  height: 359.0476190476px;
   background-image: url(../assets/img/bgCards.jpg);
   background-size: cover;
   background-position: center;
@@ -757,7 +758,7 @@ main {
 
 .pokeArrowRightContainer {
   position: absolute;
-  top: calc(50% + 5px);
+  top: calc(50% + 10px);
   right: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -796,7 +797,7 @@ main {
 
 .pokeArrowLeftContainer {
   position: absolute;
-  top: calc(50% + 5px);
+  top: calc(50% + 10px);
   left: 20px;
   z-index: 1;
   transform: translateY(-50%);
@@ -904,7 +905,7 @@ main {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: -70px;
+  top: -60px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1297,7 +1298,7 @@ main {
 .imprint {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 60px);
   max-width: 1000px;
   margin-inline: auto;
   margin-top: 25px;
@@ -1324,7 +1325,7 @@ main {
 .privacyPolicy {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 60px);
   max-width: 1000px;
   margin-inline: auto;
   margin-top: 25px;
@@ -1350,7 +1351,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 60px;
 }
 @media (max-width: 550px) {
   .footer {
