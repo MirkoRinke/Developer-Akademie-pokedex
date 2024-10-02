@@ -1,4 +1,5 @@
 import { RegionsMenuOpen, contentRef, navRef, pokemonLimit } from "./globals.js";
+import { renderPokemonCards } from "./cards.js";
 
 export function toggleRegionsMenu() {
   const selectedPokemonRegionsRef = document.getElementById("selectedPokemonRegions");
@@ -11,11 +12,15 @@ export function toggleRegionsMenu() {
 }
 
 export function selectedPokemonLimit(selectedPokemonStart, selectedPokemonEnd, selectedPokemonLimit) {
-  if (selectedPokemonLimit > pokemonLimit) overwritePokemonLimit(selectedPokemonLimit);
   overwritePokemonStart(selectedPokemonStart);
   overwritePokemonEnd(selectedPokemonEnd);
   toggleRegionsMenu();
-  setTimeout(() => loadAndRenderPokemonCards(), 1000);
+  if (selectedPokemonLimit > pokemonLimit) {
+    overwritePokemonLimit(selectedPokemonLimit);
+    setTimeout(() => loadAndRenderPokemonCards(), 1000);
+  } else {
+    renderPokemonCards();
+  }
 }
 
 document.addEventListener("keydown", function (event) {

@@ -77,7 +77,7 @@ document.addEventListener("input", function () {
 function showSearchSuggestions(query) {
   const searchSuggestionsRef = document.getElementById("searchSuggestions");
   if (query) {
-    const filteredSuggestions = searchSuggestions.filter((pokemon) => pokemon.toLowerCase().includes(query.toLowerCase()));
+    const filteredSuggestions = searchSuggestions.filter((pokemon) => pokemon.toLowerCase().startsWith(query.toLowerCase()));
     searchSuggestionsRef.classList.remove("d_none");
     searchSuggestionsRef.innerHTML = "";
     filteredSuggestions.forEach((pokemon, index) => {
