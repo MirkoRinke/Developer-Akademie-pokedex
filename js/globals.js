@@ -21,7 +21,7 @@ export const languageSettingsJa = document.getElementById("languageSettingsJa");
 export const languageSettingsEn = document.getElementById("languageSettingsEn");
 export const languageSettingsDe = document.getElementById("languageSettingsDe");
 export const footerRef = document.getElementById("footer");
-export const soundGiulianoSong = new Audio("../assets/sounds/giuliano_song.mp3");
+export const soundGiulianoSong = new Audio("./assets/sounds/giuliano_song.mp3");
 export let searchSuggestions = [];
 export let pokemonDataCache = [];
 
