@@ -31,9 +31,9 @@ Welcome to my eighth project as part of the Developer Academy! In this project, 
 
 4. **🔤 Language Support**  
    Support for the following languages:  
-   - **🇩🇪 Deutsch** 
-   - **🇺🇸 English**
-   - **🇯🇵 Japanisch**
+   - 🇩🇪 Deutsch
+   - 🇺🇸 English
+   - 🇯🇵 Japanisch
    - **🔄 Scope of Language Change:**  
      When switching languages, all elements on the page change, not just the texts on the Pokémon cards.
 
