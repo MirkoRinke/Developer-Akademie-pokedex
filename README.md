@@ -69,6 +69,8 @@ Welcome to my eighth project as part of the Developer Academy! In this project, 
 - HTML
 - CSS / SCSS
 - JS
+- [pokeapi.co](https://pokeapi.co/)
+- [pokeapi-js-wrapper](https://github.com/PokeAPI/pokeapi-js-wrapper)
 
 ## ⚙️ How to Use
 
