@@ -14,6 +14,13 @@ function pokemonSearchInput() {
   }
 }
 
+export function pokemonSearchButton() {
+  if (!loadingCompleted) return;
+  const searchSuggestionsRef = document.getElementById("searchSuggestions");
+  searchSuggestionsRef.classList.add("d_none");
+  pokemonSearchInput();
+}
+
 document.addEventListener("input", function () {
   const pokemonSearchInputRef = document.getElementById("pokemonSearchInput");
   if (document.activeElement === pokemonSearchInputRef) pokemonSearchInput();

@@ -595,7 +595,7 @@ export function renderNavTemplate(currentLanguage, placeholderText) {
   return /*html*/ `
       <img onclick="backToHome()" tabindex="101" class="homeButton item" src="./assets/icons/home.png" alt="" />
       <div id="search" class="search">
-        <label class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
+        <label onclick="pokemonSearchButton()" class="searchLabel" for="pokemonSearchInput"><img class="searchIcon" src="./assets/icons/pokeballArrow.png" alt="" /></label>
         <input tabindex="102" class="pokemonSearchInput" id="pokemonSearchInput" type="text" autocomplete="off" />
         <div id="searchSuggestions" class="searchSuggestions d_none"></div>
       </div>
@@ -615,7 +615,7 @@ export function renderNavTemplate(currentLanguage, placeholderText) {
       </div>
       <div id="yourName" class="yourName">
       <input tabindex="160" class="userNameInput" id="userNameInput" type="text" autocomplete="off" placeholder="${placeholderText}" />
-      <label class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
+      <label onclick="getUserName()" class="yourNameLabel" for="userNameInput"><img class="yourNameIcon" src="./assets/icons/yourName.gif" alt="" /></label>
       </div>
       <div id="languageSettings" class="languageSettings">
         <img tabindex="161" id="languageSettingsJa" onclick="selectedLanguage('ja')" src="./assets/icons/jp.svg" alt="" />
