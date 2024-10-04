@@ -31,9 +31,9 @@ Welcome to my eighth project as part of the Developer Academy! In this project, 
 
 4. **🔤 Language Support**  
    Support for the following languages:  
-   - 🇩🇪 German  
-   - 🇺🇸 English  
-   - 🇯🇵 Japanese  
+   - 🇩🇪 Deutsch
+   - 🇺🇸 English
+   - 🇯🇵 Japanisch
    - **🔄 Scope of Language Change:**  
      When switching languages, all elements on the page change, not just the texts on the Pokémon cards.
 
@@ -69,6 +69,8 @@ Welcome to my eighth project as part of the Developer Academy! In this project, 
 - HTML
 - CSS / SCSS
 - JS
+- [pokeapi.co](https://pokeapi.co/)
+- [pokeapi-js-wrapper](https://github.com/PokeAPI/pokeapi-js-wrapper)
 
 ## ⚙️ How to Use
 
