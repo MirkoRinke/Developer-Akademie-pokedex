@@ -1,3 +1,15 @@
+/**
+ * @fileoverview This service worker script handles caching of Pokémon images fetched from the PokeAPI.
+ * It intercepts fetch requests for image URLs, caches them, and serves them from the cache to improve performance.
+ */
+
+/**
+ * Regular expression to match image URLs from the PokeAPI sprites repository.
+ * The URLs should start with "https://raw.githubusercontent.com/PokeAPI/sprites/"
+ * and end with a file name that has an extension of either .png, .svg, or .gif.
+ *
+ * @constant {RegExp}
+ */
 const imgRe = /https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/[\/-\w\d]+\/[\d\w-]+\.(?:png|svg|gif)/,
   version = 1;
 self.addEventListener("fetch", function (e) {

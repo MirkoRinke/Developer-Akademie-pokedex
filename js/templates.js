@@ -1,3 +1,21 @@
+/**
+ * @fileoverview This module provides template rendering functions for the Pokémon application.
+ * It includes functions to render Pokémon card templates with various details and labels.
+ */
+
+/**
+ * Renders a Pokemon card template.
+ *
+ * @param {Object} pokemonDataArray - The data array containing Pokemon information.
+ * @param {Array} pokemonFlavorTextArray - The array containing flavor text for the Pokemon.
+ * @param {Array} pokemonGeneraTextArray - The array containing genera text for the Pokemon.
+ * @param {Array} pokemonNamesTextArray - The array containing names for the Pokemon.
+ * @param {Object} labels - An object containing various labels for the template.
+ * @param {string} labels.size - The label for the size of the Pokemon.
+ * @param {string} labels.weight - The label for the weight of the Pokemon.
+ * @param {string} labels.description - The label for the description section.
+ * @returns {string} The HTML string for the Pokemon card template.
+ */
 export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, labels) {
   return /*html*/ `
       <div class="container">
@@ -33,6 +51,20 @@ export function renderPokemonCardTemplate(pokemonDataArray, pokemonFlavorTextArr
     `;
 }
 
+/**
+ * Renders the template for the detailed view of a Pokémon card.
+ *
+ * @param {Array} pokemonDataArray - Array containing data of the Pokémon.
+ * @param {Array} pokemonFlavorTextArray - Array containing flavor text of the Pokémon.
+ * @param {Array} pokemonGeneraTextArray - Array containing genera text of the Pokémon.
+ * @param {Array} pokemonNamesTextArray - Array containing names of the Pokémon.
+ * @param {number} IndexPokeID - The index or ID of the Pokémon.
+ * @param {Object} labels - Object containing various labels for the template.
+ * @param {string} labels.size - Label for the size of the Pokémon.
+ * @param {string} labels.weight - Label for the weight of the Pokémon.
+ * @param {string} labels.description - Label for the description footer.
+ * @returns {string} - The HTML template string for the Pokémon card.
+ */
 export function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorTextArray, pokemonGeneraTextArray, pokemonNamesTextArray, IndexPokeID, labels) {
   return /*html*/ `
     <div class="containerBigCard">
@@ -92,6 +124,13 @@ export function renderPokemonBigCardTemplate(pokemonDataArray, pokemonFlavorText
     `;
 }
 
+/**
+ * Renders a loading screen template for the Pokedex application.
+ * This function returns an HTML string that displays a loading screen
+ * with various placeholders indicating that data is being loaded.
+ *
+ * @returns {string} The HTML string representing the loading screen.
+ */
 export function renderShowLoadingScreen() {
   return /*html*/ `
       <div class="container">
@@ -122,6 +161,11 @@ export function renderShowLoadingScreen() {
       `;
 }
 
+/**
+ * Generates the HTML template for the imprint (Impressum) section of the website.
+ *
+ * @returns {string} The HTML string for the imprint section.
+ */
 export function renderImprintTemplate() {
   return /*html*/ `
      <div class="imprint">
@@ -143,7 +187,7 @@ export function renderImprintTemplate() {
         <div class="contact">
             <p><strong>Kontakt:</strong></p>
             <p>Telefon: 05064-951989</p>
-            <p>E-Mail: <a href="mirkorinke@htp.com">mirkorinke@htp.com</a></p>          
+            <div>E-Mail: <a href="mailto:contact@mirkorinke.dev">contact@mirkorinke.dev</a></div>       
         </div>
         <h2>Haftungsausschluss</h2>
         <h3>Haftung für Inhalte</h3>
@@ -195,6 +239,11 @@ export function renderImprintTemplate() {
     `;
 }
 
+/**
+ * Renders the privacy policy template.
+ *
+ * @returns {string} The HTML string for the privacy policy template.
+ */
 export function renderPrivacyPolicyTemplate() {
   return /*html*/ `
     <div class="privacyPolicy">
@@ -227,7 +276,7 @@ export function renderPrivacyPolicyTemplate() {
       </ul>
       <h2 id="m3">Verantwortlicher</h2>
       <p>Mirko Rinke<br />Maschstraße 7<br />31199 Diekholzen</p>
-      <p>E-Mail-Adresse: <a href="mailto:mirkorinke@htp.com">mirkorinke@htp.com</a></p>
+      <div>E-Mail: <a href="mailto:contact@mirkorinke.dev">contact@mirkorinke.dev</a></div>
 
       <h2 id="mOverview">Übersicht der Verarbeitungen</h2>
       <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.</p>
@@ -591,6 +640,13 @@ export function renderPrivacyPolicyTemplate() {
 `;
 }
 
+/**
+ * Renders the navigation template for the Pokedex application.
+ *
+ * @param {string} currentLanguage - The current language setting for the application.
+ * @param {string} placeholderText - The placeholder text for the user name input field.
+ * @returns {string} The HTML string for the navigation template.
+ */
 export function renderNavTemplate(currentLanguage, placeholderText) {
   return /*html*/ `
       <img onclick="backToHome()" tabindex="101" class="homeButton item" src="./assets/icons/home.png" alt="" />
@@ -625,6 +681,12 @@ export function renderNavTemplate(currentLanguage, placeholderText) {
   `;
 }
 
+/**
+ * Renders the footer template with the appropriate language-specific icons.
+ *
+ * @param {string} currentLanguage - The current language code to be used for selecting the appropriate icons.
+ * @returns {string} The HTML string for the footer template.
+ */
 export function renderFooterTemplate(currentLanguage) {
   return /*html*/ `   
       <img tabindex="201" onclick="renderImprint()" src="./assets/icons/imprint${currentLanguage.replace('"', " ")}.png" alt="" />

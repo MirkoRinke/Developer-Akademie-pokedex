@@ -1,3 +1,14 @@
+/**
+ * @fileoverview This module contains flavor texts for various Pokémon in German.
+ * The keys represent Pokémon IDs, and the values are their respective descriptions.
+ */
+
+/**
+ * Contains flavor texts for various Pokémon in German.
+ * The keys represent Pokémon IDs, and the values are their respective descriptions.
+ *
+ * @type {Object<number, string>}
+ */
 export const customFlavorTextGer = {
   899: "Die schwarzen Kugeln leuchten auf ominöse Weise, wenn es unsichtbare Wände erschafft. Das Barthaar, das es verliert, wird als Material für warme Winterkleidung hoch geschätzt.",
   900: "Ein extrem seltenes Erz, das in Vulkanregionen zu finden ist, löste seine Entwicklung aus, bei der Teile seines Körpers zu Stein wurden.",
@@ -128,6 +139,12 @@ export const customFlavorTextGer = {
   1025: "Es gibt anderen giftige Mochi zu essen, die Kräfte und Begierden wecken, kettet sie so an sich und kontrolliert sie.",
 };
 
+/**
+ * Contains flavor texts for various Pokémon in Japanese.
+ * The keys represent Pokémon IDs, and the values are their respective descriptions.
+ *
+ * @type {Object<number, string>}
+ */
 export const customFlavorTextJa = {
   899: "黒い球体は、目に見えない壁を作るときに不気味な方法で光ります。失ったひげは、暖かい冬の服の材料として高く評価されています。",
   900: "火山地域に見られる非常に珍しい鉱石は、身体の一部が石になるという進化を引き起こしました。",
@@ -258,6 +275,12 @@ export const customFlavorTextJa = {
   1025: "他の有毒な餅を食べることで力や欲望を呼び起こし、それらを自分に縛り付けて制御します。",
 };
 
+/**
+ * Contains the genera names for various Pokémon in German.
+ * The keys represent Pokémon IDs, and the values are their respective genera names.
+ *
+ * @type {Object<number, string>}
+ */
 export const customGeneraTextGer = {
   906: "Florakatzen-Pokémon",
   907: "Florakatzen-Pokémon",
@@ -278,6 +301,12 @@ export const customGeneraTextGer = {
   1025: "Knechtungs-Pokémon",
 };
 
+/**
+ * Contains the genera names for various Pokémon in Japanese.
+ * The keys represent Pokémon IDs, and the values are their respective genera names.
+ *
+ * @type {Object<number, string>}
+ */
 export const customGeneraTextJa = {
   906: "草猫ポケモン",
   907: "草猫ポケモン",
