@@ -7,10 +7,6 @@
 
 Welcome to my eighth project as part of the Developer Academy! In this project, I created a Pokédex website based on the PokeAPI. Here, you can browse various Pokémon, discover their characteristics, and view information about each Pokémon.
 
-## 🔗 Links
-
-- [Live Site URL](https://papaya-mandazi-4e17d6.netlify.app/)
-
 ## Function Overview
 
 1. **⏳ Loading Screen**  
