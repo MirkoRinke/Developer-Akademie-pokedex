@@ -10,7 +10,15 @@
  * @module templates
  * @function renderImprintTemplate - Function to render the imprint template.
  */
-import { renderImprintTemplate } from "./templates.js";
+import { renderImprintTemplateDE, renderImprintTemplateEN } from './templates.js';
+
+/**
+ * Importing the currentLanguage variable from the globals.js module.
+ *
+ * @module globals
+ * @var {string} currentLanguage - The current language of the application.
+ */
+import { currentLanguage } from './globals.js';
 
 /**
  * Importing the navButtonsHide and menuButtonsHide functions from the navigate.js module.
@@ -19,7 +27,7 @@ import { renderImprintTemplate } from "./templates.js";
  * @function navButtonsHide - Function to hide navigation buttons.
  * @function menuButtonsHide - Function to hide menu buttons.
  */
-import { navButtonsHide, menuButtonsHide } from "./navigate.js";
+import { navButtonsHide, menuButtonsHide } from './navigate.js';
 
 /**
  * Renders the imprint section of the application.
@@ -31,8 +39,10 @@ import { navButtonsHide, menuButtonsHide } from "./navigate.js";
  * @function renderImprint
  */
 export async function renderImprint() {
-  const contentRef = document.getElementById("content");
-  contentRef.innerHTML = renderImprintTemplate();
+  const contentRef = document.getElementById('content');
+  if (currentLanguage == 'de') contentRef.innerHTML = renderImprintTemplateDE();
+  if (currentLanguage == 'en') contentRef.innerHTML = renderImprintTemplateEN();
+  if (currentLanguage == 'ja') contentRef.innerHTML = renderImprintTemplateEN();
   navButtonsHide();
   menuButtonsHide();
 }
