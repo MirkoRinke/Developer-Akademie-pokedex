@@ -1,3 +1,5 @@
+import { Pokedex } from '../../node_modules/pokeapi-js-wrapper/src/index.js';
+
 /**
  * @fileoverview This module defines and exports various global constants and variables used throughout the Pokémon application.
  * It includes references to DOM elements, configuration options for the Pokedex instance, and other shared resources.
@@ -15,9 +17,9 @@
  * @property {boolean} cacheImages - Enable or disable image caching.
  */
 const customOptions = {
-  protocol: "https",
-  hostName: "pokeapi.co",
-  versionPath: "/api/v2/",
+  protocol: 'https',
+  hostName: 'pokeapi.co',
+  versionPath: '/api/v2/',
   cache: true,
   timeout: 5 * 3000, // 15s
   cacheImages: true,
@@ -46,22 +48,22 @@ const customOptions = {
  * @property {Array} searchSuggestions - Array for search suggestions.
  * @property {Array} pokemonDataCache - Cache for Pokémon data.
  */
-export const P = new Pokedex.Pokedex(customOptions);
-export const contentBigCardRef = document.getElementById("contentBigCard");
-export const contentRef = document.getElementById("content");
-export const pokeArrowLeftContainerRef = document.getElementById("pokeArrowLeftContainer");
-export const pokeArrowRightContainerRef = document.getElementById("pokeArrowRightContainer");
-export const pokeArrowMobileButtonsLeftRef = document.getElementById("pokeArrowMobileButtonsLeft");
-export const pokeArrowMobileButtonsRightRef = document.getElementById("pokeArrowMobileButtonsRight");
-export const navRef = document.getElementById("nav");
-export const cardRef = document.getElementsByClassName("card");
-export const pokemonCardRef = document.getElementsByClassName("pokemonCard");
-export const containerRef = document.getElementsByClassName("container");
-export const languageSettingsJa = document.getElementById("languageSettingsJa");
-export const languageSettingsEn = document.getElementById("languageSettingsEn");
-export const languageSettingsDe = document.getElementById("languageSettingsDe");
-export const footerRef = document.getElementById("footer");
-export const soundGiulianoSong = new Audio("./assets/sounds/giuliano_song.mp3");
+export const P = new Pokedex(customOptions);
+export const contentBigCardRef = document.getElementById('contentBigCard');
+export const contentRef = document.getElementById('content');
+export const pokeArrowLeftContainerRef = document.getElementById('pokeArrowLeftContainer');
+export const pokeArrowRightContainerRef = document.getElementById('pokeArrowRightContainer');
+export const pokeArrowMobileButtonsLeftRef = document.getElementById('pokeArrowMobileButtonsLeft');
+export const pokeArrowMobileButtonsRightRef = document.getElementById('pokeArrowMobileButtonsRight');
+export const navRef = document.getElementById('nav');
+export const cardRef = document.getElementsByClassName('card');
+export const pokemonCardRef = document.getElementsByClassName('pokemonCard');
+export const containerRef = document.getElementsByClassName('container');
+export const languageSettingsJa = document.getElementById('languageSettingsJa');
+export const languageSettingsEn = document.getElementById('languageSettingsEn');
+export const languageSettingsDe = document.getElementById('languageSettingsDe');
+export const footerRef = document.getElementById('footer');
+export const soundGiulianoSong = new Audio('./assets/sounds/giuliano_song.mp3');
 export let searchSuggestions = [];
 export let pokemonDataCache = [];
 
@@ -95,7 +97,7 @@ function overwritePokemonEnd(overwrite) {
   pokemonEnd = overwrite;
 }
 
-export let currentLanguage = "de";
+export let currentLanguage = 'de';
 /**
  * Overwrites the currentLanguage variable.
  * @param {string} overwrite - The new language setting.
